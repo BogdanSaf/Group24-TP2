@@ -13,14 +13,18 @@ return new class extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists('users'); //drop table if exists
+
+        // create users table
         Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
+            $table->id('userID')->autoIncrement(); // primary key
+            $table->string('firstName');
+            $table->string('surname');
+            $table->string('address');
+            $table->string('postcode'); 
+            $table->integer('phoneNumber');
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->rememberToken();
-            $table->timestamps();
         });
     }
 

@@ -2,40 +2,37 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable
+class Admin extends Model
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-     //primary key
-     protected $primaryKey = 'userID';
+    //primary key
+    protected $primaryKey = 'adminID';
 
-     //timestamps off(It won't try to add to a column for created_at and updated_at which dont exist)
-     public $timestamps = false;
+    //timestamps off
+    public $timestamps = false;
+
 
     /**
      * The attributes that are mass assignable.
-     *
+     * 
      * @var array<int, string>
      */
     protected $fillable = [
         'firstName',
         'surname',
-        'address',
-        'postcode',
-        'phoneNumber',
         'email',
         'password',
     ];
 
     /**
      * The attributes that should be hidden for serialization.
-     *
+     * 
      * @var array<int, string>
      */
     protected $hidden = [
