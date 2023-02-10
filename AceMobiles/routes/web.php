@@ -28,3 +28,7 @@ Route::get('/register', function () {
     return view('RegisterPage');
 });
 
+
+Route::get('/contactus', function () {
+    return view('contactus');
+});
