@@ -24,9 +24,7 @@ Route::get('/login', function () {
     return view('LoginPage');
 });
 
-Route::get('/register', function () {
-    return view('RegisterPage');
-});
+Route::view('/register', 'RegisterPage') -> name('ReturnRegisterPageView');
 
 
 Route::get('/contactus', function () {

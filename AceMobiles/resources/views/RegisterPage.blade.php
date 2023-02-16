@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Register</title>
-    <link rel="stylesheet" href="{{ }}">
+    <link rel="stylesheet" href="{{ asset('/css/RegisterPage.css')}}">
 </head>
 <body>
 
@@ -25,7 +25,7 @@
             </div>
 
             {{-- Container for the form --}}
-            <form action="formRegister" method="post">
+            <form action="formRegister" method="">
                 @csrf
 
                 {{-- Firs Name field --}}
