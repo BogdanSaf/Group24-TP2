@@ -17,6 +17,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+
+// Login & Regtser Page and Functions
+Route::get('/login', function () {
+    return view('LoginPage');
+});
+
+Route::get('/register', function () {
+    return view('RegisterPage');
+});
+
+
 Route::get('/contactus', function () {
     return view('contactus');
 });
