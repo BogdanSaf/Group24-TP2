@@ -26,7 +26,7 @@ body::after {
   left: 0;
   height: 100%;
   width: 100%;
-  background-color: rgba(0,0,0,0.8);
+  background-color: white;
 }
 
 section {
@@ -50,14 +50,15 @@ section {
 }
 
 .section-header h2 {
-  color: #FFF;
+  color: black;
   font-weight: bold;
   font-size: 3em;
   margin-bottom: 20px;
 }
 
+
 .section-header p {
-  color: #FFF;
+  color: black;
 }
 
 .row  {
@@ -79,9 +80,15 @@ section {
 .contact-info-icon {
   height: 70px;
   width: 70px;
-  background-color: #fff;
+  background-color: 		rgb(216,216,216);
   text-align: center;
   border-radius: 50%;
+}
+
+.contact-info-icon:hover {
+  background: #00bcd4;
+  color: #fff;
+  
 }
 
 .contact-info-icon i {
@@ -100,7 +107,7 @@ section {
 }
 
 .contact-info-content p {
-  color: #FFF;
+  color: black;
   font-size: 1em;
 }
 
@@ -149,7 +156,9 @@ section {
 }
 
 .contact-form .input-box input:focus ~ span,
-.contact-form .input-box textarea:focus ~ span{
+.contact-form .input-box textarea:focus ~ span,
+.contact-form .input-box input:valid ~ span,
+.contact-form .input-box textarea:valid ~ span {
   color: #e91e63;
   font-size: 12px;
   transform: translateY(-20px);
@@ -172,6 +181,28 @@ section {
 {
   background: #FFF;
   color: #00bcd4;
+}
+
+.sci {
+  position: relative;
+  display: flex;
+  gap: 30px;
+  margin: 20px 0;
+}
+
+.sci li {
+  list-style: none;
+
+}
+
+.sci li a {
+  color: black;
+  font-size: 2em;
+  transition: 0.5s;
+}
+
+.sci li a:hover {
+  color: #00bcd4 ;
 }
 
 @media (max-width: 991px) {
