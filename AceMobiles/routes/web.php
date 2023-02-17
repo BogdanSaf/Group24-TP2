@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('user/home');
 });
 
 
@@ -30,5 +30,5 @@ Route::view('/register', 'RegisterPage') -> name('ReturnRegisterPageView');
 
 
 Route::get('/contactus', function () {
-    return view('contactus');
+    return view('user/contactus');
 });

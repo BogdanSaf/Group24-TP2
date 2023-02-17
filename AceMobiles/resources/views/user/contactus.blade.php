@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=">
   <title>Contact Us Page</title>
   <script src="https://kit.fontawesome.com/c32adfdcda.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href=" {{ asset('css/contactus.css')  }}">
+  <link rel="stylesheet" href="{{ asset('/css/contactus.css') }}">
 </head>
 <body>
   
