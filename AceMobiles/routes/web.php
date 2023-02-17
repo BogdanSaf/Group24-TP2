@@ -28,5 +28,5 @@ Route::view('/register', 'RegisterPage') -> name('ReturnRegisterPageView');
 
 
 Route::get('/contactus', function () {
-    return view('contactus');
+    return view('user/contactus');
 });
