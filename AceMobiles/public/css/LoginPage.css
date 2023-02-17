@@ -13,8 +13,8 @@ body{
     width: 100%;
     height: auto;
     margin: auto;
-    margin-top: 15%;
-    margin-bottom: 10%;
+    margin-top: 5%;
+    margin-bottom: 5%;
     padding: 0%;
 }
 
@@ -106,10 +106,11 @@ input:focus{
     transition: 1.5s;
 }
 
-.submitButtonContainer, .passwordContainer, .emailContainer{
+.box{
     width: 100%;
     height: 60px;
 }
+
 .submitButtonContainer>button{
     width: 100%;
     height: 35px;

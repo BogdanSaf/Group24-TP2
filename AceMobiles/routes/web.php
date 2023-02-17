@@ -24,6 +24,8 @@ Route::get('/login', function () {
     return view('LoginPage');
 });
 
+Route::view('/login', 'LoginPage') -> name('ReturnLoginPageView');
+
 Route::view('/register', 'RegisterPage') -> name('ReturnRegisterPageView');
 
 

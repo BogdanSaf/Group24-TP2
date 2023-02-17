@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login Page</title>
-    <link rel="stylesheet" href="{{ asset('css/LoginPage.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/LoginPage.css') }}">
 </head>
 <body>
 
@@ -29,19 +29,19 @@
                         @csrf
                         
                         {{-- Email Field --}}
-                        <div class="emailContainer">
+                        <div class="emailContainer box">
                             <label for="email">Email: </label>
                             <input type="text" name="email" placeholder="Email">
                         </div>
 
                         {{-- Password Field --}}
-                        <div class="passwordContainer">
+                        <div class="passwordContainer box">
                             <label for="password">Password: </label>
                             <input type="password" name="password" placeholder="Password">
                         </div>
 
                         {{-- Submit Button --}}
-                        <div class="submitButtonContainer">
+                        <div class="submitButtonContainer box">
                             <button type="submit">Sign In</button>
                         </div>
                     </form>
