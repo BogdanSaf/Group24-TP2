@@ -25,7 +25,7 @@
                     <h2>Welcome to AceMobiles</h2>
 
 
-                    <form action="" method="" name="formLogin">
+                    <form action="{{ route('LoginUser')}}" method="POST" name="formLogin">
                         @csrf
                         
                         {{-- Email Field --}}

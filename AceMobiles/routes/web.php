@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthFunctions;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +20,7 @@ Route::get('/', function () {
 
 
 
-// Login & Regtser Page and Functions
+//Auth Routes 
 Route::get('/login', function () {
     return view('LoginPage');
 });
@@ -28,7 +29,12 @@ Route::view('/login', 'LoginPage') -> name('ReturnLoginPageView');
 
 Route::view('/register', 'RegisterPage') -> name('ReturnRegisterPageView');
 
+Route::post('register',[AuthFunctions::class, 'register']) -> name('RegisterUser');
 
+Route::post('login',[AuthFunctions::class, 'login']) -> name('LoginUser');
+
+
+// Contact Us Page
 Route::get('/contactus', function () {
     return view('user/contactus');
 });

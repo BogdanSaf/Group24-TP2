@@ -10,6 +10,15 @@
 <html lang="en">
 <head>
 <body>
+
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            @foreach ($errors->all() as $error)
+                <h5>{{ $error }}</h5>
+            @endforeach
+        </div>
+    @endif
+
 <div class="setEvrythingInTheMiddle">
     <div class="registerBigContainer">
 
@@ -27,7 +36,7 @@
             </div>
 
             {{-- Container for the form --}}
-            <form action="formRegister" method="" name= "formRegister">
+            <form action="{{ route('RegisterUser')}}" method="POST" name= "formRegister">
                 @csrf {{-- CSRF Token --}}
 
                 {{-- Name field --}}
@@ -47,12 +56,6 @@
 
                 </div>
 
-                {{-- Phone Number field --}}
-                <div class="phoneNumberContainer box">
-                    <label for="phoneNumber">Phone Number: </label>
-                    <input type="tel" name = "phoneNumber" id = "phoneNumberID">
-                </div>
-
                 {{-- Address field --}}
                 <div class="addressContainer box">
                     <label for="address" > Address: </label>
@@ -61,8 +64,14 @@
 
                 {{-- PostCode field --}}
                 <div class="postCodeContainer box">
-                    <label for="postCode">PostCode: </label>
-                    <input type="text" name="postCode" id="postCodeID">
+                    <label for="postcode">PostCode: </label>
+                    <input type="text" name="postcode" id="postcodeID">
+                </div>
+
+                 {{-- Phone Number field --}}
+                 <div class="phoneNumberContainer box">
+                    <label for="phoneNumber">Phone Number: </label>
+                    <input type="tel" name = "phoneNumber" id = "phoneNumberID">
                 </div>
 
                 {{-- Email field --}}
