@@ -9,6 +9,14 @@
 </head>
 <body>
 
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            @foreach ($errors->all() as $error)
+                <h5>{{ $error }}</h5>
+            @endforeach
+        </div>
+    @endif
+
     <div class="setEvrythingInTheMiddle">
 
         <div class="loginBigContainer">

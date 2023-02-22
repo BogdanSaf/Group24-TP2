@@ -49,6 +49,8 @@ class AuthFunctions extends Controller
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             // Authentication passed...
             return redirect()->intended('/');
+        }else{
+            return back()->withErrors(['msg' => 'The details you entered are incorrect.']);
         }
     }
 }
