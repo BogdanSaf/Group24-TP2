@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{{ asset('css/LoginPage.css') }}">
 </head>
 <body>
+    @include(navbar)
 
     @if ($errors->any())
         <div class="alert alert-danger">
