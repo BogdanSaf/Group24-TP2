@@ -33,6 +33,8 @@
 
             <h1>Sign UP</h1>
 
+            {{-- <h3>Welcome to AceMobiles!</h3> --}}
+
             </div>
 
             {{-- Container for the form --}}
@@ -96,6 +98,8 @@
                 <button type="submit">Sign Up</button>
                 </div>
             </form>
+
+            <h3>Already got an account? Click <a href="{{ route("ReturnLoginPageView") }}">here</a> !</h3>
 
         </div>
 
