@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,7 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="{{ asset('css/navbar.css') }}">
 </head>
-<body>
+<body> -->
     <header>
         <div class="logo">AceMobiles</div>
         <div class="hamburger">
@@ -47,5 +47,5 @@
         }
     </script>
 
-</body>
-</html>
+<!-- </body>
+</html> -->
