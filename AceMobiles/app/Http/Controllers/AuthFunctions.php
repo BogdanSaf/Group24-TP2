@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Employee;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Validator;
@@ -48,6 +49,10 @@ class AuthFunctions extends Controller
 
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             // Authentication passed...
+            return redirect()->intended('/');
+
+        }elseif(Auth('employee')->attempt(['email' => $request->email, 'password' => $request->password])){
+            
             return redirect()->intended('/');
         }else{
             return back()->withErrors(['msg' => 'The details you entered are incorrect.']);
