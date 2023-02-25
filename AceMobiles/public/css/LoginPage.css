@@ -37,7 +37,7 @@ body{
     height: 600px;
 }
 
-img{
+.imageContainer img{
     width: 100%;
     height: 100%;
     border-radius: 25px;
@@ -53,26 +53,26 @@ img{
     border-width: 1px;
 }
 
-h1{
+.loginFormContainer h1{
     font-family: cursive;
 }
 
-h2{
+.loginFormContainer h2{
     font-style: italic;
     color: rgb(172, 172, 172);
 }
 
-h3{
+.loginFormContainer h3{
     font-style: italic;
     color: rgb(172, 172, 172);
 }
 
-a{
+.loginFormContainer a{
     font-style: italic;
     color: black;
 }
 
-a:hover{
+.loginFormContainer a:hover{
     color: rgb(172, 172, 172);
     cursor: pointer;
 }

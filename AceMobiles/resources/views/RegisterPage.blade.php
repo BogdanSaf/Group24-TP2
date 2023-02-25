@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Register Page</title>
+    @include('shared.header')
     <link rel="stylesheet" href="{{ asset('/css/RegisterPage.css')}}">
 </head><!DOCTYPE html>
 <html lang="en">
 <head>
 <body>
 
+    @include('shared.navbar')
+    
     @if ($errors->any())
         <div class="alert alert-danger">
             @foreach ($errors->all() as $error)
@@ -19,7 +19,7 @@
         </div>
     @endif
 
-    @include('navbar')
+   
 
 <div class="setEvrythingInTheMiddle">
     <div class="registerBigContainer">
@@ -34,8 +34,6 @@
             <div class="h1Container">
 
             <h1>Sign UP</h1>
-
-            {{-- <h3>Welcome to AceMobiles!</h3> --}}
 
             </div>
 
