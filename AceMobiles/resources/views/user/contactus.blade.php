@@ -8,9 +8,10 @@
   <link rel="stylesheet" href="{{ asset('css/contactus.css') }}">
 </head>
 <body>
-  
+
   <section>
     
+  @include('navbar')
     <div class="section-header">
       <div class="container">
         <h2>Contact Us</h2>

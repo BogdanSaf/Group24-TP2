@@ -10,6 +10,22 @@
   <body>
 	<script src="index.js"></script>
   @include('navbar')
+
+<!--start of home page-->
+<section class="home" id="home">
+  <div class="home-text">
+    <h1>WELCOME</h1>
+    <h2>Slogan we <br>can use for website</h2>
+    <a href="#" class="btn">View More</a>
+  </div>
+
+  <div class="home-img">
+    <img src="../../../images/z flip 4 background.png" alt="Samsung">
+  </div>
+</section>
+
+<!--start of home page-->
+
+
   </body>
-  <h1> Hello World</h1>
 </html>
