@@ -38,3 +38,8 @@ Route::post('login',[AuthFunctions::class, 'login']) -> name('LoginUser');
 Route::get('/contactus', function () {
     return view('user/contactus');
 });
+
+
+Route::get('/products', function () {
+    return view('user/products');
+});

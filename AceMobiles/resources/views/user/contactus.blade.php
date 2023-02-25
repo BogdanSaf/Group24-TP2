@@ -10,6 +10,10 @@
 </head>
 
 <body>
+
+  <section>
+    
+  @include('navbar')
  
   <section id = "width">
   @include('navbar')
