@@ -2,18 +2,24 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact Us</title>
   <script src="https://kit.fontawesome.com/c32adfdcda.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="{{ asset('css/contactus.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/navbar.css') }}">
 </head>
+
 <body>
 
   <section>
     
   @include('navbar')
+ 
+  <section id = "width">
+  @include('navbar')
     <div class="section-header">
       <div class="container">
+        
         <h2>Contact Us</h2>
         <p>At Ace Mobiles, we prioritise customer satisfaction. Simply contact us through one of our contact options below if you are unhappy with our service or would like to get in touch and our customer service team will get back to you. </p>
         <br>
