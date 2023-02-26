@@ -10,10 +10,6 @@
 </head>
 
 <body>
-
-  <section>
-    
-  @include('navbar')
  
   <section id = "width">
   @include('navbar')
@@ -65,7 +61,6 @@
              <p>acemobiles@outlook.com</p>
             </div>
 
-
           </div>
           
         </div>
@@ -109,7 +104,6 @@
       </ul>
     </div>
     
-
 
   </section>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
