@@ -4,15 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact Us</title>
+  @include('shared.header')
   <script src="https://kit.fontawesome.com/c32adfdcda.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="{{ asset('css/contactus.css') }}">
-  <link rel="stylesheet" href="{{ asset('css/navbar.css') }}">
 </head>
 
 <body>
  
   <section id = "width">
-  @include('navbar')
+  @include('shared.navbar')
     <div class="section-header">
       <div class="container">
         
