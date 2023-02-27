@@ -9,6 +9,7 @@
   </head>
   <body>
 	<script src="index.js"></script>
+  
   @include('navbar')
 
 <!--start of home page-->
