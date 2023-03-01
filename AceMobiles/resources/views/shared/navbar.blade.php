@@ -8,22 +8,22 @@
 <nav class="nav-bar">
     <ul>
         <li>
-            <a href="" class="active">Home</a>
+            <a href="/" class="active">Home</a>
         </li>
         <li>
-            <a href="">About</a>
+            <a href="/about">About</a>
         </li>
         <li>
-            <a href="">Contact</a>
+            <a href="/contactus">Contact</a>
         </li>
         <li>
-                <a href="">Products</a>
+                <a href="/products">Products</a>
         </li>
         <li>
-            <a href="">Login</a>
+            <a href="/login">Login</a>
         </li>
         <li>
-            <a href="">Basket</a>
+            <a href="/register">Register</a>
         </li>
     </ul>
 </nav>
