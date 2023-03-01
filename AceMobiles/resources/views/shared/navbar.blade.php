@@ -9,25 +9,22 @@
 <nav class="nav-bar">
     <ul>
         <li>
-            <a href="Home" class="active"></i>Home</a>
+            <a href="" class="active">Home</a>
         </li>
         <li>
-            <a href="About">About</a>
+            <a href="">About</a>
         </li>
         <li>
-            <a href="Contact">Contact</a>
+            <a href="">Contact</a>
         </li>
         <li>
-                <a href="Products">Products</a>
+                <a href="">Products</a>
         </li>
         <li>
-            <a href="Login">Login</a>
-        </li>
-		 <li>
-            <a href="Register">Register</a>
+            <a href="">Login</a>
         </li>
         <li>
-            <a href="#"><i class="fa-solid fa-basket-shopping" style="color:white"></i></a>
+            <a href="">Basket</a>
         </li>
     </ul>
 </nav>
