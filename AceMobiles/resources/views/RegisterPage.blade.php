@@ -66,7 +66,7 @@
 
                 {{-- PostCode field --}}
                 <div class="postCodeContainer box">
-                    <label for="postcode">Post Code: </label>
+                    <label for="postcode">PostCode: </label>
                     <input type="text" name="postcode" id="postcodeID">
                 </div>
 
