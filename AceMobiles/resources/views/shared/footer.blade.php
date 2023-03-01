@@ -1,4 +1,4 @@
-    <div class="footer">
+        <div class="footer">
         <div class="col-1">
             <h3>USEFUL LINKS</h3>
             <a href="#">Home</a>
