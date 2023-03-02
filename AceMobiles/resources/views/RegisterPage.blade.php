@@ -14,7 +14,7 @@
     @if ($errors->any())
         <div class="alert alert-danger">
             @foreach ($errors->all() as $error)
-                <h5>{{ $error }}</h5>
+                <h4>{{ $error }}</h4>
             @endforeach
         </div>
     @endif
