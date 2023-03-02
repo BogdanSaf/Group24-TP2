@@ -1,0 +1,20 @@
+body{
+    display: flex;
+    flex-direction: column;
+}
+
+.ErrorContainer{
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    height: 300px;
+    padding-top: 20px;
+    margin: 5%;
+    margin-left: 40%;
+    margin-right: 40%;
+    margin-bottom: 5%;
+}
+
+.alert{
+    height: 100%;
+}
