@@ -103,8 +103,7 @@
         <li><a href="https://www.instagram.com/acemobiles/?hl=en"><ion-icon name="logo-instagram"></ion-icon> </a></li>
       </ul>
     </div>
-    
-
+    @include('shared.footer')
   </section>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
