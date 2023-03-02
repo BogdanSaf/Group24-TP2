@@ -2,8 +2,10 @@
 <html lang="en">
 <head>
     <title>Register Page</title>
+    
     @include('shared.header')
     <link rel="stylesheet" href="{{ asset('/css/RegisterPage.css')}}">
+    
 </head><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -105,5 +107,7 @@
 
     </div>
 </div>
+
+@include('shared.footer')
 </body>
 </html>

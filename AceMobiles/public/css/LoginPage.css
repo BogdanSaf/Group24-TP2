@@ -91,13 +91,13 @@ form[name="formLogin"]{
     margin-left: 0px;
 }
 
-label{
+form[name="formLogin"] label{
     margin-bottom: 5px;
     font-weight: bold;
     font-size: 20px;
 }
 
-input{
+form[name="formLogin"] input{
     width: 100%;
     height: 35px;
     border-radius: 10px;
@@ -106,7 +106,7 @@ input{
     font-size: 20px;
 }
 
-input:focus{
+form[name="formLogin"] input:focus{
     border-width: 2px;
     background-color: lightblue;
     transition: 1.5s;
