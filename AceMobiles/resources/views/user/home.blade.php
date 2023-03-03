@@ -14,7 +14,7 @@
 <section class="home" id="home">
   <div class="home-text">
     <h1>WELCOME</h1>
-    <h2>Slogan we <br>can use for website</h2>
+    <h2>Experience the Ace of Mobiles <br>High quality phones, all in one place!</h2>
     <a href="#" class="btn">View More</a>
   </div>
 
