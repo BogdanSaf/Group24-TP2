@@ -154,4 +154,8 @@ form[name="formLogin"] input:focus{
         border-left-style: none;
         width: 100%;
     }
+
+    .loginFormContainer h2{
+        padding-left: 28%;
+    }
 }
