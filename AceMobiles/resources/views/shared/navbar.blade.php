@@ -20,12 +20,18 @@
         <li>
                 <a href="Products">Products</a>
         </li>
+        @if (!Auth::check())
         <li>
             <a href="/login">Login</a>
         </li>
 		 <li>
             <a href="/register">Register</a>
         </li>
+        @else
+        <li>
+            <a href="/logout">Logout</a>
+        </li>    
+        @endif
         <li>
             <a href="#"><i class="fa-solid fa-basket-shopping" style="color:white"></i></a>
         </li>
