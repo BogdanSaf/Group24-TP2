@@ -13,6 +13,12 @@ use Carbon\Carbon;
 
 class AuthFunctions extends Controller
 {
+
+    protected function checkIfLoggedIn(){
+        if(Auth::check()){
+            return redirect('/');
+        }
+    }
     protected function register(Request $request){
 
         try{
@@ -75,5 +81,10 @@ class AuthFunctions extends Controller
             return back()->withErrors(['msg' => 'It seems there was an error with the server. Please try again later!' ]);
             
         }
+    }
+
+    protected function logout(){
+        Auth::logout();
+        return redirect('/');
     }
 }
