@@ -70,4 +70,5 @@
 
 
   </body>
+  @include('shared.footer')
 </html>
