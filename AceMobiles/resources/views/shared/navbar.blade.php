@@ -9,22 +9,22 @@
 <nav class="nav-bar">
     <ul>
         <li>
-            <a href="Home" class="active"></i>Home</a>
+            <a href="/" class="active"></i>Home</a>
         </li>
         <li>
             <a href="About">About</a>
         </li>
         <li>
-            <a href="Contact">Contact</a>
+            <a href="/contactus">Contact</a>
         </li>
         <li>
                 <a href="Products">Products</a>
         </li>
         <li>
-            <a href="Login">Login</a>
+            <a href="/login">Login</a>
         </li>
 		 <li>
-            <a href="Register">Register</a>
+            <a href="/register">Register</a>
         </li>
         <li>
             <a href="#"><i class="fa-solid fa-basket-shopping" style="color:white"></i></a>
