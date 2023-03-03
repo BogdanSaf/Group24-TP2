@@ -8,7 +8,7 @@
         </div>
         <div class="col-2">
             <h3>NEWSLETTER</h3>
-            <form>
+            <form name="footerForm">
                 <input type="email" placeholder="Your Email Address" required>
                 <br>
                 <button type="submit">SUBSCRIBE NOW</button>

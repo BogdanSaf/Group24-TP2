@@ -14,7 +14,7 @@
     @if ($errors->any())
         <div class="alert alert-danger">
             @foreach ($errors->all() as $error)
-                <h5>{{ $error }}</h5>
+                <h4>{{ $error }}</h4>
             @endforeach
         </div>
     @endif
@@ -34,7 +34,7 @@
                     <h1>Sign In</h1>
 
 
-                    <h2>Welcome to AceMobiles</h2>
+                    <h2>Welcome to AceMobiles!</h2>
 
 
                     <form action="{{ route('LoginUser')}}" method="POST" name="formLogin">
@@ -66,4 +66,6 @@
     </div>
     
 </body>
+
+@include('shared.footer')
 </html>

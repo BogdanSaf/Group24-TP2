@@ -15,47 +15,65 @@ class AuthFunctions extends Controller
 {
     protected function register(Request $request){
 
-        $request->validate([
-            'firstName' => 'required|string|max:50',
-            'surname' => 'required|string|max:50',
-            'address' => 'required|string|max:50',
-            'postcode' => 'required|string|max:10',
-            'phoneNumber' => 'required|numeric|digits:10',
-            'email' => 'required|email|string|unique:users|max:100',
-            'password' => 'required|min:0|max:100',
-            'confirmPassword' => 'required|same:password|max:100',
-        ]);
+        try{
+            
+            $request->validate([
+                'firstName' => 'required|string|max:50',
+                'surname' => 'required|string|max:50',
+                'address' => 'required|string|max:50',
+                'postcode' => 'required|string|max:10',
+                'phoneNumber' => 'required|numeric|digits:10',
+                'email' => 'required|email|string|unique:users|max:100',
+                'password' => 'required|min:0|max:100',
+                'confirmPassword' => 'required|same:password|max:100',
+            ]);
 
-        User::create([
-            'firstName' => $request->firstName,
-            'surname' => $request->surname,
-            'address' => $request->address,
-            'postcode' => $request->postcode,
-            'phoneNumber' => $request->phoneNumber,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
+            User::create([
+                'firstName' => $request->firstName,
+                'surname' => $request->surname,
+                'address' => $request->address,
+                'postcode' => $request->postcode,
+                'phoneNumber' => $request->phoneNumber,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+            ]);
 
 
-        return redirect('/login');
+            return redirect('/login');
+
+        }catch(\Illuminate\Database\QueryException $e){
+
+            $errorInString = $e->getMessage();
+            return back()->withErrors(['msg' => 'It seems there was an error with the server. Please try again later!' ]);
+            
+        }
     }
 
     protected function login(Request $request){
+       
+            $request->validate([
+                'email' => 'required|email|string|max:100',
+                'password' => 'required|min:0|max:100',
+            ]);
 
-        $request->validate([
-            'email' => 'required|email|string|max:100',
-            'password' => 'required|min:0|max:100',
-        ]);
+        try{
 
-        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-            // Authentication passed...
-            return redirect()->intended('/');
+            if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+                // Authentication passed...
+                return redirect()->intended('/');
 
-        }elseif(Auth('employee')->attempt(['email' => $request->email, 'password' => $request->password])){
+            }elseif(Auth('employee')->attempt(['email' => $request->email, 'password' => $request->password])){
+                
+                return redirect()->intended('/');
+            }else{
+                return back()->withErrors(['msg' => 'The details you entered are incorrect.']);
+            }
+
+        }catch(\Illuminate\Database\QueryException $e){
+
+            $errorInString = $e->getMessage();
+            return back()->withErrors(['msg' => 'It seems there was an error with the server. Please try again later!' ]);
             
-            return redirect()->intended('/');
-        }else{
-            return back()->withErrors(['msg' => 'The details you entered are incorrect.']);
         }
     }
 }

@@ -33,7 +33,7 @@ section {
   position: relative;
   z-index: 3;
  
-  padding-bottom: 50px;
+  /* padding-bottom: 50px; causes the footer to be pushed up */
 }
 
 #width {

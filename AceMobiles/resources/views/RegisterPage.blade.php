@@ -2,8 +2,10 @@
 <html lang="en">
 <head>
     <title>Register Page</title>
+    
     @include('shared.header')
     <link rel="stylesheet" href="{{ asset('/css/RegisterPage.css')}}">
+    
 </head><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +16,7 @@
     @if ($errors->any())
         <div class="alert alert-danger">
             @foreach ($errors->all() as $error)
-                <h5>{{ $error }}</h5>
+                <h4>{{ $error }}</h4>
             @endforeach
         </div>
     @endif
@@ -105,5 +107,7 @@
 
     </div>
 </div>
+
+@include('shared.footer')
 </body>
 </html>
