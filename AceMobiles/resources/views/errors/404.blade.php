@@ -11,8 +11,9 @@
 
     <div class="ErrorContainer justify-content-center ">
         <div class="alert alert-danger text-center">
-            <h2 class="display-3">404</h2>
+            <h2 class="display-3">404!</h2>
             <p class="display-5">Looks like what you were trying to access something that doesnt exist!</p>
+            <p class="display-5">Click here to <a href="/" class="display-5"> go to the home page</a></p>
         </div>
     </div>
 
