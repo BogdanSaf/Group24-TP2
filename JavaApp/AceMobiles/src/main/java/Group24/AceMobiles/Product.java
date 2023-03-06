@@ -8,7 +8,6 @@ import java.math.BigInteger;
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-
     @Column(name = "productid")
     private BigInteger productID;
 
