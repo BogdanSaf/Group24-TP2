@@ -4,6 +4,7 @@
 <head>
 <meta charset="UTF-8"/>
 <title>Ace Mobiles About</title>
+@include('shared.header')
 
 <style>
 div{
@@ -237,7 +238,7 @@ img {
 
 
 
-
+@include('shared.navbar')
 
 
 
@@ -258,7 +259,7 @@ Since then, our company has expanded to over 200 stores across the UK as well as
 We analyze a huge scope of handsets and network tariffs to ensure that customers get the best, personalised deals.</p>
 
 <div class="container">
-<div class="rounded"><img src="phone.jpg" alt="Logo" width="920" height="600" id="center"></div>
+<div class="rounded"><img src="{{ asset('images/phone.jpg') }}" alt="Logo" width="920" height="600" id="center"></div>
   <div class="bottom-left"><h1>Quality deals for everyone!</h1></div>
   <div class="bottom-left2"><p>Our policies ensure that our customers get the best, personalised PRIME deals!</p></div>
   
@@ -270,7 +271,7 @@ We analyze a huge scope of handsets and network tariffs to ensure that customers
 
 </center>
 
-
+@include('shared.footer')
 
 
 
