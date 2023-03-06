@@ -7,12 +7,12 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface ProductRepository extends JpaRepository<products, Integer> {
+public interface ProductRepository extends JpaRepository<Product, Integer> {
     @Override
-    Optional<products> findById(Integer integer);
+    Optional<Product> findById(Integer integer);
 
     @Override
-    List<products> findAll();
+    List<Product> findAll();
 
     @Override
     void deleteById(Integer integer);

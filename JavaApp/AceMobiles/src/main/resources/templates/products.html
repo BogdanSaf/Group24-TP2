@@ -21,6 +21,7 @@
 
         <thead>
         <tr>
+            <th>ID</th>
             <th>Brand</th>
             <th>Name</th>
             <th>Description</th>
@@ -31,12 +32,13 @@
         </thead>
         <tbody>
         <tr th:each="object: ${products}">
-            <td th:text="${object.productBrand}"> Phone </td>
+            <td th:text="${object.productID}" />
+            <td th:text="${object.productBrand}" />
             <td th:text="${object.productName}" />
             <td th:text="${object.productDescription}" />
             <td th:text= "'£' + ${object.productPrice}" />
             <td th:text="${object.productStock}" />
-            <td th:text="${object.image}" d/>
+            <td th:text="${object.image}" />
 
         </tr>
         </tbody>

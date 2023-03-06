@@ -1,30 +1,38 @@
 package Group24.AceMobiles;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-
+import jakarta.persistence.*;
 import java.math.BigInteger;
 
 @Entity
-public class products {
+@Table(name = "products")
+public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+
+    @Column(name = "productid")
     private BigInteger productID;
+
+    @Column(name = "productbrand")
     private String productBrand;
 
+    @Column(name = "productname")
     private String productName;
+    @Column(name = "productdescription")
     private String productDescription;
+
+    @Column(name = "productprice")
     private int productPrice;
 
+    @Column(name = "productstock")
     private int productStock;
+
+    @Column(name = "productimage")
     private String productImage;
 
-    public products() {
+    public Product() {
     }
 
-    public products(BigInteger productID, String productBrand, String productName, String productDescription, int productPrice, int productStock, String image) {
+    public Product(BigInteger productID, String productBrand, String productName, String productDescription, int productPrice, int productStock, String image) {
         this.productID = productID;
         this.productBrand = productBrand;
         this.productName = productName;
