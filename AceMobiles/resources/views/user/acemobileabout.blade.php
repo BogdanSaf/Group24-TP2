@@ -207,12 +207,12 @@ width:500px;
   .bottom-left {
   position: absolute;
   bottom: 400px;
-  left: 316px;
+  left: 336px;
 }
   .bottom-left2 {
   position: absolute;
   bottom: 350px;
-  left: 316px;
+  left: 336px;
 }
 
 .rounded{
@@ -233,10 +233,6 @@ img {
 <body>
 
 
-<img src="AceMobiles.jpg" alt="Logo" width="380" height="400" id="center">
-<a href="websitehome.html">
-<input type="submit" value="Home" />
-</a>
 
 
 
@@ -244,44 +240,36 @@ img {
 
 
 
-<a href="about.html">
-<input type="submit" value="About" />
-</a>
 
 
 
 
 <center>
 
-<h1>Ace Mobiles - About</h1>
-<h2>History <h2>
-<p>Since 2014, we have been helping to give customers a wide range of high quality mobile products.<br>
+<h1>Ace Mobiles - About Us</h1>
+<h2>History </h2>
+<p>Since 2005, we have been helping to give customers a wide range of high quality mobile products.<br>
 Our company started as a humble little shop in Birmingham offering phone repairs to passers-by.</br>
 Since then, our company has expanded to over 200 stores across the UK as well as the website you are in right now!</p>
 
 
-
-<p>We ensure that our customer service is the core of everything that we do by fidning you the best deals and products that are just right for you.</br>
-We analyze a huge scpoe of handsets and netwrok tariffs to ensure that customers get the best, personalised deals.</p>
+<h2>Values</h2>
+<p>We ensure that our customer service is the core of everything that we do by finding you the best deals and products that are just right for you.</br>
+We analyze a huge scope of handsets and network tariffs to ensure that customers get the best, personalised deals.</p>
 
 <div class="container">
-<div class="rounded"><img src="Samsung.jpg" alt="Logo" width="1020" height="600" id="center"></div>
+<div class="rounded"><img src="phone.jpg" alt="Logo" width="920" height="600" id="center"></div>
   <div class="bottom-left"><h1>Quality deals for everyone!</h1></div>
   <div class="bottom-left2"><p>Our policies ensure that our customers get the best, personalised PRIME deals!</p></div>
   
 </div>
 
-<img src="BNTt.jpg" alt="blue" width="700" height="400" id="center">
 </figure>
 
 
 
 </center>
-<section class="about-us">
-<div class="text">
-<p>test test test test test</p>
-</div>
-</section>
+
 
 
 
