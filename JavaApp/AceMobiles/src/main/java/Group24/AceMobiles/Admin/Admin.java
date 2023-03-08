@@ -1,4 +1,4 @@
-package Group24.AceMobiles;
+package Group24.AceMobiles.Admin;
 
 import jakarta.persistence.*;
 import java.math.BigInteger;

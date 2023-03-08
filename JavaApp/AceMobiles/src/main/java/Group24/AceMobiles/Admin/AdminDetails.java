@@ -1,7 +1,8 @@
-package Group24.AceMobiles;
+package Group24.AceMobiles.Admin;
 
 import java.util.Collection;
 
+import Group24.AceMobiles.Admin.Admin;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
