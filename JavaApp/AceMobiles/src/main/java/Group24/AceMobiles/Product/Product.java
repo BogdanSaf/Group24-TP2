@@ -1,4 +1,4 @@
-package Group24.AceMobiles;
+package Group24.AceMobiles.Product;
 
 import jakarta.persistence.*;
 import java.math.BigInteger;
@@ -8,7 +8,6 @@ import java.math.BigInteger;
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-
     @Column(name = "productid")
     private BigInteger productID;
 
@@ -32,8 +31,7 @@ public class Product {
     public Product() {
     }
 
-    public Product(BigInteger productID, String productBrand, String productName, String productDescription, int productPrice, int productStock, String image) {
-        this.productID = productID;
+    public Product(String productBrand, String productName, String productDescription, int productPrice, int productStock, String image) {
         this.productBrand = productBrand;
         this.productName = productName;
         this.productDescription = productDescription;
