@@ -12,7 +12,7 @@
             <a href="/" class="active"></i>Home</a>
         </li>
         <li>
-            <a href="About">About</a>
+            <a href="/aboutus">About</a>
         </li>
         <li>
             <a href="/contactus">Contact</a>

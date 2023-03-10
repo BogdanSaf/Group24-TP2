@@ -1,0 +1,56 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <title>Users</title>
+
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+        crossorigin="anonymous" />
+</head>
+
+<body style="display: flex; flex-direction: row">
+
+<div th:replace="fragments/navbar :: navbarUse"></div>
+
+<div class="container" style="width: 85%; border-top: 10px">
+
+
+
+  <h3>List Users</h3>
+
+  <hr/>
+
+  <table class="table table-bordered table-striped">
+
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>First Name</th>
+      <th>Surname</th>
+      <th>Address</th>
+      <th>Postcode</th>
+      <th>Phone Number</th>
+      <th>Email</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="object: ${users}">
+      <td th:text="${object.userId}" />
+      <td th:text="${object.firstName}" />
+      <td th:text="${object.surname}" />
+      <td th:text="${object.address}" />
+      <td th:text= "${object.postcode}" />
+      <td th:text="${object.phoneNumber}" />
+      <td th:text="${object.email}" />
+
+    </tr>
+    </tbody>
+
+  </table>
+</div>
+
+
+</body>
+
+</html>

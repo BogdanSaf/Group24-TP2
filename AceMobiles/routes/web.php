@@ -45,3 +45,8 @@ Route::get('/contactus', function () {
 Route::get('/products', function () {
     return view('user/products');
 });
+
+//About us
+Route::get('/aboutus', function () {
+    return view('user/acemobileabout');
+});
