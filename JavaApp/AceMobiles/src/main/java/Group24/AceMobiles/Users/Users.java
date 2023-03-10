@@ -1,4 +1,4 @@
-package Group24.AceMobiles.User;
+package Group24.AceMobiles.Users;
 
 import jakarta.persistence.*;
 import java.math.BigInteger;
@@ -7,7 +7,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "users")
-public class User {
+public class Users {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "userID")
@@ -34,7 +34,7 @@ public class User {
     @Column(name = "password")
     private String password;
 
-    public User(String firstName, String surname, String address, String postcode, int phoneNumber, String email, String password) {
+    public Users(String firstName, String surname, String address, String postcode, int phoneNumber, String email, String password) {
         this.firstName = firstName;
         this.surname = surname;
         this.address = address;
@@ -44,7 +44,7 @@ public class User {
         this.password = password;
     }
 
-    public User() {
+    public Users() {
 
     }
 
@@ -112,7 +112,7 @@ public class User {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        User that = (User) o;
+        Users that = (Users) o;
         return userId == that.userId && phoneNumber == that.phoneNumber && Objects.equals(firstName, that.firstName) && Objects.equals(surname, that.surname) && Objects.equals(address, that.address) && Objects.equals(postcode, that.postcode) && Objects.equals(email, that.email) && Objects.equals(password, that.password);
     }
 
