@@ -7,6 +7,7 @@
         href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
         crossorigin="anonymous" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 </head>
 
 <body style="display: flex; flex-direction: row">
@@ -32,7 +33,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:each="object: ${employees}">
+    <tr th:each="object: ${employees}" th:onclick="'rowClicked(' + ${object.employeeId} + ');'">
       <td th:text="${object.employeeId}" />
       <td th:text="${object.firstName}" />
       <td th:text="${object.surname}" />
@@ -41,6 +42,24 @@
     </tbody>
 
   </table>
+
+  <script>
+    function rowClicked(value) {
+
+      // alert("You clicked on row: " + value)
+      $.ajax({
+        method: 'GET',
+        url: '/employees/'+ value,
+        success: function () {
+          location.href = "/employees/" + value;
+          alert("It worked");
+        },
+        error: function (xhr, status, error) {
+          alert("Error: " + error);
+        }
+      });
+    }
+  </script>
 </div>
 
 
