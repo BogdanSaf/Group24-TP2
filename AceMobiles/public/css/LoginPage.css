@@ -6,6 +6,7 @@ body{
     margin: 0%;
     padding: 0%;
     background-color: #F8F8F8;
+    font-family: 'Poppins', sans-serif;
 }
 
 /* Container use to set the loginBigContainer in the middle of the page */
@@ -22,14 +23,13 @@ body{
 }
 
 
-.registerBigContainer{
+.loginBigContainer{
     display: flex;
     flex-direction: row;
     border-style: groove;
     border-width: 1px;
     background-color: white;
     border-radius: 25px;
-    height: auto;
 }
 
 .imageContainer{
@@ -41,10 +41,9 @@ body{
     width: 100%;
     height: 100%;
     border-radius: 25px;
-    margin-top: 2%;
 }
 
-.registerFormContainer{
+.loginFormContainer{
     display: flex;
     flex-direction: column;
     width: 500px;  
@@ -54,58 +53,77 @@ body{
     border-width: 1px;
 }
 
-.box{
-    width: 100%;
-    height: 10%;
-    margin: 15px;
+.loginFormContainer h1{
+    font-family: cursive;
+}
+
+.loginFormContainer h2{
+    font-style: italic;
+    color: rgb(172, 172, 172);
+}
+
+.loginFormContainer h3{
+    font-style: italic;
+    color: rgb(172, 172, 172);
+}
+
+.loginFormContainer a{
+    font-style: italic;
+    color: black;
+}
+
+.loginFormContainer a:hover{
+    color: rgb(172, 172, 172);
+    cursor: pointer;
+}
+
+form[name="formLogin"]{
+    width: 70%;
+}
+
+.emailContainer{
+    margin: 50px;
     margin-left: 0px;
 }
 
-input{
+.passwordContainer{
+    margin: 50px;
+    margin-left: 0px;
+}
+
+form[name="formLogin"] label{
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+form[name="formLogin"] input{
     width: 100%;
     height: 35px;
     border-radius: 10px;
     border-width: 1px;
-    margin-bottom: 5px;
+    margin-top: 5px;
+    font-size: 20px;
 }
 
-input:focus{
+form[name="formLogin"] input:focus{
     border-width: 2px;
     background-color: lightblue;
     transition: 1.5s;
 }
 
-.nameContainer{
-    display: flex;
-    flex-direction: row;
-}
-
-.firstNameContainer{
-    height: 100%;
-    width: 50%;
-}
-
-.firstNameContainer > input{
-    width: 90%;
-}
-
-.surnameContainer{
-    height: 100%;
-    width: 50%;
-}
-
-.surnameContainer > input{
+.box{
     width: 100%;
+    height: 60px;
 }
 
 .submitButtonContainer>button{
     width: 100%;
+    height: 35px;
     background-color: black;
     color: white;
     border-radius: 10px;
     font-weight: bold;
-    height: 35px;
-    margin-top: 10px;
 }
 
 .submitButtonContainer>button:active{
@@ -119,56 +137,25 @@ input:focus{
     font-weight: bold;
 }
 
-h1{
-    font-family: cursive;
-}
-
-h2{
-    font-style: italic;
-    color: rgb(172, 172, 172);
-}
-
-h3{
-    font-style: italic;
-    color: rgb(172, 172, 172);
-}
-
-.registerFormContainer a{
-    font-style: italic;
-    color: black;
-}
-
-.registerFormContainer a:hover{
-    color: rgb(172, 172, 172);
-    cursor: pointer;
-}
-
-form[name="formRegister"]{
-    width: 70%;
-}
-
-label{
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-
-
-
 @media screen and (max-width: 900px){        
     .imageContainer{
         display: none;
         
     }
 
-    .registerBigContainer{
+    .loginBigContainer{
         width: 90%;
         display: flex;
         flex-direction: column;
         
     }
 
-    .registerFormContainer{
+    .loginFormContainer{
         border-left-style: none;
         width: 100%;
+    }
+
+    .loginFormContainer h2{
+        padding-left: 28%;
     }
 }
