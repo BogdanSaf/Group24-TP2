@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    </head>
+    <body style="text-align:center">
+    <h1>Name of product</h1>
+    <div class="popup"
+    onclick="myFunction()">Buy Now
+</div>
+    </body>
+</html>
