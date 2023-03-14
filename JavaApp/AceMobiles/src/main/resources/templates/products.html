@@ -13,10 +13,26 @@
 
 <body style="display: flex; flex-direction: row">
 
+
+
 <div th:replace="fragments/navbar :: navbarUse"></div>
+
+
 
 <div class="container" style="width: 85%; border-top: 10px">
 
+    <div th:if="${message != null  && message.contains('successfully')}" >
+        <div class="alert alert-success" role="alert">
+            <strong><h3 th:text="${message}"></h3></strong>
+        </div>
+    </div>
+
+    <div th:if="${errors != null}" >
+        <div class="alert alert-danger" role="alert">
+            <strong><h3>Something went wrong:</h3></strong>
+            <h5 th:each="error : ${errors.getFieldErrors()}" th:text="'>' + *{error.getDefaultMessage()}"></h5>
+        </div>
+    </div>
 
 
     <h3>List Products</h3>
@@ -56,10 +72,9 @@
             // alert("You clicked on row: " + value)
             $.ajax({
                 method: 'GET',
-                url: '/products/'+ value,
+                url: '/products/show/'+ value,
                 success: function () {
-                    location.href = "/products/" + value;
-                    alert("It worked")
+                    location.href = "/products/show/" + value;
                 },
                 error: function (xhr, status, error) {
                     console.log("Error: " + error);

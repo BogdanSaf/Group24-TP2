@@ -5,7 +5,11 @@
     <title>Title</title>
 </head>
 <body>
-     <form action="#" th:object="${single_product}" method="post" th:method="POST">
+     <form action="#"
+           th:action="@{/products/update/{id}(id=${single_product.productID})}"
+           th:object="${single_product}" method="post" th:method="POST">
+        <label for="productID">ID</label>
+        <input type="text" th:field="*{productID}" id="productID"/>
         <label for="productBrand">Brand</label>
         <input type="text" th:field="*{productBrand}" id="productBrand"/>
         <label for="productName">Name</label>

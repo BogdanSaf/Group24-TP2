@@ -1,6 +1,11 @@
 package Group24.AceMobiles.Product;
 
 import jakarta.persistence.*;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotEmpty;
+
+import javax.validation.constraints.*;
+
 import java.math.BigInteger;
 
 @Entity
@@ -11,9 +16,13 @@ public class Product {
     @Column(name = "productid")
     private BigInteger productID;
 
+    @NotNull(message = "Product brand cannot be null")
+    @NotEmpty(message = "Product brand cannot be empty")
     @Column(name = "productbrand")
     private String productBrand;
 
+    @NotNull(message = "Product name cannot be null")
+    @Length(min = 1, max = 10, message = "Product name must be between 1 and 10 characters")
     @Column(name = "productname")
     private String productName;
     @Column(name = "productdescription")
@@ -42,6 +51,10 @@ public class Product {
 
     public BigInteger getProductID() {
         return productID;
+    }
+
+    public void setProductID(BigInteger productID) {
+        this.productID = productID;
     }
 
     public String getProductBrand() {
@@ -91,4 +104,6 @@ public class Product {
     public void setImage(String image) {
         this.productImage = image;
     }
+
+
 }
