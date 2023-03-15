@@ -20,4 +20,7 @@ public interface UserRepository extends JpaRepository<Users, BigInteger> {
     @Override
     void deleteById(BigInteger integer);
 
+    @Override
+    Users save(Users users);
+
 }

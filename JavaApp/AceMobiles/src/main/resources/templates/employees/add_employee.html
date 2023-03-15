@@ -5,14 +5,16 @@
   <title>Title</title>
 </head>
 <body>
-<form action="#" th:object="${specific_employee}" method="post" th:method="POST">
+<form th:method="POST" th:action="@{/employees/add-employee}"  method="post" th:object="${employee}">
   <label for="firstName">First Name</label>
   <input type="text" th:field="*{firstName}" id="firstName"/>
   <label for="surname">Surname</label>
   <input type="text" th:field="*{surname}" id="surname"/>
   <label for="email">Email</label>
-  <input type="text"  th:field="*{email}" id="email"/>
-  <button type="submit">Update</button>
+  <input type="email" th:field="*{email}" id="email"/>
+  <label for="password">Password</label>
+  <input type="text" th:field="*{password}" id="password"/>
+  <button type="submit">Add Employee</button>
 </form>
 </body>
 </html>

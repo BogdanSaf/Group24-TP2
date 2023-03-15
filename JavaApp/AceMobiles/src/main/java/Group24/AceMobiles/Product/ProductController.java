@@ -58,10 +58,6 @@ public class ProductController {
 
     @PostMapping(value="/products/add-product")
     public String addProduct(@Valid @ModelAttribute Product product, BindingResult bindingResult, RedirectAttributes ra){
-
-        System.out.println("Product brand is: " + product.getProductBrand());
-        System.out.println("Product name is: " + product.getProductName());
-
         if (bindingResult.hasErrors()) {
             ra.addFlashAttribute("errors", bindingResult);
             return "redirect:/products";

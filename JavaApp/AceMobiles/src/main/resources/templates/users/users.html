@@ -8,15 +8,53 @@
         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
         crossorigin="anonymous" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+  <script>
+    function rowClicked(value) {
+
+      // alert("You clicked on row: " + value)
+      $.ajax({
+        method: 'GET',
+        url: '/'+ value,
+        success: function () {
+          location.href = "/" + value;
+        },
+        error: function (xhr, status, error) {
+          alert("Error: " + error);
+        }
+      });
+    }
+
+    function deleteUser(value) {
+      if (confirm("Are you sure you want to delete this user?")) {
+
+        $.ajax({
+          method: 'GET',
+          url: '/delete/' + value,
+          success: function () {
+            location.href = '/delete/' + value;
+          },
+          error: function (xhr, status, error) {
+            alert("Error: " + error);
+          }
+        });
+
+      } else {
+        alert("User not deleted");
+      }
+    }
+
+
+  </script>
 </head>
 
 <body style="display: flex; flex-direction: row">
 
-<div th:replace="fragments/navbar :: navbarUse"></div>
+<div th:replace="~{fragments/navbar :: navbarUse}"></div>
 
 <div class="container" style="width: 85%; border-top: 10px">
 
-
+  <div th:replace="~{fragments/messages :: success_error_messages}"></div>
 
   <h3>List Users</h3>
 
@@ -33,6 +71,7 @@
       <th>Postcode</th>
       <th>Phone Number</th>
       <th>Email</th>
+      <th>Delete</th>
     </tr>
     </thead>
     <tbody>
@@ -44,29 +83,18 @@
       <td th:text= "${object.postcode}" />
       <td th:text="${object.phoneNumber}" />
       <td th:text="${object.email}" />
+      <td th:onclick="'event.stopPropagation(); return false;'">
+        <a th:onclick="'deleteUser(' + ${object.userId} + ');'">
+          <button type="button" class="btn btn-danger">Delete</button>
+        </a>
+      </td>
 
     </tr>
     </tbody>
 
   </table>
 
-  <script>
-    function rowClicked(value) {
 
-      // alert("You clicked on row: " + value)
-      $.ajax({
-        method: 'GET',
-        url: '/'+ value,
-        success: function () {
-          location.href = "/" + value;
-          alert("It worked");
-        },
-        error: function (xhr, status, error) {
-          alert("Error: " + error);
-        }
-      });
-    }
-  </script>
 
 </div>
 

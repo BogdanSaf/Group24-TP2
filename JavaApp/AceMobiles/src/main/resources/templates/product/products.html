@@ -58,18 +58,7 @@
 
 <div class="container" style="width: 85%; border-top: 10px">
 
-    <div th:if="${message != null  && message.contains('successfully')}" >
-        <div class="alert alert-success" role="alert">
-            <strong><h3 th:text="${message}"></h3></strong>
-        </div>
-    </div>
-
-    <div th:if="${errors != null}" >
-        <div class="alert alert-danger" role="alert">
-            <strong><h3>Something went wrong:</h3></strong>
-            <h5 th:each="error : ${errors.getFieldErrors()}" th:text="'>' + *{error.getDefaultMessage()}"></h5>
-        </div>
-    </div>
+    <div th:replace="~{fragments/messages :: success_error_messages}"></div>
 
 
     <h3>List Products</h3>

@@ -1,36 +1,48 @@
 package Group24.AceMobiles.Users;
 
 import jakarta.persistence.*;
-import java.math.BigInteger;
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.NotEmpty;
 
-import java.util.Objects;
+import javax.validation.constraints.*;
+
+import java.math.BigInteger;
 
 @Entity
 @Table(name = "users")
 public class Users {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
     @Column(name = "userID")
     private BigInteger userId;
     @Basic
+    @Length(min = 1, max = 50, message = "First name must be between 1 and 50 characters")
     @Column(name = "firstname")
     private String firstName;
     @Basic
+    @Length(min = 1, max = 50, message = "Surname must be between 1 and 50 characters")
     @Column(name = "surname")
     private String surname;
     @Basic
+    @Length(min = 1, max = 100, message = "Address must be between 1 and 100 characters")
     @Column(name = "address")
     private String address;
     @Basic
+    @Length(min = 1, max = 8, message = "Postcode must be between 1 and 8 characters")
     @Column(name = "postcode")
     private String postcode;
     @Basic
+    @Size(min = 11, max = 11, message = "Phone number must be 11 digits")
     @Column(name = "phonenumber")
     private int phoneNumber;
     @Basic
+    @Email(message = "Email must be valid")
     @Column(name = "email" , unique = true)
     private String email;
     @Basic
+    @NotEmpty(message = "Password must not be empty")
     @Column(name = "password")
     private String password;
 
@@ -50,6 +62,10 @@ public class Users {
 
     public BigInteger getUserId() {
         return userId;
+    }
+
+    public void setUserId(BigInteger userId) {
+        this.userId = userId;
     }
 
     public String getFirstName() {
@@ -106,18 +122,5 @@ public class Users {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Users that = (Users) o;
-        return userId == that.userId && phoneNumber == that.phoneNumber && Objects.equals(firstName, that.firstName) && Objects.equals(surname, that.surname) && Objects.equals(address, that.address) && Objects.equals(postcode, that.postcode) && Objects.equals(email, that.email) && Objects.equals(password, that.password);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(userId, firstName, surname, address, postcode, phoneNumber, email, password);
     }
 }
