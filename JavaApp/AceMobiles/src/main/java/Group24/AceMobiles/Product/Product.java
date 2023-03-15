@@ -16,24 +16,32 @@ public class Product {
     @Column(name = "productid")
     private BigInteger productID;
 
-    @NotNull(message = "Product brand cannot be null")
     @NotEmpty(message = "Product brand cannot be empty")
     @Column(name = "productbrand")
     private String productBrand;
 
     @NotNull(message = "Product name cannot be null")
-    @Length(min = 1, max = 10, message = "Product name must be between 1 and 10 characters")
+    @Length(min = 1, max = 50, message = "Product name must be between 1 and 10 characters")
     @Column(name = "productname")
     private String productName;
+
+    @NotNull(message = "Product description cannot be null")
+    @Length(min = 1, max = 255, message = "Product description must be between 1 and 100 characters")
     @Column(name = "productdescription")
     private String productDescription;
 
+    @NotNull(message = "Product price cannot be null")
+    @Min(value = 1, message = "Product price must be greater than 0")
     @Column(name = "productprice")
     private int productPrice;
 
+    @NotNull(message = "Product stock cannot be null")
+    @Min(value = 1, message = "Product stock must be greater than 0")
+    @Max(value = 9999, message = "Product stock must be less than 9999")
     @Column(name = "productstock")
     private int productStock;
 
+    @NotNull(message = "Product image cannot be null")
     @Column(name = "productimage")
     private String productImage;
 
