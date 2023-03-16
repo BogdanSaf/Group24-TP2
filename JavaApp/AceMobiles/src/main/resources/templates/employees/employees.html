@@ -1,0 +1,101 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <title>Employees</title>
+
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+        crossorigin="anonymous" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  <script>
+      function rowClicked(value) {
+
+        $.ajax({
+          method: 'GET',
+          url: '/employees/'+ value,
+          success: function () {
+            location.href = "/employees/" + value;
+          },
+          error: function (xhr, status, error) {
+            alert("Error: " + error);
+          }
+        });
+      }
+
+      function deleteEmployee(value) {
+        if (confirm("Are you sure you want to delete this product?")) {
+
+          $.ajax({
+            method: 'GET',
+            url: '/employees/delete/'+ value,
+            success: function () {
+              location.href = '/employees/delete/'+ value;
+            },
+            error: function (xhr, status, error) {
+              alert("Error: " + error);
+            }
+          });
+
+        }else{
+          alert("Product not deleted");
+        }
+
+
+      }
+  </script>
+</head>
+
+<body style="display: flex; flex-direction: row">
+
+<div th:replace="~{fragments/navbar :: navbarUse}"></div>
+
+<div class="container" style="width: 85%; border-top: 10px">
+
+  <div th:replace="~{fragments/messages :: success_error_messages}"></div>
+
+
+
+  <h3>List Employees</h3>
+
+  <hr/>
+
+  <table class="table table-bordered table-striped">
+
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>First Name</th>
+      <th>Surname</th>
+      <th>Email</th>
+      <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="object: ${employees}" th:onclick="'rowClicked(' + ${object.employeeId} + ');'">
+      <td th:text="${object.employeeId}" />
+      <td th:text="${object.firstName}" />
+      <td th:text="${object.surname}" />
+      <td th:text="${object.email}" />
+      <td th:onclick="'event.stopPropagation(); return false;'">
+        <a th:onclick="'deleteEmployee(' + ${object.employeeId} + ');'">
+          <button type="button" class="btn btn-danger">Delete</button>
+        </a>
+      </td>
+    </tr>
+    </tbody>
+
+  </table>
+
+  <div class="d-flex  justify-content-center" style="width: 100%">
+
+    <a th:href="@{/employees/add-employees-form}"><button type="button" class="btn btn-success">Add employee</button></a>
+  </div>
+
+
+</div>
+
+
+</body>
+
+</html>

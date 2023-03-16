@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<link rel="collapse" href="C:\Users\Jahray\OneDrive - Aston University\collapse button css.css">  
+    </head>
+    <body>
+    <button type="button" class="collapsible">Specifications</button>
+<div class="content">
+  <p>Lorem ipsum...</p>
+</div>
+<script src="C:\Users\Jahray\OneDrive - Aston University\collapse button js.js"></script>
+</body>
+</html>

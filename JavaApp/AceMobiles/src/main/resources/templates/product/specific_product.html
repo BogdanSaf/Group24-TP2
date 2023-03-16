@@ -83,6 +83,7 @@ img {
     <title>Title</title>
 </head>
 <body>
+<<<<<<< HEAD:JavaApp/AceMobiles/src/main/resources/templates/specific_product.html
     <div class = vertical-center>
         <div id = "form">
           <h2>Edit Product Details</h1>
@@ -105,5 +106,25 @@ img {
              </form>
         </div>  
     </div>
+=======
+     <form action="#"
+           th:action="@{/products/update/{id}(id=${single_product.productID})}"
+           th:object="${single_product}" method="post" th:method="POST">
+        <input type="hidden" th:field="*{productID}" id="productID" />
+        <label for="productBrand">Brand</label>
+        <input type="text" th:field="*{productBrand}" id="productBrand"/>
+        <label for="productName">Name</label>
+        <input type="text" th:field="*{productName}" id="productName"/>
+        <label for="productDescription">Description</label>
+        <input type="text"  th:field="*{productDescription}" id="productDescription"/>
+        <label for="productPrice">Price</label>
+        <input type="text"  th:field="*{productPrice}" id="productPrice"/>
+        <label for="productStock">Stock</label>
+        <input type="text"  th:field="*{productStock}" id="productStock"/>
+        <label for="productImage">Image</label>
+        <input type="text"  th:field="*{image}" id="productImage"/>
+        <button type="submit">Update</button>
+     </form>
+>>>>>>> d9a4191dc1a4432a0b5226260bf9db4e64e99963:JavaApp/AceMobiles/src/main/resources/templates/product/specific_product.html
 </body>
 </html>

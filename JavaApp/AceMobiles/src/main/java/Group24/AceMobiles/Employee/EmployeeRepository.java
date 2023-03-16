@@ -1,6 +1,7 @@
 package Group24.AceMobiles.Employee;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.math.BigInteger;
@@ -18,4 +19,11 @@ public interface EmployeeRepository extends JpaRepository<Employees, BigInteger>
 
     @Override
     void deleteById(BigInteger integer);
+
+    @Override
+    Employees save(Employees employees);
+
+    @Query(value = "SELECT * FROM employees WHERE email = ?1", nativeQuery = true)
+    Employees findByEmail(String email);
+
 }

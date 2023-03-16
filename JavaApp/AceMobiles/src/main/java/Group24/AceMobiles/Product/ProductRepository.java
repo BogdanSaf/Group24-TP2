@@ -1,6 +1,5 @@
 package Group24.AceMobiles.Product;
 
-import Group24.AceMobiles.Product.Product;
 import org.springframework.stereotype.Repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -18,4 +17,8 @@ public interface ProductRepository extends JpaRepository<Product, BigInteger> {
 
     @Override
     void deleteById(BigInteger integer);
+
+    @Override
+    Product save(Product product);
+
 }

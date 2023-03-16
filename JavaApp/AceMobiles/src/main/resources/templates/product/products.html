@@ -37,14 +37,56 @@
           crossorigin="anonymous" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 
+    <script>
+        function rowClicked(value) {
+
+            $.ajax({
+                method: 'GET',
+                url: '/products/show/'+ value,
+                success: function () {
+                    location.href = "/products/show/" + value;
+                },
+                error: function (xhr, status, error) {
+                    console.log("Error: " + error);
+                }
+            });
+        }
+
+        function deleteProduct(value) {
+            if (confirm("Are you sure you want to delete this product?")) {
+
+                $.ajax({
+                    method: 'GET',
+                    url: '/products/delete/'+ value,
+                    success: function () {
+                        location.href = '/products/delete/'+ value;
+                    },
+                    error: function (xhr, status, error) {
+                        alert("Error: " + error);
+                    }
+                });
+
+            }else{
+                alert("Product not deleted");
+            }
+
+
+        }
+    </script>
+
 </head>
 
 <body style="display: flex; flex-direction: row">
 
-<div th:replace="fragments/navbar :: navbarUse"></div>
+
+
+<div th:replace="~{fragments/navbar :: navbarUse}"></div>
+
+
 
 <div class="container" style="width: 85%; border-top: 10px">
 
+    <div th:replace="~{fragments/messages :: success_error_messages}"></div>
 
 
     <h1>Products</h1>
@@ -62,6 +104,7 @@
             <th>Price</th>
             <th>Stock</th>
             <th>Image</th>
+            <th>Delete Product</th>
         </tr>
         </thead>
         <tbody>
@@ -73,7 +116,11 @@
             <td th:text= "'£' + ${object.productPrice}" />
             <td th:text="${object.productStock}" />
             <td th:text="${object.image}" />
-
+            <td th:onclick="'event.stopPropagation(); return false;'">
+                <a th:onclick="'deleteProduct(' + ${object.productID} + ');'">
+                    <button type="button" class="btn btn-danger">Delete</button>
+                </a>
+            </td>
         </tr>
         </tbody>
         <tr>
@@ -114,23 +161,12 @@
         </tr>
 
     </table>
-    <script>
-        function rowClicked(value) {
 
-            // alert("You clicked on row: " + value)
-            $.ajax({
-                method: 'GET',
-                url: '/products/'+ value,
-                success: function () {
-                    location.href = "/products/" + value;
-                    alert("It worked")
-                },
-                error: function (xhr, status, error) {
-                    console.log("Error: " + error);
-                }
-            });
-        }
-    </script>
+    <div class="d-flex  justify-content-center" style="width: 100%">
+
+        <a th:href="@{/products/add-product-form}"><button type="button" class="btn btn-success">Add product</button></a>
+    </div>
+
 </div>
 
 

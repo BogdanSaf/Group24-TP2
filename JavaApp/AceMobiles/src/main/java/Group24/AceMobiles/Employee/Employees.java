@@ -1,28 +1,40 @@
 package Group24.AceMobiles.Employee;
 
 import jakarta.persistence.*;
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotEmpty;
+
+import javax.validation.constraints.*;
 
 import java.math.BigInteger;
-import java.util.Objects;
 
 @Entity
 @Table(name = "employees")
 public class Employees {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "employeeid")
     private BigInteger employeeId;
-    @Basic
+
+    @Length(min = 1, max = 50, message = "First name must be between 1 and 50 characters")
+    @NotEmpty(message = "First name must not be empty")
     @Column(name = "firstname")
     private String firstName;
-    @Basic
+
+    @Length(min = 1, max = 50, message = "Surname must be between 1 and 50 characters")
+    @NotEmpty(message = "Surname must not be empty")
     @Column(name = "surname")
     private String surname;
-    @Basic
-    @Column(name = "email")
+
+    @Email(message = "Email must be valid")
+    @NotEmpty(message = "Email must not be empty")
+    @Column(name = "email", unique = true)
     private String email;
-    @Basic
+
     @Column(name = "password")
+    @NotEmpty(message = "Password must not be empty")
     private String password;
 
     public Employees(String firstName, String surname, String email, String password) {
@@ -37,6 +49,10 @@ public class Employees {
 
     public BigInteger getEmployeeId() {
         return employeeId;
+    }
+
+    public void setEmployeeId(BigInteger employeeId) {
+        this.employeeId = employeeId;
     }
 
     public String getFirstName() {
@@ -69,18 +85,5 @@ public class Employees {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Employees that = (Employees) o;
-        return employeeId == that.employeeId && Objects.equals(firstName, that.firstName) && Objects.equals(surname, that.surname) && Objects.equals(email, that.email) && Objects.equals(password, that.password);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(employeeId, firstName, surname, email, password);
     }
 }
