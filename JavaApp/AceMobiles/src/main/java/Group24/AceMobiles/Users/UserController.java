@@ -31,14 +31,9 @@ public class UserController {
         return mav;
     }
 
-    @ExceptionHandler()
     @PostMapping("/update/{id}")
-    public String updateUserById(@PathVariable BigInteger id, @Valid @ModelAttribute Users user, BindingResult bindingResult, RedirectAttributes ra) {
+    public String updateUserById(@Valid @ModelAttribute Users user, BindingResult bindingResult, RedirectAttributes ra) {
 
-
-        System.out.println(user.getUserId());
-        System.out.println(user.getFirstName());
-        user.setUserId(id);
 
 
         if (bindingResult.hasErrors()) {
@@ -48,7 +43,7 @@ public class UserController {
 
 
 
-        if (String.valueOf(user.getPhoneNumber()).length() != 11) {
+        if (user.getPhoneNumber().length() != 11) {
             String errorMessage = "Phone number must be 11 digits";
             ra.addFlashAttribute("errorMessage", errorMessage);
             return "redirect:/";

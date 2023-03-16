@@ -6,7 +6,7 @@
 </head>
 <body>
     <form action="#"
-          th:action="@{/update/{id}(id=${single_user.getUserId()})}"
+          th:action="@{/update/{id}(id=${single_user.userId})}"
           th:object="${single_user}" method="post" th:method="POST">
         <input type="hidden" th:field="*{userId}" id="userId"/> >
         <label for="firstName">First Name</label>
@@ -18,7 +18,7 @@
         <label for="postcode">Postcode</label>
         <input type="text"  th:field="*{postcode}" id="postcode"/>
         <label for="phoneNumber">Phone Number</label>
-        <input type="int"  th:field="*{phoneNumber}" id="phoneNumber"/>
+        <input type="tel"  th:field="*{phoneNumber}" id="phoneNumber"/>
         <label for="email">Email</label>
         <input type="text"  th:field="*{email}" id="email"/>
         <input type="hidden" th:field="*{password}" id="password"/>

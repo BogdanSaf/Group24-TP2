@@ -14,7 +14,7 @@ import java.math.BigInteger;
 public class Employees {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "employeeid")
     private BigInteger employeeId;
 
