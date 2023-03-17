@@ -28,7 +28,7 @@
         <div class="filter-items">
           <div class="filter-item all Apple">
             <div class="item-img">
-              <a href="products/preview/{{ $product['id'] }}">
+              <a href="products/preview/{{ $product['productID'] }}">
               <img src="{{ URL::asset('/images/' . $product->productImage) }}" width="250" height="300">
               <span class="discount">20%</span>
             </div>
@@ -46,7 +46,7 @@
 
           </div>  
         </div>
-
+        @endforeach
 
       </div>    
    </div>
