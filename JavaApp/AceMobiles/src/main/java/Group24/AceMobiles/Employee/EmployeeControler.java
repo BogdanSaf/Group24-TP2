@@ -34,7 +34,7 @@ public class EmployeeControler {
         return mav;
     }
 
-    @ExceptionHandler()
+
     @PostMapping("/employees/update/{id}")
     public String updateEmployeeById(@Valid @ModelAttribute Employees employee, BindingResult bindingResult, RedirectAttributes ra) {
 

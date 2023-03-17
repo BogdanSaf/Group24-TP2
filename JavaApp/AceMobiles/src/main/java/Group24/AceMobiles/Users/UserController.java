@@ -2,6 +2,7 @@ package Group24.AceMobiles.Users;
 
 import Group24.AceMobiles.Employee.Employees;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -61,6 +62,36 @@ public class UserController {
     public String deleteUserById(@PathVariable BigInteger id, RedirectAttributes ra) {
         userRepository.deleteById(id);
         String successMessage = "User deleted successfully";
+        ra.addFlashAttribute("message", successMessage);
+        return "redirect:/";
+    }
+
+    @GetMapping("/add-user-form")
+    public ModelAndView addUserForm() {
+        ModelAndView mav = new ModelAndView("users/add_user");
+        mav.addObject("user", new Users());
+        return mav;
+    }
+
+    @PostMapping("/add-user")
+    public String addUser(@Valid @ModelAttribute Users user, BindingResult bindingResult, RedirectAttributes ra) {
+
+        if (bindingResult.hasErrors()) {
+            ra.addFlashAttribute("errors", bindingResult);
+            return "redirect:/";
+        }
+
+        if (user.getPhoneNumber().length() != 11) {
+            String errorMessage = "Phone number must be 11 digits";
+            ra.addFlashAttribute("errorMessage", errorMessage);
+            return "redirect:/";
+        }
+
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+
+        userRepository.save(user);
+        String successMessage = "User added successfully";
         ra.addFlashAttribute("message", successMessage);
         return "redirect:/";
     }
