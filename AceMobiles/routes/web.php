@@ -35,16 +35,13 @@ Route::post('register',[AuthFunctions::class, 'register']) -> name('RegisterUser
 
 Route::post('login',[AuthFunctions::class, 'login']) -> name('LoginUser');
 
-
+Route::get('/products',[ProductsController::class, 'returnHomeView']) -> name('productdisplay');
 
 
 // Contact Us Page
 Route::get('/contactus', function () {
     return view('user/contactus');
 });
-
-
-Route::get('/products',[ProductsController::class, 'returnHomeView']) -> name('productdisplay');
 
 //About us
 Route::get('/aboutus', function () {
