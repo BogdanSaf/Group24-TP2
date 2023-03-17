@@ -43,6 +43,11 @@ Route::get('/contactus', function () {
     return view('user/contactus');
 });
 
+// Contact Us Page
+Route::get('/products', function () {
+    return view('user/products');
+});
+
 //About us
 Route::get('/aboutus', function () {
     return view('user/acemobileabout');
