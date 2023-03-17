@@ -19,6 +19,4 @@ public interface OrderRepository extends JpaRepository<Orders, BigInteger>{
     @Override
     void deleteById(BigInteger integer);
 
-//    List<Users> findAllByUserIdfk(Users usersIdfk);
-
 }
