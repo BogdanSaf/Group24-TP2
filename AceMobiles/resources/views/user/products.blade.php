@@ -44,7 +44,7 @@
               <form action="{{ asset('addToBasket') }}" method="post">@csrf<input type="hidden"
                                     value="{{ $product['id'] }}" name="id"><button type="submit"
                                     class="btn btn-sm btn-outline-secondary mx-auto d-block">Add to basket</button>
-                            </form>
+                </form>
               </div>
             </div>
 
