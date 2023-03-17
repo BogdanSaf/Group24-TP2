@@ -5,15 +5,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="{{ asset('css/products.css') }}">
-  <title>Document</title>
+  <title>Products</title>
+  
 </head>
 <body>
-  
+@include('shared.navbar')
 <div class="wrapper">
   <div class="category-filter">
      <div class="container">
         <div class="title">
-          <h1>Featured Products</h1>
+          <h1>Products</h1>
         </div>
         <div class="filter-btns">
           <button type = "button" class="filter-btn" id="all">All</button>
@@ -30,17 +31,20 @@
             <div class="item-img">
               <a href="products/preview/{{ $product['productID'] }}">
               <img src="{{ URL::asset('/images/' . $product->productImage) }}" width="250" height="300">
-              <span class="discount">20%</span>
             </div>
+            
             <div class="item-info">
-              <p>Lorem ipsum dolor</p>
+            <p><b>{{ $product->productName }}</b></p>
             </div>
             <div>
-                <span class="old-price">£2000</span>
-                <span class="new-price">£1000</span>
+            <p class="text-md text-left text-muted">£{{ $product->productPrice }} </p>
               </div>
               <div>
-                <a href="#" class="add-btn">Add to cart</a>
+                <br>
+              <form action="{{ asset('addToBasket') }}" method="post">@csrf<input type="hidden"
+                                    value="{{ $product['id'] }}" name="id"><button type="submit"
+                                    class="btn btn-sm btn-outline-secondary mx-auto d-block">Add to basket</button>
+                            </form>
               </div>
             </div>
 
@@ -54,6 +58,6 @@
 </div>
 
 <script src="script.js"></script>
-
+@include('shared.footer')
 </body>
 </html>
