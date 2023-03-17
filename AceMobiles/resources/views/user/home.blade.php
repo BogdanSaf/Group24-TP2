@@ -3,72 +3,58 @@
   <head>
     <title>HomePage</title>
     @include('shared.header')
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/homepage.css') }}">
+    @include('shared.navbar')
   </head>
   <body>
-	<script src="index.js"></script>
-  
-  @include('shared.navbar')
-
-<!--start of home page-->
-<section class="home" id="home">
-  <div class="home-text">
-    <h1>WELCOME</h1>
-    <h2>Experience the Ace of Mobiles <br>High quality phones, all in one place!</h2>
-    <a href="#" class="btn">View More</a>
+	
+  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
   </div>
-
-  <div class="home-img">
-    <img src="../../../images/z flip 4 background.png" alt="Samsung">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src= "../../../images/z flip 4 background.png" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>We are ace mobiles</h5>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id animi voluptate, saepe minus laboriosam magnam assumenda suscipit accusamus? </p>
+      <p><a href="#" class= "btn btn-warning mt-3">Learn More</a></p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src= "../../../images/z flip 4 background.png"class="d-block w-50" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Second slide label</h5>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id animi voluptate, saepe minus laboriosam magnam assumenda suscipit accusamus? </p>
+      <p><a href="#" class= "btn btn-warning mt-3">Learn More</a>></a></p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src= "../../../images/z flip 4 background.png" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Third slide label</h5>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id animi voluptate, saepe minus laboriosam magnam assumenda suscipit accusamus? </p>
+      <p><a href="#" class= "btn btn-warning mt-3">Learn More</a>></a></p>
+      </div>
+    </div>
   </div>
-</section>
-
-<!--start of home page-->
-<!-- THE OUR PRODUCTS SECTION -->
-<div class = "background">
-
-<h1> PRODUCTS</h1>
-
-  <div class = "Alignment">
-    <div class = "cards">
-        <img class="phones" src = "../../../images/">
-        <h3> APPLE</h3>
-        <!-- <button class = "Apple-buy"> BUY NOW</button> -->
-        <button onclick  ="window.location.href = 'Apple.html'" >BUY NOW</button>
-    </div>
-    <div class = "cards">
-        <img class="phones" src = "../../../images/z flip 4 background.png">
-        <h3> SAMSUNG </h3>  
-        <!-- <button class = "Samsung-buy"> BUY NOW</button> -->
-        <button onclick  ="window.location.href = 'Samsung.html'" >BUY NOW</button>
-    </div>
-
-    <div class = "cards">
-        <img class="phones" src = "../../../images/Google-Pixel-7-Pro-Snow-sku-header-140922.png">
-        <h3> GOOGLE </h3>  
-        <!-- <button class = "Google-buy"> BUY NOW</button> -->
-        <button onclick  ="window.location.href = 'Google.html'" >BUY NOW</button>
-    </div>
-    <div class = "cards">
-        <img class="phones" src = "../../../images/OPPO-Reno8-Pro-Taibai-bau-back-gallery-2-170822.jpg">
-        <h3> OPPO</h3> 
-        <!-- <button class = "Oppo-buy"> BUY NOW</button> -->
-        <button onclick  ="window.location.href = 'Oppo.html'" >BUY NOW</button>
-    </div>
-
-    <div class = "cards">
-        <img class="phones" src = "../../../images/sony-xperia-5-iv-bau-front-gallery-1-010922.jpg">
-        <h3> SONY </h3>  
-        <!-- <button class = "Sony-buy"> BUY NOW</button> -->
-        <button onclick  ="window.location.href = 'Sony.html'" >BUY NOW</button>
-    </div>
-  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
 </div>
+  
 
+ 
 
-
-
-
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" ></script>
   </body>
   @include('shared.footer')
 </html>

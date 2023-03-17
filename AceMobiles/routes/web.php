@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthFunctions;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,13 +36,15 @@ Route::post('register',[AuthFunctions::class, 'register']) -> name('RegisterUser
 
 Route::post('login',[AuthFunctions::class, 'login']) -> name('LoginUser');
 
-Route::get('/products',[ProductsController::class, 'returnHomeView']) -> name('productdisplay');
+Route::get('/products',[ProductController::class, 'returnHomeView']);
 
 
 // Contact Us Page
 Route::get('/contactus', function () {
     return view('user/contactus');
 });
+
+
 
 //About us
 Route::get('/aboutus', function () {

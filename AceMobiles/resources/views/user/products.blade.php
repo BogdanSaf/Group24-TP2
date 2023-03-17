@@ -1,52 +1,63 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset = " UTF-8" 
-    content = "width = device-width, initial- scale 1.0">
-    <meta http-equiv = "X-UA-Compatible" content = "IE=edge">
-    <link rel="stylesheet"  href="{{ asset('css/products.css') }}" media="screen"/>
-    <title> Product Page</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ asset('css/products.css') }}">
+  <title>Products</title>
+  
 </head>
 <body>
-<!-- INSERT NAV BAR HERE -->
+@include('shared.navbar')
+<div class="wrapper">
+  <div class="category-filter">
+     <div class="container">
+        <div class="title">
+          <h1>Products</h1>
+        </div>
+        <div class="filter-btns">
+          <button type = "button" class="filter-btn" id="all">All</button>
+          <button type = "button" class="filter-btn" id="Apple">APPLE</button>
+          <button type = "button" class="filter-btn" id="Samsung">SAMSUNG</button>
+          <button type = "button" class="filter-btn" id="Oppo">OPPO</button>
+          <button type = "button" class="filter-btn" id="Sony">SONY</button>
+          <button type = "button" class="filter-btn" id="Google">GOOGLE</button>
+        </div>
 
-<!-- Apple, Google, Oppo, Samsung, Sony phones -->
-    <div class = "Alignment">
-        <div class = "cards">
-            <img src = "Iphone14(1).png">
-            <h3> APPLE</h3>
-            <!-- <button class = "Apple-buy"> BUY NOW</button> -->
-            <button onclick  ="window.location.href = 'Apple.html'" >BUY NOW</button>
+        @foreach ($products as $product)
+        <div class="filter-items">
+          <div class="filter-item all Apple">
+            <div class="item-img">
+              <a href="products/preview/{{ $product['productID'] }}">
+              <img src="{{ URL::asset('/images/' . $product->productImage) }}" width="250" height="300">
             </div>
-    
+            
+            <div class="item-info">
+            <p><b>{{ $product->productName }}</b></p>
+            </div>
+            <div>
+            <p class="text-md text-left text-muted">£{{ $product->productPrice }} </p>
+              </div>
+              <div>
+                <br>
+              <form action="{{ asset('addToBasket') }}" method="post">@csrf<input type="hidden"
+                                    value="{{ $product['id'] }}" name="id"><button type="submit"
+                                    class="btn btn-sm btn-outline-secondary mx-auto d-block">Add to basket</button>
+                </form>
+              </div>
+            </div>
 
-    <div class = "cards">
-        <img src = "z flip 4 background.png">
-        <h3> SAMSUNG </h3>  
-        <!-- <button class = "Samsung-buy"> BUY NOW</button> -->
-        <button onclick  ="window.location.href = 'Samsung.html'" >BUY NOW</button>
-    </div>
+          </div>  
+        </div>
+        @endforeach
 
-    <div class = "cards">
-        <img src = "GooglePixel6a.png">
-        <h3> GOOGLE </h3>  
-        <!-- <button class = "Google-buy"> BUY NOW</button> -->
-        <button onclick  ="window.location.href = 'Google.html'" >BUY NOW</button>
-    </div>
-
-    <div class = "cards">
-        <img src = "Oppo Reno 6 (1).png">
-        <h3> OPPO</h3> 
-        <!-- <button class = "Oppo-buy"> BUY NOW</button> -->
-        <button onclick  ="window.location.href = 'Oppo.html'" >BUY NOW</button>
-    </div>
-
-    <div class = "cards">
-        <img src = "Sony.png">
-        <h3> SONY </h3>  
-        <!-- <button class = "Sony-buy"> BUY NOW</button> -->
-        <button onclick  ="window.location.href = 'Sony.html'" >BUY NOW</button>
-    </div>
+      </div>    
+   </div>
+  </div>
 </div>
+
+<script src="script.js"></script>
+@include('shared.footer')
 </body>
 </html>

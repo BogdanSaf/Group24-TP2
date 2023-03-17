@@ -3,7 +3,7 @@
     padding: 0;
     list-style: none;
     text-decoration: none;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Arial', Courier, monospace;
     box-sizing: border-box;
 	
 }
@@ -22,6 +22,7 @@ header{
     justify-content: space-between;
     padding: 0 100px;
 }
+
 .logo{
     font-size: 28px;
     font-weight: bold;
@@ -55,11 +56,15 @@ header{
 
 }
 
-/* keeps home always white*/
+/* keeps login always white
 .nav-bar ul li a.active{
     color: white;
     background: #38b6ff;
 }
+.nav-bar ul li {   
+}
+*/
+
 
 @media only screen and (max-width:1320px){
     header{
