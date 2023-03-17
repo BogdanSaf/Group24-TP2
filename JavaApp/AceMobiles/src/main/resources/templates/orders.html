@@ -1,3 +1,31 @@
+<style>
+    
+h1 {
+    padding:10px;
+}
+table {
+  border-collapse: collapse;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+table th, 
+table td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ccc;
+}
+
+table th {
+  background-color: #38b6ff;
+  font-weight: bold;
+}
+
+table tr:nth-child(even) {
+  background-color: #c4deeb;
+}
+</style>
+
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
@@ -17,7 +45,7 @@
 
 
 
-    <h3>List Products</h3>
+    <h1>Orders</h1>
 
     <hr/>
 
@@ -39,6 +67,34 @@
             <td th:text="${object.orderDate}" />
             <td th:text="${object.arrivalDate}" />
             <td th:text= "${object.status}" />
+        </tr>
+        <tr th:each="object: ${orders}">
+            <td>test</td>
+            <td>test</td>
+            <td>test</td>
+            <td>test</td>
+            <td>test</td>
+        </tr>
+        <tr>
+            <td>test</td>
+            <td>test</td>
+            <td>test</td>
+            <td>test</td>
+            <td>test</td>
+        </tr>
+        <tr>
+            <td>test</td>
+            <td>test</td>
+            <td>test</td>
+            <td>test</td>
+            <td>test</td>
+        </tr>
+        <tr>
+            <td>test</td>
+            <td>test</td>
+            <td>test</td>
+            <td>test</td>
+            <td>test</td>
         </tr>
         </tbody>
 

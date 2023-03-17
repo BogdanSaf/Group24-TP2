@@ -13,7 +13,7 @@ import java.math.BigInteger;
 @Entity
 @Table(name = "users")
 public class Users {
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "userID")
     private BigInteger userId;
@@ -36,7 +36,7 @@ public class Users {
     @Basic
     @Size(min = 11, max = 11, message = "Phone number must be 11 digits")
     @Column(name = "phonenumber")
-    private int phoneNumber;
+    private String phoneNumber;
     @Basic
     @Email(message = "Email must be valid")
     @Column(name = "email" , unique = true)
@@ -46,7 +46,7 @@ public class Users {
     @Column(name = "password")
     private String password;
 
-    public Users(String firstName, String surname, String address, String postcode, int phoneNumber, String email, String password) {
+    public Users(String firstName, String surname, String address, String postcode, String phoneNumber, String email, String password) {
         this.firstName = firstName;
         this.surname = surname;
         this.address = address;
@@ -100,11 +100,11 @@ public class Users {
         this.postcode = postcode;
     }
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
