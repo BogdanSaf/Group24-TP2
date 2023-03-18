@@ -4,30 +4,30 @@ var filterBtns = document.querySelectorAll('.filter-btn');
 // get all the filter items
 var filterItems = document.querySelectorAll('.filter-item');
 
-// add click event listeners to each filter button
+// add click event listener to each filter button
 filterBtns.forEach(function(btn) {
   btn.addEventListener('click', function() {
-    // remove active class from all filter buttons
-    filterBtns.forEach(function(otherBtn) {
-      otherBtn.classList.remove('active');
+    // remove the active class from all the filter buttons
+    filterBtns.forEach(function(fBtn) {
+      fBtn.classList.remove('active');
     });
-
-    // add active class to the clicked button
+    // add the active class to the clicked filter button
     btn.classList.add('active');
 
-    // get the brand name from the clicked button's id attribute
-    var brandName = btn.id;
-
-    // loop through all filter items and show/hide them based on the brand name
-    filterItems.forEach(function(item) {
-      if (brandName === 'all' || item.classList.contains(brandName)) {
-        item.style.display = 'flex';
-      } else {
-        item.style.display = 'none';
+    // loop through all the filter items
+    for (var i = 0; i < filterItems.length; i++) {
+      // if the filter button is 'All', show all the filter items
+      if (btn.id === 'all') {
+        filterItems[i].style.display = 'flex';
       }
-    });
+      // if the filter button matches the filter item's brand, show the filter item
+      else if (filterItems[i].classList.contains(btn.id)) {
+        filterItems[i].style.display = 'flex';
+      }
+      // if the filter button does not match the filter item's brand, hide the filter item
+      else {
+        filterItems[i].style.display = 'none';
+      }
+    }
   });
 });
-
-
-

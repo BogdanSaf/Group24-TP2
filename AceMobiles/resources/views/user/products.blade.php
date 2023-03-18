@@ -54,6 +54,6 @@
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <script src="{{ asset('js/script.js') }}"></script>
 </body>
 </html>
