@@ -1,8 +1,7 @@
 package Group24.AceMobiles.Orders;
 
-import Group24.AceMobiles.BasketOrderContents;
-import Group24.AceMobiles.BasketOrderContentsRepository;
-import Group24.AceMobiles.Users.UserRepository;
+import Group24.AceMobiles.OrderContents.BasketOrderContents;
+import Group24.AceMobiles.OrderContents.BasketOrderContentsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -37,9 +36,16 @@ public class OrderController {
     }
 
     @GetMapping("/orders/viewItems/{id}")
-    public ModelAndView viewItems(@PathVariable BigInteger id) {
+    public ModelAndView viewItems(@PathVariable BigInteger id, RedirectAttributes ra) {
+        System.out.println("Order ID: " + id);
         ModelAndView modelAndView = new ModelAndView("orderProducts");
-        List<BasketOrderContents> orderedItems = basketOrderContentsRepository.findByOrderId(id);
+        List<BasketOrderContents> orderedItems = basketOrderContentsRepository.findByOrderId(String.valueOf(id));
+
+        if (orderedItems.isEmpty()) {
+            String errorMessage = "No items found for this order " + id;
+            ra.addFlashAttribute("message", errorMessage);
+            return new ModelAndView("redirect:/orders");
+        }
 
         modelAndView.addObject("orderItems", orderedItems);
         return modelAndView;
