@@ -15,4 +15,21 @@ class ProductController extends Controller
     public function returnAppleProducts() {
         return view('user.products', ['products' => Product::where('productBrand', 'Apple')->get()]);
     }
+
+    public function returnSamsungProducts() {
+        return view('user.products', ['products' => Product::where('productBrand', 'Samsung')->get()]);
+    }
+
+    public function returnOppoProducts() {
+        return view('user.products', ['products' => Product::where('productBrand', 'Oppo')->get()]);
+    }
+    
+    public function returnSonyProducts() {
+        return view('user.products', ['products' => Product::where('productBrand', 'Sony')->get()]);
+    }
+
+    public function returnGoogleProducts() {
+        return view('user.products', ['products' => Product::where('productBrand', 'Google')->get()]);
+    }
 }
+

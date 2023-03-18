@@ -18,7 +18,7 @@
             <a href="/contactus">Contact</a>
         </li>
         <li>
-                <a href="Products">Products</a>
+                <a href="/products">Products</a>
         </li>
         @if (!Auth::check())
         <li>

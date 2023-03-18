@@ -15,12 +15,12 @@
         <h1>Products</h1>
       </div>
       <div class="filter-btns">
-        <button type="button" class="filter-btn active" id="all">All</button>
+        <a href="{{ route('ReturnHomeView')}}"><button type="button" class="filter-btn active" id="all">ALL</button></a>
         <a href="{{ route('ReturnAppleProducts')}}"><button type="button" class="filter-btn" id="Apple">APPLE</button></a>
-        <button type="button" class="filter-btn" id="Samsung">SAMSUNG</button>
-        <button type="button" class="filter-btn" id="Oppo">OPPO</button>
-        <button type="button" class="filter-btn" id="Sony">SONY</button>
-        <button type="button" class="filter-btn" id="Google">GOOGLE</button>
+        <a href="{{ route('ReturnSamsungProducts')}}"><button type="button" class="filter-btn" id="Apple">SAMSUNG</button></a>
+        <a href="{{ route('ReturnOppoProducts')}}"><button type="button" class="filter-btn" id="Apple">OPPO</button></a>
+        <a href="{{ route('ReturnSonyProducts')}}"><button type="button" class="filter-btn" id="Apple">SONY</button></a>
+        <a href="{{ route('ReturnGoogleProducts')}}"><button type="button" class="filter-btn" id="Apple">GOOGLE</button></a>
       </div>
     </div>
   </div>
