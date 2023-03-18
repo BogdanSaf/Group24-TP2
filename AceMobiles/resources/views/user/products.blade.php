@@ -16,7 +16,7 @@
       </div>
       <div class="filter-btns">
         <button type="button" class="filter-btn active" id="all">All</button>
-        <button type="button" class="filter-btn" id="Apple">APPLE</button>
+        <a href="{{ route('ReturnAppleProducts')}}"><button type="button" class="filter-btn" id="Apple">APPLE</button></a>
         <button type="button" class="filter-btn" id="Samsung">SAMSUNG</button>
         <button type="button" class="filter-btn" id="Oppo">OPPO</button>
         <button type="button" class="filter-btn" id="Sony">SONY</button>

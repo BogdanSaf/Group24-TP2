@@ -11,4 +11,8 @@ class ProductController extends Controller
     public function returnHomeView() {
         return view('user.products', ['products' => Product::all()]);
     }
+
+    public function returnAppleProducts() {
+        return view('user.products', ['products' => Product::where('productBrand', 'Apple')->get()]);
+    }
 }
