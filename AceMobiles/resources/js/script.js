@@ -31,3 +31,4 @@ filterBtns.forEach(function(btn) {
     }
   });
 });
+
