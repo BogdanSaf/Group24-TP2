@@ -1,106 +1,33 @@
+// get all the filter buttons
+var filterBtns = document.querySelectorAll('.filter-btn');
 
-const allFilterItems = document.querySelectorAll('.filter-item');
-const allFilterBtns = document.querySelectorAll('.filter-btn');
+// get all the filter items
+var filterItems = document.querySelectorAll('.filter-item');
 
-window.addEventListener('DOMContentLoaded', () => {
-    allFilterBtns[0].classList.add('active-btn');
+// add click event listeners to each filter button
+filterBtns.forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    // remove active class from all filter buttons
+    filterBtns.forEach(function(otherBtn) {
+      otherBtn.classList.remove('active');
+    });
+
+    // add active class to the clicked button
+    btn.classList.add('active');
+
+    // get the brand name from the clicked button's id attribute
+    var brandName = btn.id;
+
+    // loop through all filter items and show/hide them based on the brand name
+    filterItems.forEach(function(item) {
+      if (brandName === 'all' || item.classList.contains(brandName)) {
+        item.style.display = 'flex';
+      } else {
+        item.style.display = 'none';
+      }
+    });
+  });
 });
 
-allFilterBtns.forEach((btn) => {
-    btn.addEventListener('click', () => {
-        showFilteredContent(btn);
-    });
-});
-
-function showFilteredContent(btn){
-    allFilterItems.forEach((item) => {
-        if(item.classList.contains(btn.id)){
-            resetActiveBtn();
-            btn.classList.add('active-btn');
-            item.style.display = "block";
-        } else {
-            item.style.display = "none";
-        }
-    });
-}
-
-function resetActiveBtn(){
-    allFilterBtns.forEach((btn) => {
-        btn.classList.remove('active-btn');
-    });
-}
 
 
-
-
-
-
-
-
-
-
-
-
-
-/*
-const allFilterItems = document.querySelectorAll('.filter-item');
-const allFilterBtns = document.querySelectorAllSelector ('.filter-btn');
-
-allFilterBtns.forEach((btn) => {
-    btn.addEventListener('click', () => {
-        showFilteredContent(btn);
-    });
-});
-
-function showFilteredContent(btn){
-    allFilterItems.forEach((item)=>{
-        if(item.classList.contains(btn.id)){
-            item.style.display = "block";
-        } else{
-            item.style.display = "none";
-        }
-    });
-}
-
-
-const allFilterItems = document.querySelectorAll('.filter-item')
-const allFilterBtns = document.querySelectorAllSelector ('.filter-btn')
-
-
-allFilterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-        showFilteredContent(btn);
-    });
-}); */
-/*
-function showFilteredContent(btn){
-    allFilterItems.forEach(item => {
-        if(item.classList.contains(btn.id)){
-            btn.classList.add('active-btn');
-            item.style.display = "block";
-        } else{
-            item.style.display = "none";
-        }
-    });
-}
-
-
-
-/**const allFilterItems = document.querySelectorAll('.filter-item')
-const allFilterBtns = document.querySelectorAllSelector ('.filter-btn')
-
-allFilterBtns.forEach((btn)=> {
-    btn.addEventListener('click', () => {
-        showFilteredContent(btn);
-    });
-});
-
-function showFilteredContent(btn){
-    allFilterItems.forEach((item)=>{
-        if(item.classList.contains(btn.id)){
-            item.style.display = "block";
-        } else{
-            item.style.display = "none";
-        }
-    });
-} */
