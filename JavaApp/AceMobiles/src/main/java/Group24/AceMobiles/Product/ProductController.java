@@ -32,7 +32,6 @@ public class ProductController {
         return mav;
     }
 
-    @ExceptionHandler()
     @PostMapping("/products/update/{id}")
     public String updateProductById(@Valid @ModelAttribute Product product,BindingResult bindingResult,RedirectAttributes ra) {
         if (bindingResult.hasErrors()) {
