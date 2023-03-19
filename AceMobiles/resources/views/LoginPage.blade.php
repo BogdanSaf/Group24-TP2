@@ -5,7 +5,7 @@
     <title>Login Page</title>
     <meta http-equiv="Content-Security-Policy" content="updagreade-insecure-requests">
     @include('shared.header')
-    <link rel="stylesheet" href="{{ seccure_asset('css/LoginPage.css') }}">
+    <link rel="stylesheet" href="{{ secure_asset('css/LoginPage.css') }}">
     
 </head>
 <body>
