@@ -1,27 +1,52 @@
-    <div class="footer">
-        <div class="col-1">
-            <h3>USEFUL LINKS</h3>
-            <a href="#">Home</a>
-            <a href="#">About</a>
-            <a href="#">Contact</a>
-            <a href="#">Products</a>
+    <footer class="footer-distributed">
+
+        <div class="footer-left">
+			<img src="{{ asset('images/ACEMOBILESLOGO.png') }}" alt="Logo" width="295" height="43"></img>
+
+            <p class="footer-links">
+                <a href="/home">Home</a>
+                |
+                <a href="/aboutus">About</a>
+                |
+                <a href="/contactus">Contact</a>
+                |
+                <a href="/products">Products</a>
+            </p>
+
+            <p class="footer-company-name">Copyright © 2023 <strong>Ace Mobiles</strong> All rights reserved</p>
         </div>
-        <div class="col-2">
-            <h3>NEWSLETTER</h3>
-            <form name="footerForm">
-                <input type="email" placeholder="Your Email Address" required>
-                <br>
-                <button type="submit">SUBSCRIBE NOW</button>
-            </form>
-        </div>
-        <div class="col-3">
-            <h3>CONTACT</h3>
-            <p>Aston St, Birmingham<br> B4 7ET</p>
-            <div class="social-icons">
-                <i class="fa-brands fa-facebook"></i>
-                <i class="fa-brands fa-twitter"></i>
-                <i class="fa-brands fa-linkedin"></i>
-                <i class="fa-brands fa-instagram"></i>
+
+        <div class="footer-center">
+            <div>
+                <i class="fa fa-map-marker"></i>
+                <p><span>Aston St, Birmingham</span>
+                    B4 7ET</p>
             </div>
-            
-        </div>  
+
+            <div>
+                <i class="fa fa-phone"></i>
+                <p>0121 204 3000</p>
+            </div>
+            <div>
+                <i class="fa fa-envelope"></i>
+                <p><a href="mailto:acemobiles@outlook.com">acemobiles@outlook.com</a></p>
+            </div>
+        </div>
+        <div class="footer-right">
+            <p class="footer-company-about">
+                <span>About the company</span>
+                <strong>Ace Mobiles</strong> is a Youtube channel where you can find more creative CSS Animations
+                and
+                Effects along with
+                HTML, JavaScript and Projects using C/C++.
+            </p>
+            <div class="footer-icons">
+                <a href="https://www.facebook.com/AceMobiles.arif"><i class="fa fa-facebook"></i></a>
+                <a href="https://twitter.com/ACE_Mobile"><i class="fa fa-twitter"></i></a>
+                <a href="https://in.linkedin.com/company/ace-mobile"><i class="fa fa-linkedin"></i></a>
+                <a href="https://www.instagram.com/acemobiles/?hl=en"><i class="fa fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+        
