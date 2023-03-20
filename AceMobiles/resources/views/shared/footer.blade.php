@@ -35,10 +35,7 @@
         <div class="footer-right">
             <p class="footer-company-about">
                 <span>About the company</span>
-                <strong>Ace Mobiles</strong> is a Youtube channel where you can find more creative CSS Animations
-                and
-                Effects along with
-                HTML, JavaScript and Projects using C/C++.
+                <strong>Ace Mobiles</strong> is a mobile phone company dedicated to providing a hassle-free and user-friendly experience for buying he latest mobile devices. We strive to offer a wide selection of high-quality devices at competitive prices, along with exceptional customer service.
             </p>
             <div class="footer-icons">
                 <a href="https://www.facebook.com/AceMobiles.arif"><i class="fa fa-facebook"></i></a>
