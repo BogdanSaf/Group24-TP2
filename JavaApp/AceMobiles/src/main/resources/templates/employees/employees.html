@@ -8,6 +8,7 @@
         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
         crossorigin="anonymous" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  <script th:src="@{/js/sort_table/SortTableEmployees.js}" type="text/javascript"></script>
   <script>
       function rowClicked(value) {
 
@@ -43,6 +44,28 @@
 
 
       }
+
+      function lookUp() {
+        // Declare variables
+        let input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 0; i < tr.length; i++) {
+          td = tr[i].getElementsByTagName("td")[1];
+          if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+              tr[i].style.display = "";
+            } else {
+              tr[i].style.display = "none";
+            }
+          }
+        }
+      }
   </script>
 </head>
 
@@ -58,39 +81,58 @@
 
   <h3>List Employees</h3>
 
-  <hr/>
-
-  <table class="table table-bordered table-striped">
-
-    <thead>
-    <tr>
-      <th>ID</th>
-      <th>First Name</th>
-      <th>Surname</th>
-      <th>Email</th>
-      <th>Delete</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="object: ${employees}" th:onclick="'rowClicked(' + ${object.employeeId} + ');'">
-      <td th:text="${object.employeeId}" />
-      <td th:text="${object.firstName}" />
-      <td th:text="${object.surname}" />
-      <td th:text="${object.email}" />
-      <td th:onclick="'event.stopPropagation(); return false;'">
-        <a th:onclick="'deleteEmployee(' + ${object.employeeId} + ');'">
-          <button type="button" class="btn btn-danger">Delete</button>
-        </a>
-      </td>
-    </tr>
-    </tbody>
-
-  </table>
-
   <div class="d-flex  justify-content-center" style="width: 100%">
 
     <a th:href="@{/employees/add-employees-form}"><button type="button" class="btn btn-success">Add employee</button></a>
   </div>
+
+  <hr/>
+
+  <div class="input-group flex-nowrap" style="width: 100%">
+        <span class="input-group-text" id="addon-wrapping">
+            <svg class="bi bi-search" fill="currentColor" height="16" viewBox="0 0 16 16" width="16"
+                 xmlns="http://www.w3.org/2000/svg">
+                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+            </svg>
+        </span>
+
+    <input aria-describedby="addon-wrapping" aria-label="User Email" class="form-control" id="myInput" onkeyup="lookUp()"
+           placeholder="Employee First Name" type="text">
+  </div>
+
+  <br>
+
+  <div class="table-responsive" style="height: 100vh;  overflow-y: auto;margin: 0%; padding: 0%;">
+    <table class="table table-bordered table-striped" id="myTable">
+
+      <thead>
+      <tr>
+        <th onclick="sortTable(0)">ID</th>
+        <th onclick="sortTable(1)">First Name</th>
+        <th onclick="sortTable(2)">Surname</th>
+        <th onclick="sortTable(3)">Email</th>
+        <th>Delete</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="object: ${employees}" th:onclick="'rowClicked(' + ${object.employeeId} + ');'">
+        <td th:text="${object.employeeId}" />
+        <td th:text="${object.firstName}" />
+        <td th:text="${object.surname}" />
+        <td th:text="${object.email}" />
+        <td th:onclick="'event.stopPropagation(); return false;'">
+          <a th:onclick="'deleteEmployee(' + ${object.employeeId} + ');'">
+            <button type="button" class="btn btn-danger">Delete</button>
+          </a>
+        </td>
+      </tr>
+      </tbody>
+
+    </table>
+  </div>
+
+
+
 
 
 </div>
