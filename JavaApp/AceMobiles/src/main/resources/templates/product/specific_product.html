@@ -80,13 +80,27 @@ img {
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title th:text="${single_product.getProductName()}"></title>
+
+    <script>
+        const loadFile = function (event) {
+            const reader = new FileReader();
+            reader.onload = function () {
+                const productImage = document.getElementById('productImage');
+                productImage.src = reader.result;
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        };
+
+    </script>
 </head>
 <body>
     <div class = vertical-center>
         <div id = "form">
           <h2>Edit Product Details</h2>
-            <form action="#" th:object="${single_product}" method="post" th:method="POST">
+            <form th:action="@{/products/update/{id}(id=${single_product.productID})}"
+                  th:object="${single_product}" method="post" th:method="POST" enctype="multipart/form-data">
+                <input type="hidden" th:field="*{productID}" id="productID"/>
                 <label for="productBrand">Brand</label>
                 <input type="text" th:field="*{productBrand}" id="productBrand"/>
                 <label for="productName">Name</label>
@@ -97,8 +111,9 @@ img {
                 <input type="text"  th:field="*{productPrice}" id="productPrice"/>
                 <label for="productStock">Stock</label>
                 <input type="text"  th:field="*{productStock}" id="productStock"/>
-                <label for="productImage">Image Path</label>
-                <img class="phones" src="images/ACEMOBILESLOGO.png" id="productImage">
+                <label for="productImage">Image</label>
+                <input type="file" name="uploadImage" accept=".jpg,.jpeg,.png,.gif,.bmp,.tif,.tiff,.svg,.raw,.psd,.ai,.eps,.pdf,.ico,.webp" id="uploadImage" onchange="loadFile(event)">
+                <img class="phones" th:src="@{${'/images/' + single_product.getImage()}}"  id="productImage" style="height: 200px; width: 200px">
                 
                 <button type="submit">Update</button>
              </form>

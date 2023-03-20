@@ -27,7 +27,7 @@
     }
 </style>
 
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" style="height: 100vh; overflow-y: auto" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <title>Products</title>
@@ -37,6 +37,8 @@
           integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
           rel="stylesheet"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <script>
         function rowClicked(value) {
@@ -73,181 +75,128 @@
 
 
         }
+
+        function placeOrder(value) {
+            let quantity = prompt("Please enter the quantity you want to order", "1");
+
+            if (quantity != null && quantity != "" && quantity > 0 && quantity < 9999) {
+                location.href = '/products/order/' + value + '/' + quantity;
+            } else {
+                alert("Invalid quantity");
+            }
+        }
     </script>
 
+    <script th:src="@{/js/sort_table/SortTableProducts.js}" type="text/javascript"></script>
+
+    <!-- W3Schools code   -->
     <script>
-
-        <!--Code used from W3schools (Altered)-->
-        function sortTable(n) {
-            let table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+        function lookUp() {
+            // Declare variables
+            let input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
             table = document.getElementById("myTable");
-            switching = true;
-            //Set the sorting direction to ascending:
-            dir = "asc";
-            /*Make a loop that will continue until
-            no switching has been done:*/
-            while (switching) {
-                //start by saying: no switching is done:
-                switching = false;
-                rows = table.rows;
-                /*Loop through all table rows (except the
-                first, which contains table headers):*/
-                for (i = 1; i < (rows.length - 1); i++) {
-                    //start by saying there should be no switching:
-                    shouldSwitch = false;
-                    /*Get the two elements you want to compare,
-                    one from current row and one from the next:*/
-                    x = rows[i].getElementsByTagName("TD")[n];
-                    y = rows[i + 1].getElementsByTagName("TD")[n];
+            tr = table.getElementsByTagName("tr");
 
-                    //check if the row is ID(0) or Price(4)
-                    if (n === 4 || n === 0) {
-
-                        if (dir === "asc") {
-
-                            // This will take the number from the string and convert it to an integer. If x is greater than y
-                            if (parseInt(x.innerHTML.toLowerCase().match(/\d+/g).join("")) > parseInt(y.innerHTML.toLowerCase().match(/\d+/g).join(""))) {
-                                //if so, mark as a switch and break the loop:
-                                shouldSwitch = true;
-                                break;
-                            }
-
-                        } else if (dir === "desc") {
-
-                            if (parseInt(x.innerHTML.toLowerCase().match(/\d+/g).join("")) < parseInt(y.innerHTML.toLowerCase().match(/\d+/g).join(""))) {
-                                //if so, mark as a switch and break the loop:
-                                shouldSwitch = true;
-                                break;
-                            }
-
-                        }
-                    //     if row is stock(5)
-                    } else if (n === 5) {
-
-                        if (dir === "asc") {
-
-                            // This will take the number from the string and convert it to an integer
-                            if (parseInt(x.innerHTML.toLowerCase().match(/\d+/g).join("")) > parseInt(y.innerHTML.toLowerCase().match(/\d+/g).join(""))) {
-                                //if so, mark as a switch and break the loop:
-                                shouldSwitch = true;
-                                break;
-                            }
-
-                        } else if (dir === "desc") {
-
-                            if (parseInt(x.innerHTML.toLowerCase().match(/\d+/g).join("")) < parseInt(y.innerHTML.toLowerCase().match(/\d+/g).join(""))) {
-                                //if so, mark as a switch and break the loop:
-                                shouldSwitch = true;
-                                break;
-                            }
-
-                        }
-
+            // Loop through all table rows, and hide those who don't match the search query
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[2];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
                     } else {
-
-                        /*check if the two rows should switch place,
-                    based on the direction, asc or desc:*/
-                        if (dir === "asc") {
-                            if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-                                //if so, mark as a switch and break the loop:
-                                shouldSwitch = true;
-                                break;
-                            }
-                        } else if (dir === "desc") {
-                            if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-                                //if so, mark as a switch and break the loop:
-                                shouldSwitch = true;
-                                break;
-                            }
-                        }
-
-                    } //end of if else statement
-
-                } //end of for loop
-
-                if (shouldSwitch) {
-                    /*If a switch has been marked, make the switch
-                    and mark that a switch has been done:*/
-                    rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-                    switching = true;
-                    //Each time a switch is done, increase this count by 1:
-                    switchcount++;
-                } else {
-                    /*If no switching has been done AND the direction is "asc",
-                    set the direction to "desc" and run the while loop again.*/
-                    if (switchcount === 0 && dir === "asc") {
-                        dir = "desc";
-                        switching = true;
+                        tr[i].style.display = "none";
                     }
                 }
             }
         }
     </script>
 
+
 </head>
 
-<body style="display: flex; flex-direction: row">
+<body style="display: flex; flex-direction: row; height: 100vh;">
 
 
 <div th:replace="~{fragments/navbar :: navbarUse}"></div>
 
 
-<div class="container" style="width: 85%; border-top: 10px">
+<div class="container" style="width: 85%; border-top: 10px; height: 100vh;">
 
     <div th:replace="~{fragments/messages :: success_error_messages}"></div>
 
 
     <h1>Products</h1>
 
-    <hr/>
-
-    <table class="table table-bordered table-striped" id="myTable">
-
-        <thead>
-        <tr>
-            <th onclick="sortTable(0)">ID</th>
-            <th onclick="sortTable(1)">Brand</th>
-            <th onclick="sortTable(2)">Name</th>
-            <th onclick="sortTable(3)">Description</th>
-            <th onclick="sortTable(4)">Price</th>
-            <th onclick="sortTable(5)">Stock</th>
-            <th>Image</th>
-            <th>Delete Product</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="object: ${products}" th:onclick="'rowClicked(' + ${object.productID} + ');'">
-            <td th:text="${object.productID}"/>
-            <td th:text="${object.productBrand}"/>
-            <td th:text="${object.productName}"/>
-            <td th:text="${object.productDescription}"/>
-            <td th:text="'£' + ${object.productPrice}"/>
-            <td th:onclick="'event.stopPropagation(); return false;'">
-                <a class="text-danger" href="#" th:if="${object.productStock <= 10}"
-                   th:text=" 'Product ot of stock. Please place order ' + ${object.productStock}">Product out of
-                    stock</a>
-                <a class="text-warning" href="#" th:if="${object.productStock >10 && object.productStock < 20 }"
-                   th:text=" 'Product in low stock: ' + ${object.productStock}"></a>
-                <a class="text-success" href="#" th:if="${object.productStock >= 20}"
-                   th:text=" 'Product in stock: ' + ${object.productStock}">Product in stock</a>
-
-            </td>
-            <td th:text="${object.image}"/>
-            <td th:onclick="'event.stopPropagation(); return false;'">
-                <a th:onclick="'deleteProduct(' + ${object.productID} + ');'">
-                    <button class="btn btn-danger" type="button">Delete</button>
-                </a>
-            </td>
-        </tr>
-        </tbody>
-
-    </table>
-
     <div class="d-flex  justify-content-center" style="width: 100%">
-
         <a th:href="@{/products/add-product-form}">
             <button class="btn btn-success" type="button">Add product</button>
         </a>
+    </div>
+    <hr/>
+
+    <div class="input-group flex-nowrap" style="width: 100%">
+        <span class="input-group-text" id="addon-wrapping">
+            <svg class="bi bi-search" fill="currentColor" height="16" viewBox="0 0 16 16" width="16"
+                 xmlns="http://www.w3.org/2000/svg">
+                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+            </svg>
+        </span>
+
+        <input aria-describedby="addon-wrapping" aria-label="Phone Name" class="form-control" id="myInput" onkeyup="lookUp()"
+               placeholder="Phone Name" type="text">
+    </div>
+
+    <br>
+
+    <div class="table-responsive" style="height: 100vh;  overflow-y: auto;margin: 0%; padding: 0%;">
+        <table class="table table-bordered table-striped " id="myTable" style="margin: 0%; padding: 0%; display: block">
+
+            <thead>
+            <tr>
+                <th onclick="sortTable(0)">ID</th>
+                <th onclick="sortTable(1)">Brand</th>
+                <th onclick="sortTable(2)">Name</th>
+                <th onclick="sortTable(3)">Description</th>
+                <th onclick="sortTable(4)">Price</th>
+                <th onclick="sortTable(5)">Stock</th>
+                <th>Image</th>
+                <th>Delete Product</th>
+            </tr>
+            </thead>
+            <tbody style="height: 100vh">
+            <tr th:each="object: ${products}" th:onclick="'rowClicked(' + ${object.productID} + ');'">
+                <td th:text="${object.productID}"/>
+                <td th:text="${object.productBrand}"/>
+                <td th:text="${object.productName}"/>
+                <td th:text="${object.productDescription}"/>
+                <td th:text="'£' + ${object.productPrice}"/>
+                <td th:onclick="'event.stopPropagation(); placeOrder(' +  ${object.productID}+');'">
+                    <p class="text-danger" href="#" th:if="${object.productStock <= 10}"
+                       th:text=" 'Product out of stock. Please place order ' + ${object.productStock}">Product out of
+                        stock</p>
+                    <p class="text-warning" href="#" th:if="${object.productStock >10 && object.productStock < 20 }"
+                       th:text="'Product in low stock: ' + ${object.productStock}"></p>
+                    <p class="text-success" href="#" th:if="${object.productStock >= 20}"
+                       th:text=" 'Product in stock: ' + ${object.productStock}">Product in stock</p>
+
+                </td>
+                <td>
+                    <img onerror="this.onerror=null;this.src='/images/image-not-found.png';"
+                         style="width: 100px; height: 100px"
+                         th:src="@{${'/images/' + object.image}}"/>
+                </td>
+                <td th:onclick="'event.stopPropagation(); return false;'">
+                    <a th:onclick="'deleteProduct(' + ${object.productID} + ');'">
+                        <button class="btn btn-danger" type="button">Delete</button>
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+
+        </table>
     </div>
 
 </div>

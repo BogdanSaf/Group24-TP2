@@ -71,6 +71,34 @@ table tr:nth-child(even) {
             });
         }
 
+        function rowClicked(value) {
+
+            $.ajax({
+                method: 'GET',
+                url: '/orders/show/' + value,
+                success: function () {
+                    location.href = "/orders/show/" + value;
+                },
+                error: function (xhr, status, error) {
+                    console.log("Error: " + error);
+                }
+            });
+        }
+
+        function rowClicked(value) {
+
+            $.ajax({
+                method: 'GET',
+                url: '/orders/show/' + value,
+                success: function () {
+                    location.href = "/orders/show/" + value;
+                },
+                error: function (xhr, status, error) {
+                    console.log("Error: " + error);
+                }
+            });
+        }
+
 
 
     </script>
@@ -78,7 +106,7 @@ table tr:nth-child(even) {
 
 <body style="display: flex; flex-direction: row">
 
-<div th:replace="fragments/navbar :: navbarUse"></div>
+<div th:replace="~{fragments/navbar :: navbarUse}"></div>
 
 <div class="container" style="width: 85%; border-top: 10px">
 
@@ -103,50 +131,22 @@ table tr:nth-child(even) {
         </tr>
         </thead>
         <tbody>
-        <tr th:each="object: ${orders}">
+        <tr th:each="object: ${orders}" th:onclick="'rowClicked(' + ${object.orderId} + ');'">
             <td th:text="${object.orderId}" />
             <td th:text="${object.userIdfk.email}" />
-            <td th:text="${object.orderDate}" />
-            <td th:text="${object.arrivalDate}" />
+            <td th:text="${#dates.format(object.orderDate, 'dd-MMM-yyyy')}" />
+            <td th:text="${#dates.format(object.arrivalDate, 'dd-MMM-yyyy')}" />
             <td th:text= "${object.status}" />
             <td>
-                <a th:onclick="'viewItems(' + ${object.orderId} + ');'">
+                <a th:onclick="'event.stopPropagation();viewItems(' + ${object.orderId} + ');'">
                     <button type="button" class="btn btn-primary">View Items</button>
                 </a>
             <td>
-                <a th:onclick="'deleteOrder(' + ${object.orderId} + ');'">
+                <a th:onclick="'event.stopPropagation();deleteOrder(' + ${object.orderId} + ');'">
                     <button type="button" class="btn btn-danger">Delete</button>
                 </a>
             </td>
 
-        </tr>
-        <tr>
-            <td>test</td>
-            <td>test</td>
-            <td>test</td>
-            <td>test</td>
-            <td>test</td>
-        </tr>
-        <tr>
-            <td>test</td>
-            <td>test</td>
-            <td>test</td>
-            <td>test</td>
-            <td>test</td>
-        </tr>
-        <tr>
-            <td>test</td>
-            <td>test</td>
-            <td>test</td>
-            <td>test</td>
-            <td>test</td>
-        </tr>
-        <tr>
-            <td>test</td>
-            <td>test</td>
-            <td>test</td>
-            <td>test</td>
-            <td>test</td>
         </tr>
         </tbody>
 
