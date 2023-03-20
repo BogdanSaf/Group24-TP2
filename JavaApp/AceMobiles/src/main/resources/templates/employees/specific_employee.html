@@ -83,19 +83,24 @@
   <title>Title</title>
 </head>
 <body>
-  <form action="#"
+  <div class = vertical-center>
+    <div id = "form"> 
+      <h2>Update Employee</h2>
+        <form action="#"
         th:action="@{/employees/update/{id}(id=${employee.employeeId})}"
         th:object="${employee}" method="post" th:method="POST">
-    <input type="hidden" th:field="*{employeeId}" id="employeeId" />
-    <label for="firstName">First Name</label>
-    <input type="text" th:field="*{firstName}" id="firstName"/>
-    <label for="surname">Surname</label>
-    <input type="text" th:field="*{surname}" id="surname"/>
-    <label for="email">Email</label>
-    <input type="text"  th:field="*{email}" id="email"/>
-    <input type="hidden" th:field="*{password}" id="password"/>
+        <input type="hidden" th:field="*{employeeId}" id="employeeId" />
+        <label for="firstName">First Name</label>
+        <input type="text" th:field="*{firstName}" id="firstName"/>
+        <label for="surname">Surname</label>
+        <input type="text" th:field="*{surname}" id="surname"/>
+        <label for="email">Email</label>
+        <input type="text"  th:field="*{email}" id="email"/>
+        <input type="hidden" th:field="*{password}" id="password"/>
 
     <button type="submit">Update</button>
   </form>
+  </div>
+  </div>
 </body>
 </html>
