@@ -1,3 +1,76 @@
+<style>
+
+    #form {
+      width: 280px;
+      margin: 0 auto;
+      background-color: #fcfcfc;
+      padding: 20px 50px 40px;
+      box-shadow: 1px 4px 10px 1px #aaa;
+      font-family: 'Poppins', sans-serif;
+      float: left;
+      position: relative;
+      left: -50%;
+    }
+    
+    #form * {
+        box-sizing: border-box;
+    }
+    
+    #form h2{
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    
+    #form input {
+        display: block;
+      height: 32px;
+      padding: 6px 16px;
+      width: 100%;
+      border: none;
+      background-color: #ffffff;
+    }
+    
+    #label {
+      color: #777;
+      font-size: 0.8em;
+    }
+    
+    #input[type=checkbox] {
+      float: left;
+    }
+    
+    #form button[type=submit] {
+      display: block;
+      margin: 20px auto 0;
+      width: 150px;
+      height: 40px;
+      border-radius: 25px;
+      border: none;
+      color: #eee;
+      font-weight: 700;
+      box-shadow: 1px 4px 10px 1px #aaa;
+      
+      background: #207cca;
+      background: linear-gradient(to right, #6271ff 0%,#38b6ff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    
+    }
+    
+    .vertical-center {
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -ms-transform: translateY(-50%);
+      transform: translateY(-50%);
+    }
+    
+    img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+    }
+    </style>
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -17,6 +90,10 @@
 
 </head>
 <body>
+    <div class = vertical-center>
+
+        <div id = "form">
+            <h2>Add Product</h2>
     <form th:method="POST" th:action="@{/products/add-product}"  method="post" th:object="${add_product}" enctype="multipart/form-data">
         <label for="productBrand">Brand</label>
         <input type="text" th:field="*{productBrand}" id="productBrand"/>
@@ -26,12 +103,20 @@
         <input type="text" th:field="*{productDescription}" id="productDescription"/>
         <label for="productPrice">Price</label>
         <input type="number" th:field="*{productPrice}" id="productPrice"/>
+        <br>
         <label for="productStock">Stock</label>
         <input type="number" th:field="*{productStock}" id="productStock"/>
         <label for="uploadImage">Image</label>
         <input type="file" name="uploadImage" accept=".jpg,.jpeg,.png,.gif,.bmp,.tif,.tiff,.svg,.raw,.psd,.ai,.eps,.pdf,.ico,.webp" id="uploadImage" onchange="loadFile(event)">
         <img class="phones"  id="productImage" style="max-height: 200px; max-width: 200px">
         <button type="submit">Add Product</button>
+        <br>
+        <label for="productImage">Image Path</label>
+        <input type="text" th:field="*{image}" id="productImage"/>
+        <button type="submit">Add</button>
     </form>
+    </div>
+    </div>
+
 </body>
 </html>
