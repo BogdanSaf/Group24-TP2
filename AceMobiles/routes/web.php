@@ -41,7 +41,7 @@ Route::get('/contactus', function () {
     return view('user/contactus');
 });
 
-
+//products page
 Route::get('/products', function () {
     return view('user/products');
 });
@@ -49,4 +49,10 @@ Route::get('/products', function () {
 //About us
 Route::get('/aboutus', function () {
     return view('user/acemobileabout');
+});
+
+
+// basket Page
+Route::get('/basket', function () {
+    return view('user/basket');
 });
