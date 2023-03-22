@@ -45,10 +45,13 @@ public class Product {
     @Column(name = "productimage")
     private String productImage;
 
+    @Column(name = "productsold")
+    private int productSold;
+
     public Product() {
     }
 
-    public Product(String productBrand, String productName, String productDescription, int productPrice, int productStock, String image) {
+    public Product(String productBrand, String productName, String productDescription, int productPrice, int productStock, String image, int productSold) {
         this.productBrand = productBrand;
         this.productName = productName;
         this.productDescription = productDescription;
@@ -111,6 +114,14 @@ public class Product {
 
     public void setImage(String image) {
         this.productImage = image;
+    }
+
+    public int getProductSold() {
+        return productSold;
+    }
+
+    public void setProductSold(int productSold) {
+        this.productSold = productSold;
     }
 
 

@@ -43,6 +43,10 @@ public class Orders {
         return orderId;
     }
 
+    public void setOrderId(BigInteger orderId) {
+        this.orderId = orderId;
+    }
+
     public Users getUserIdfk() {
         return usersIdfk;
     }

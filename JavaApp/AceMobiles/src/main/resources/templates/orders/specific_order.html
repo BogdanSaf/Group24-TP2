@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Specific Order</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+</head>
+<body>
+<form action="#"
+      th:action="@{/orders/update/{id}(id=${order.orderId})}"
+      th:object="${order}" method="post" th:method="POST">
+    <input type="hidden" th:field="*{orderId}" id="orderId"/>
+    <label for="customerEmail">Ordered by</label>
+    <input type="text" th:value="*{userIdfk.getEmail()}" id="customerEmail" name="customerEmail"/>
+    <label for="orderDate">Order Date</label>
+    <input type="date" th:field="*{orderDate}" id="orderDate" readonly="readonly"/>
+    <label for="arrivalDate">Arrival Date</label>
+    <input type="date" th:field="*{arrivalDate}" id="arrivalDate" th:min="${minDate}"/>
+    <label for="status">Status</label>
+    <select th:field="*{status}" id="status">
+        <option value="Processing">Processing</option>
+        <option value="In transit">In transit</option>
+        <option value="Processed">Processed</option>
+        <option value="Completed">Completed</option>
+    </select>
+    <button type="submit">Update</button>
+</form>
+</body>
+</html>
+</body>
+</html>

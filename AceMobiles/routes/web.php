@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthFunctions;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,12 +37,27 @@ Route::post('register',[AuthFunctions::class, 'register']) -> name('RegisterUser
 Route::post('login',[AuthFunctions::class, 'login']) -> name('LoginUser');
 
 
+//Products Page and sorting
+Route::get('/products',[ProductController::class, 'returnHomeView']) -> name('ReturnHomeView');
+
+Route::get('/products/Apple',[ProductController::class, 'returnAppleProducts']) -> name('ReturnAppleProducts');
+
+Route::get('/products/Samsung',[ProductController::class, 'returnSamsungProducts']) -> name('ReturnSamsungProducts');
+
+Route::get('/products/Oppo',[ProductController::class, 'returnOppoProducts']) -> name('ReturnOppoProducts');
+
+Route::get('/products/Sony',[ProductController::class, 'returnSonyProducts']) -> name('ReturnSonyProducts');
+
+Route::get('/products/Google',[ProductController::class, 'returnGoogleProducts']) -> name('ReturnGoogleProducts');
+
+Route::get('/products/search', [ProductController::class, 'search'])->name('products.search');
+
 // Contact Us Page
 Route::get('/contactus', function () {
     return view('user/contactus');
 });
 
-//products page
+
 Route::get('/products', function () {
     return view('user/products');
 });

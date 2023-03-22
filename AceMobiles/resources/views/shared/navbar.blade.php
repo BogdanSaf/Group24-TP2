@@ -9,7 +9,7 @@
 <nav class="nav-bar">
     <ul>
         <li>
-            <a href="/" class="active"></i>Home</a>
+            <a href="/" ></i>Home</a>
         </li>
         <li>
             <a href="/aboutus">About</a>
@@ -18,11 +18,11 @@
             <a href="/contactus">Contact</a>
         </li>
         <li>
-                <a href="Products">Products</a>
+                <a href="/products">Products</a>
         </li>
         @if (!Auth::check())
         <li>
-            <a href="/login">Login</a>
+            <a href="/login" class="active">Login</a>
         </li>
 		 <li>
             <a href="/register">Register</a>

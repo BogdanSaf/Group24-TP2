@@ -10,6 +10,8 @@ public class AdminDeatilsService implements UserDetailsService {
     @Autowired
     private AdminRepository adminRepository;
 
+
+
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         Admin admin = adminRepository.findByEmail(email);
