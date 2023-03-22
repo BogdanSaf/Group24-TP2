@@ -50,12 +50,12 @@ Route::get('/products/Sony',[ProductController::class, 'returnSonyProducts']) ->
 
 Route::get('/products/Google',[ProductController::class, 'returnGoogleProducts']) -> name('ReturnGoogleProducts');
 
+Route::get('/products/search', [ProductController::class, 'search'])->name('products.search');
 
 // Contact Us Page
 Route::get('/contactus', function () {
     return view('user/contactus');
 });
-
 
 
 //About us

@@ -1,3 +1,81 @@
+<style>
+
+  #form {
+    width: 280px;
+    margin: 0 auto;
+    background-color: #fcfcfc;
+    padding: 20px 50px 40px;
+    box-shadow: 1px 4px 10px 1px #aaa;
+    font-family: 'Poppins', sans-serif;
+    float: left;
+    position: relative;
+    left: -50%;
+  }
+  
+  #form * {
+      box-sizing: border-box;
+  }
+  
+  #form h2{
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  #form input {
+    margin-bottom: 15px;
+  }
+  
+  #form input[type=text] {
+    display: block;
+    height: 32px;
+    padding: 6px 16px;
+    width: 100%;
+    border: none;
+    background-color: #f3f3f3;
+  }
+  
+  #label {
+    color: #777;
+    font-size: 0.8em;
+  }
+  
+  #input[type=checkbox] {
+    float: left;
+  }
+  
+  #form button[type=submit] {
+    display: block;
+    margin: 20px auto 0;
+    width: 150px;
+    height: 40px;
+    border-radius: 25px;
+    border: none;
+    color: #eee;
+    font-weight: 700;
+    box-shadow: 1px 4px 10px 1px #aaa;
+    
+    background: #207cca;
+    background: linear-gradient(to right, #6271ff 0%,#38b6ff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  
+  }
+  
+  .vertical-center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+  
+  img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
+  </style>
+
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -5,19 +83,24 @@
   <title>Title</title>
 </head>
 <body>
-  <form action="#"
+  <div class = vertical-center>
+    <div id = "form"> 
+      <h2>Update Employee</h2>
+        <form action="#"
         th:action="@{/employees/update/{id}(id=${employee.employeeId})}"
         th:object="${employee}" method="post" th:method="POST">
-    <input type="hidden" th:field="*{employeeId}" id="employeeId" />
-    <label for="firstName">First Name</label>
-    <input type="text" th:field="*{firstName}" id="firstName"/>
-    <label for="surname">Surname</label>
-    <input type="text" th:field="*{surname}" id="surname"/>
-    <label for="email">Email</label>
-    <input type="text"  th:field="*{email}" id="email"/>
-    <input type="hidden" th:field="*{password}" id="password"/>
+        <input type="hidden" th:field="*{employeeId}" id="employeeId" />
+        <label for="firstName">First Name</label>
+        <input type="text" th:field="*{firstName}" id="firstName"/>
+        <label for="surname">Surname</label>
+        <input type="text" th:field="*{surname}" id="surname"/>
+        <label for="email">Email</label>
+        <input type="text"  th:field="*{email}" id="email"/>
+        <input type="hidden" th:field="*{password}" id="password"/>
 
     <button type="submit">Update</button>
   </form>
+  </div>
+  </div>
 </body>
 </html>
