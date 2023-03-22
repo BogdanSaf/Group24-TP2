@@ -42,16 +42,7 @@ table tr:nth-child(even) {
         function deleteOrder(value) {
             if (confirm("Are you sure you want to delete this product?")) {
 
-                $.ajax({
-                    method: 'GET',
-                    url: '/orders/delete/'+ value,
-                    success: function () {
-                        location.href = '/orders/delete/'+ value;
-                    },
-                    error: function (xhr, status, error) {
-                        alert("Error: " + error);
-                    }
-                });
+                location.href = '/orders/delete/'+ value;
 
             }else{
                 alert("Product not deleted");

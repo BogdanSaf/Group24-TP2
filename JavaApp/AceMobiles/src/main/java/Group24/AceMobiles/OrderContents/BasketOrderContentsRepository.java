@@ -23,7 +23,7 @@ public interface BasketOrderContentsRepository extends JpaRepository<BasketOrder
         void deleteById(BigInteger id);
 
         @Query(value = "SELECT * FROM basket_order_contents  WHERE orderidfk = :id", nativeQuery = true)
-        List<BasketOrderContents> findByOrderId(@Param("id") BigInteger orderIDFK);
+        Optional<BasketOrderContents> findByOrderId(@Param("id") BigInteger orderIDFK);
 
         @Transactional
         @Modifying

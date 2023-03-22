@@ -29,7 +29,7 @@
         <label for="productStock">Stock</label>
         <input type="number" th:field="*{productStock}" id="productStock"/>
         <label for="uploadImage">Image</label>
-        <input type="file" name="uploadImage" accept=".jpg,.jpeg,.png,.gif,.bmp,.tif,.tiff,.svg,.raw,.psd,.ai,.eps,.pdf,.ico,.webp" id="uploadImage" onchange="loadFile(event)">
+        <input type="file" name="uploadImage" accept=".jpg,.jpeg,.png,.gif,.bmp,.tif,.tiff,.svg,.raw,.psd,.ai,.eps,.pdf,.ico,.webp" id="uploadImage" onchange="loadFile(event)" required="required">
         <img class="phones"  id="productImage" style="max-height: 200px; max-width: 200px">
         <button type="submit">Add Product</button>
     </form>

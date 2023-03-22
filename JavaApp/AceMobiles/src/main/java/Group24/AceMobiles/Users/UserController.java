@@ -50,6 +50,12 @@ public class UserController {
             return "redirect:/";
         }
 
+        if (userRepository.findById(user.getUserId()).isEmpty()) {
+            String errorMessage = "User does not exist";
+            ra.addFlashAttribute("errorMessage", errorMessage);
+            return "redirect:/";
+        }
+
         userRepository.save(user);
         String successMessage = "User updated successfully";
         ra.addFlashAttribute("message", successMessage);
@@ -60,6 +66,13 @@ public class UserController {
 
     @GetMapping ("/delete/{id}")
     public String deleteUserById(@PathVariable BigInteger id, RedirectAttributes ra) {
+
+        if (userRepository.findById(id).isEmpty()) {
+            String errorMessage = "User does not exist";
+            ra.addFlashAttribute("errorMessage", errorMessage);
+            return "redirect:/";
+        }
+
         userRepository.deleteById(id);
         String successMessage = "User deleted successfully";
         ra.addFlashAttribute("message", successMessage);

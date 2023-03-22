@@ -58,16 +58,7 @@
         function deleteProduct(value) {
             if (confirm("Are you sure you want to delete this product?")) {
 
-                $.ajax({
-                    method: 'GET',
-                    url: '/products/delete/' + value,
-                    success: function () {
-                        location.href = '/products/delete/' + value;
-                    },
-                    error: function (xhr, status, error) {
-                        alert("Error: " + error);
-                    }
-                });
+                location.href = '/products/delete/' + value;
 
             } else {
                 alert("Product not deleted");

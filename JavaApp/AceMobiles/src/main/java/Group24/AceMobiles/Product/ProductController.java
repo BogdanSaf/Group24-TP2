@@ -19,6 +19,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.Objects;
+import java.util.Optional;
 
 @Controller
 @Validated
@@ -35,7 +36,14 @@ public class ProductController {
     }
 
    @GetMapping("/products/show/{id}")
-    public ModelAndView getProductById(@PathVariable BigInteger id) {
+    public ModelAndView getProductById(@PathVariable BigInteger id, RedirectAttributes ra) {
+
+        if (productRepository.findById(id) == null) {
+            ModelAndView mav = new ModelAndView("redirect:/products");
+            ra.addFlashAttribute("errorMessage", "No product found with this id " + id);
+            return mav;
+        }
+
         ModelAndView mav = new ModelAndView("product/specific_product");
         mav.addObject("single_product", productRepository.findById(id).get());
         return mav;
@@ -54,11 +62,17 @@ public class ProductController {
             return "redirect:/products";
         }
 
+        if (productRepository.findById(product.getProductID()).isEmpty()) {
+            String errorMessage = "No product found with this id " + product.getProductID();
+            ra.addFlashAttribute("message", errorMessage);
+            return "redirect:/products";
+        }
+
         String fileNames = StringUtils.cleanPath(Objects.requireNonNull(multipartFile.getOriginalFilename()));
         product.setImage(fileNames);
 
         String fileName = multipartFile.getOriginalFilename();
-        Path imagePath = Paths.get("static/images/", fileName);
+        Path imagePath = Paths.get("src/main/resources/static/images/", fileName);
 
         try {
             if (!Files.exists(imagePath)) {
@@ -71,7 +85,9 @@ public class ProductController {
                 Files.copy(multipartFile.getInputStream(), imagePath, StandardCopyOption.REPLACE_EXISTING);
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            String failMessage = "Image upload failed";
+            ra.addFlashAttribute("errorMessage", failMessage);
+            return "redirect:/products";
         }
 
 
@@ -134,6 +150,15 @@ public class ProductController {
 
     @GetMapping ("/products/delete/{id}")
     public String deleteProductById(@PathVariable BigInteger id, RedirectAttributes ra) {
+        Optional<Product> product = productRepository.findById(id);
+
+        if (product.isEmpty()) {
+            System.out.println("This true");
+            String errorMessage = "No product found with this id " + id;
+            ra.addFlashAttribute("errorMessage", errorMessage);
+            return "redirect:/products";
+        }
+
         productRepository.deleteById(id);
         String successMessage = "Product deleted successfully";
         ra.addFlashAttribute("message", successMessage);
@@ -142,6 +167,13 @@ public class ProductController {
 
     @GetMapping("/products/order/{id}/{quantity}")
     public String orderProductById(@PathVariable BigInteger id, @PathVariable int quantity, RedirectAttributes ra) {
+
+        if (productRepository.findById(id).isEmpty()) {
+            String errorMessage = "Couldnt find the product ";
+            ra.addFlashAttribute("errorMessage", errorMessage);
+            return "redirect:/products";
+        }
+
         Product product = productRepository.findById(id).get();
 
         int validStock = product.getProductStock() + quantity;

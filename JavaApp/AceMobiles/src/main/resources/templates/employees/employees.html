@@ -27,16 +27,7 @@
       function deleteEmployee(value) {
         if (confirm("Are you sure you want to delete this product?")) {
 
-          $.ajax({
-            method: 'GET',
-            url: '/employees/delete/'+ value,
-            success: function () {
-              location.href = '/employees/delete/'+ value;
-            },
-            error: function (xhr, status, error) {
-              alert("Error: " + error);
-            }
-          });
+          location.href = '/employees/delete/'+ value;
 
         }else{
           alert("Product not deleted");

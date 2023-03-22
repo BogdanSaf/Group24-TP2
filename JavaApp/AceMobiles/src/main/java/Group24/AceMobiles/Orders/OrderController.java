@@ -39,6 +39,12 @@ public class OrderController {
 
     @GetMapping("/orders/delete/{id}")
     public String deleteOrder(@PathVariable BigInteger id, RedirectAttributes ra) {
+
+        if (basketOrderContentsRepository.findByOrderId(id).isEmpty()) {
+            String errorMessage = "No order found with this id " + id;
+            ra.addFlashAttribute("message", errorMessage);
+            return "redirect:/orders";
+        }
         basketOrderContentsRepository.deleteByOrderID(id);
         orderRepository.deleteById(id);
         String successMessage = "Order deleted successfully";
