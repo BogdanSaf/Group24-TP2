@@ -25,6 +25,13 @@
     </div>
   </div>
 
+  <div class="search-bar">
+    <form action="{{ route('products.search') }}" method="GET">
+        <input type="text" name="query" placeholder="Search...">
+        <button type="submit">Search</button>
+    </form>
+  </div>
+  
   <div class="product-grid">
     <div class="container">
       <div class="filter-items">

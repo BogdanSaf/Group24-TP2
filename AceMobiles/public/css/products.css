@@ -101,6 +101,7 @@
   background-color: #3e8e41;
 }
 
+
 @media (max-width: 1024px) {
   .filter-item {
     width: calc(25% - 20px);
