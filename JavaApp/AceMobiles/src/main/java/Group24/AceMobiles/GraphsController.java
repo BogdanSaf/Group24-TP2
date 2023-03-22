@@ -23,6 +23,7 @@ public class GraphsController {
         ArrayList<Integer> productPrices = new ArrayList<Integer>();
         ArrayList<Integer> productStocks = new ArrayList<Integer>();
         ArrayList<String> randomColours = new ArrayList<String>();
+        ArrayList<Integer> productsSold = new ArrayList<Integer>();
 
         List<Product> products = productRepository.findAll();
 
@@ -30,11 +31,13 @@ public class GraphsController {
             productNames.add(product.getProductName());
             productPrices.add(product.getProductPrice());
             productStocks.add(product.getProductStock());
+            productsSold.add(product.getProductSold());
             randomColours.add("rgb(" + (int) (Math.random() * 255) + "," + (int) (Math.random() * 255) + "," + (int) (Math.random() * 255) + ")");
         }
         mav.addObject("productNames", productNames);
         mav.addObject("productPrices", productPrices);
         mav.addObject("productStocks", productStocks);
+        mav.addObject("productsSold", productsSold);
         mav.addObject("randomColours", randomColours);
         return mav;
     }

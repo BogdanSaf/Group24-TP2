@@ -114,6 +114,7 @@ img {
                 <label for="productImage">Image</label>
                 <input type="file" name="uploadImage" accept=".jpg,.jpeg,.png,.gif,.bmp,.tif,.tiff,.svg,.raw,.psd,.ai,.eps,.pdf,.ico,.webp" id="uploadImage" onchange="loadFile(event)">
                 <img class="phones" th:src="@{${'/images/' + single_product.getImage()}}"  id="productImage" style="height: 200px; width: 200px">
+                <input type="hidden" th:field="*{productSold}" id="productSols">
                 
                 <button type="submit">Update</button>
              </form>
