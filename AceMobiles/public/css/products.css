@@ -101,6 +101,45 @@
   background-color: #3e8e41;
 }
 
+.search-bar {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  }
+  
+  .search-bar input[type="text"] {
+  width: 300px;
+  height: 40px;
+  padding: 0 10px;
+  border: 2px solid #ccc;
+  border-radius: 20px;
+  outline: none;
+  font-size: 16px;
+  transition: border-color 0.2s ease-in-out;
+  }
+  
+  .search-bar input[type="text"]:focus {
+  border-color: #4CAF50;
+  }
+  
+  .search-bar button[type="submit"] {
+  height: 40px;
+  padding: 0 20px;
+  margin-left: 10px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  }
+  
+  .search-bar button[type="submit"]:hover {
+  background-color: #3e8e41;
+  }
 
 @media (max-width: 1024px) {
   .filter-item {
