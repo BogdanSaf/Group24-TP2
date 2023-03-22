@@ -1,5 +1,9 @@
 .category-filter {
-  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
 }
 
 .title {
@@ -14,14 +18,21 @@
   gap: 10px;
 }
 
+.filter-btn:hover {
+  background-color: #4CAF50;
+  color: #fff;
+}
+
 .filter-btn {
   padding: 10px 20px;
   border-radius: 20px;
   border: none;
-  background-color: #ccc;
+  background-color: #eee;
   font-weight: bold;
   color: #444;
   cursor: pointer;
+  margin: 5px;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .filter-btn.active {
