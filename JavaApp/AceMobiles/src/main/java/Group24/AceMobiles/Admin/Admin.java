@@ -27,8 +27,7 @@ public class Admin {
     public Admin() {
     }
 
-    public Admin(BigInteger adminID, String firstName, String surname, String email, String password) {
-        this.adminID = adminID;
+    public Admin(String firstName, String surname, String email, String password) {
         this.firstName = firstName;
         this.surname = surname;
         this.email = email;

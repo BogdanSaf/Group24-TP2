@@ -50,6 +50,7 @@ Route::get('/products/Sony',[ProductController::class, 'returnSonyProducts']) ->
 
 Route::get('/products/Google',[ProductController::class, 'returnGoogleProducts']) -> name('ReturnGoogleProducts');
 
+Route::get('/products/search', [ProductController::class, 'search'])->name('products.search');
 
 // Contact Us Page
 Route::get('/contactus', function () {
@@ -57,8 +58,17 @@ Route::get('/contactus', function () {
 });
 
 
+Route::get('/products', function () {
+    return view('user/products');
+});
 
 //About us
 Route::get('/aboutus', function () {
     return view('user/acemobileabout');
+});
+
+
+// basket Page
+Route::get('/basket', function () {
+    return view('user/basket');
 });

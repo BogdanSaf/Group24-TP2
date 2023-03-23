@@ -31,5 +31,15 @@ class ProductController extends Controller
     public function returnGoogleProducts() {
         return view('user.products', ['products' => Product::where('productBrand', 'Google')->get()]);
     }
+
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+        $products = Product::where('productName', 'LIKE', "%$query%")->get();
+    
+        return view('user/products', compact('products'));
+    }
+
+    
 }
 

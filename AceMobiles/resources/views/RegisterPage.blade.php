@@ -3,6 +3,7 @@
 <head>
     <title>Register Page</title>
     
+    <meta http-equiv="Content-Security-policy" content="updagreade-insecure-request">
     @include('shared.header')
     <link rel="stylesheet" href="{{ asset('/css/RegisterPage.css')}}">
     

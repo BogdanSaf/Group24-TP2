@@ -80,14 +80,27 @@ img {
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title th:text="${single_product.getProductName()}"></title>
+
+    <script>
+        const loadFile = function (event) {
+            const reader = new FileReader();
+            reader.onload = function () {
+                const productImage = document.getElementById('productImage');
+                productImage.src = reader.result;
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        };
+
+    </script>
 </head>
 <body>
-<<<<<<< HEAD:JavaApp/AceMobiles/src/main/resources/templates/specific_product.html
     <div class = vertical-center>
         <div id = "form">
-          <h2>Edit Product Details</h1>
-            <form action="#" th:object="${single_product}" method="post" th:method="POST">
+          <h2>Edit Product Details</h2>
+            <form th:action="@{/products/update/{id}(id=${single_product.productID})}"
+                  th:object="${single_product}" method="post" th:method="POST" enctype="multipart/form-data">
+                <input type="hidden" th:field="*{productID}" id="productID"/>
                 <label for="productBrand">Brand</label>
                 <input type="text" th:field="*{productBrand}" id="productBrand"/>
                 <label for="productName">Name</label>
@@ -98,33 +111,14 @@ img {
                 <input type="text"  th:field="*{productPrice}" id="productPrice"/>
                 <label for="productStock">Stock</label>
                 <input type="text"  th:field="*{productStock}" id="productStock"/>
-                <label for="productImage">Image Path</label>
-                <input type="text"  th:field="*{productStock}" id="productStock"/>
-                <img class="phones" src = "..\..\..\..\..\..\AceMobiles\public\images\sony-xperia-1-III-gallery-6-300721.jpg">
+                <label for="productImage">Image</label>
+                <input type="file" name="uploadImage" accept=".jpg,.jpeg,.png,.gif,.bmp,.tif,.tiff,.svg,.raw,.psd,.ai,.eps,.pdf,.ico,.webp" id="uploadImage" onchange="loadFile(event)">
+                <img class="phones" th:src="@{${'/images/' + single_product.getImage()}}"  id="productImage" style="height: 200px; width: 200px">
+                <input type="hidden" th:field="*{productSold}" id="productSols">
                 
                 <button type="submit">Update</button>
              </form>
         </div>  
     </div>
-=======
-     <form action="#"
-           th:action="@{/products/update/{id}(id=${single_product.productID})}"
-           th:object="${single_product}" method="post" th:method="POST">
-        <input type="hidden" th:field="*{productID}" id="productID" />
-        <label for="productBrand">Brand</label>
-        <input type="text" th:field="*{productBrand}" id="productBrand"/>
-        <label for="productName">Name</label>
-        <input type="text" th:field="*{productName}" id="productName"/>
-        <label for="productDescription">Description</label>
-        <input type="text"  th:field="*{productDescription}" id="productDescription"/>
-        <label for="productPrice">Price</label>
-        <input type="text"  th:field="*{productPrice}" id="productPrice"/>
-        <label for="productStock">Stock</label>
-        <input type="text"  th:field="*{productStock}" id="productStock"/>
-        <label for="productImage">Image</label>
-        <input type="text"  th:field="*{image}" id="productImage"/>
-        <button type="submit">Update</button>
-     </form>
->>>>>>> d9a4191dc1a4432a0b5226260bf9db4e64e99963:JavaApp/AceMobiles/src/main/resources/templates/product/specific_product.html
 </body>
 </html>

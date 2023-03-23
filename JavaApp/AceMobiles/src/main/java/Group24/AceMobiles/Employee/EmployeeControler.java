@@ -2,6 +2,7 @@ package Group24.AceMobiles.Employee;
 
 import Group24.AceMobiles.Product.Product;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -36,7 +37,7 @@ public class EmployeeControler {
 
 
     @PostMapping("/employees/update/{id}")
-    public String updateEmployeeById(@Valid @ModelAttribute Employees employee, BindingResult bindingResult, RedirectAttributes ra) {
+    public String updateEmployeeById(@PathVariable BigInteger id,@Valid @ModelAttribute Employees employee, BindingResult bindingResult, RedirectAttributes ra) {
 
 
         System.out.println(employee.getEmployeeId());
@@ -46,8 +47,14 @@ public class EmployeeControler {
             return "redirect:/employees";
         }
 
+        if (employeeRepository.findById(id).isEmpty()){
+            String errorMessage = "Employee does not exist";
+            ra.addFlashAttribute("errorMessage", errorMessage);
+            return "redirect:/employees";
+        }
+
         employeeRepository.save(employee);
-        String successMessage = "Product updated successfully";
+        String successMessage = "Employee updated successfully";
         ra.addFlashAttribute("message", successMessage);
 
         return "redirect:/employees";
@@ -79,7 +86,7 @@ public class EmployeeControler {
         }
 
         if (employee.equals(null)) {
-            String errorMessage = "Product cannot be null";
+            String errorMessage = "Employee cannot be null";
             ra.addFlashAttribute("message", errorMessage);
             return "redirect:/employees";
         }
@@ -95,7 +102,7 @@ public class EmployeeControler {
         employee.setPassword(passwordEncoder.encode(employee.getPassword()));
 
         employeeRepository.save(employee);
-        String successMessage = "Product added successfully";
+        String successMessage = "Employee added successfully";
         ra.addFlashAttribute("message", successMessage);
         return "redirect:/employees";
     }

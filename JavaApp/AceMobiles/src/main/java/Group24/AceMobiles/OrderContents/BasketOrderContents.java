@@ -1,4 +1,4 @@
-package Group24.AceMobiles;
+package Group24.AceMobiles.OrderContents;
 
 import Group24.AceMobiles.Orders.Orders;
 import Group24.AceMobiles.Product.Product;
