@@ -36,9 +36,7 @@ Route::post('register',[AuthFunctions::class, 'register']) -> name('RegisterUser
 
 Route::post('login',[AuthFunctions::class, 'login']) -> name('LoginUser');
 
-
 //Products Page and sorting
-Route::get('/', [ProductController::class, 'returnHomeView'])->name('');
 
 Route::get('/products', [ProductController::class, 'returnHomeView']) -> name('ReturnHomeView');
 
