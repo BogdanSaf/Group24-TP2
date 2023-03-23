@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('surname');
             $table->string('address');
             $table->string('postcode'); 
-            $table->integer('phoneNumber');
+            $table->string('phoneNumber');
             $table->string('email')->unique();
             $table->string('password');
         });

@@ -38,7 +38,9 @@ Route::post('login',[AuthFunctions::class, 'login']) -> name('LoginUser');
 
 
 //Products Page and sorting
-Route::get('/', [ProductController::class, 'returnHomeView'])->name('ReturnHomeView');
+Route::get('/', [ProductController::class, 'returnHomeView'])->name('');
+
+Route::get('/products', [ProductController::class, 'returnHomeView']) -> name('ReturnHomeView');
 
 Route::get('/products/Apple',[ProductController::class, 'returnAppleProducts']) -> name('ReturnAppleProducts');
 
@@ -57,10 +59,10 @@ Route::get('/contactus', function () {
     return view('user/contactus');
 });
 
-
-Route::get('/products', function () {
-    return view('user/products');
-});
+// Give it another URL '/products' will have a conflict with the above route named 'ReturnHomeView'
+// Route::get('/products', function () {
+//     return view('user/products');
+// });
 
 //About us
 Route::get('/aboutus', function () {
