@@ -15,16 +15,23 @@
         <h1>Products</h1>
       </div>
       <div class="filter-btns">
-        <a href="{{ route('ReturnHomeView')}}"><button type="button" class="filter-btn active" id="all">ALL</button></a>
-        <a href="{{ route('ReturnAppleProducts')}}"><button type="button" class="filter-btn active" id="Apple">APPLE</button></a>
-        <a href="{{ route('ReturnSamsungProducts')}}"><button type="button" class="filter-btn active" id="Apple">SAMSUNG</button></a>
-        <a href="{{ route('ReturnOppoProducts')}}"><button type="button" class="filter-btn active" id="Apple">OPPO</button></a>
-        <a href="{{ route('ReturnSonyProducts')}}"><button type="button" class="filter-btn active" id="Apple">SONY</button></a>
-        <a href="{{ route('ReturnGoogleProducts')}}"><button type="button" class="filter-btn active" id="Apple">GOOGLE</button></a>
+        <a href="{{ route('ReturnHomeView')}}"><button type="button" class="filter-btn active" data-filter="All">ALL</button></a>
+        <a href="{{ route('ReturnAppleProducts')}}"><button type="button" class="filter-btn" data-filter="Apple">APPLE</button></a>
+        <a href="{{ route('ReturnSamsungProducts')}}"><button type="button" class="filter-btn" data-filter="Samsung">SAMSUNG</button></a>
+        <a href="{{ route('ReturnOppoProducts')}}"><button type="button" class="filter-btn" data-filter="Oppo">OPPO</button></a>
+        <a href="{{ route('ReturnSonyProducts')}}"><button type="button" class="filter-btn" data-filter="Sony">SONY</button></a>
+        <a href="{{ route('ReturnGoogleProducts')}}"><button type="button" class="filter-btn" data-filter="Google">GOOGLE</button></a>
       </div>
     </div>
   </div>
 
+  <div class="search-bar">
+    <form action="{{ route('products.search') }}" method="GET">
+        <input type="text" name="query" placeholder="Search...">
+        <button type="submit">Search</button>
+    </form>
+  </div>
+  
   <div class="product-grid">
     <div class="container">
       <div class="filter-items">
@@ -54,6 +61,23 @@
     </div>
   </div>
 
-  <script src="{{ asset('js/script.js') }}"></script>
+  <script>
+  // Get all filter buttons
+const filterButtons = document.querySelectorAll('.filter-btn');
+
+// Add click event listener to each button
+filterButtons.forEach(button => {
+  button.addEventListener('click', function() {
+    // Remove active class from all buttons
+    filterButtons.forEach(btn => {
+      btn.classList.remove('active');
+    });
+    // Add active class to clicked button
+    this.classList.add('active');
+  });
+});
+
+  
+  </script>
 </body>
 </html>
