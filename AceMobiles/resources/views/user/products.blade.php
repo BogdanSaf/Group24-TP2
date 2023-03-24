@@ -18,10 +18,10 @@
       <div class="filter-btns">
         <a href="{{ route('ReturnHomeView')}}"><button type="button" class="filter-btn {{ request()->is('products') ? 'active' : ''}}" data-filter="All">ALL</button></a>
         <a href="{{ route('ReturnAppleProducts')}}"><button type="button" class="filter-btn {{ request()->is('products/Apple') ? 'active' : ''}}" data-filter="Apple">APPLE</button></a>
-        <a href="{{ route('ReturnSamsungProducts')}}"><button type="button" class="filter-btn" data-filter="Samsung">SAMSUNG</button></a>
-        <a href="{{ route('ReturnOppoProducts')}}"><button type="button" class="filter-btn" data-filter="Oppo">OPPO</button></a>
-        <a href="{{ route('ReturnSonyProducts')}}"><button type="button" class="filter-btn" data-filter="Sony">SONY</button></a>
-        <a href="{{ route('ReturnGoogleProducts')}}"><button type="button" class="filter-btn" data-filter="Google">GOOGLE</button></a>
+        <a href="{{ route('ReturnSamsungProducts')}}"><button type="button" class="filter-btn {{ request()->is('products/Samsung') ? 'active' : ''}}" data-filter="Samsung">SAMSUNG</button></a>
+        <a href="{{ route('ReturnOppoProducts')}}"><button type="button" class="filter-btn {{ request()->is('products/Oppo') ? 'active' : ''}}" data-filter="Oppo">OPPO</button></a>
+        <a href="{{ route('ReturnSonyProducts')}}"><button type="button" class="filter-btn {{ request()->is('products/Sony') ? 'active' : ''}}" data-filter="Sony">SONY</button></a>
+        <a href="{{ route('ReturnGoogleProducts')}}"><button type="button" class="filter-btn {{ request()->is('products/Google') ? 'active' : ''}}" data-filter="Google">GOOGLE</button></a>
       </div>
     </div>
   </div>
