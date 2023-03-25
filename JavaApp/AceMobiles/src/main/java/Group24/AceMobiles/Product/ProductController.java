@@ -38,7 +38,7 @@ public class ProductController {
    @GetMapping("/products/show/{id}")
     public ModelAndView getProductById(@PathVariable BigInteger id, RedirectAttributes ra) {
 
-        if (productRepository.findById(id) == null) {
+        if (productRepository.findById(id).isEmpty()) {
             ModelAndView mav = new ModelAndView("redirect:/products");
             ra.addFlashAttribute("errorMessage", "No product found with this id " + id);
             return mav;
@@ -72,7 +72,8 @@ public class ProductController {
         product.setImage(fileNames);
 
         String fileName = multipartFile.getOriginalFilename();
-        Path imagePath = Paths.get("src/main/resources/static/images/", fileName);
+        Path imagePath = Paths.get("../../AceMobiles/public/images", fileName);
+        Path imagePath2 = Paths.get("src/main/resources/static/images", fileName);
 
         try {
             if (!Files.exists(imagePath)) {
@@ -83,6 +84,22 @@ public class ProductController {
             } else {
                 // Overwrite the existing file
                 Files.copy(multipartFile.getInputStream(), imagePath, StandardCopyOption.REPLACE_EXISTING);
+            }
+        } catch (IOException e) {
+            String failMessage = "Image upload failed";
+            ra.addFlashAttribute("errorMessage", failMessage);
+            return "redirect:/products";
+        }
+
+        try {
+            if (!Files.exists(imagePath2)) {
+                // Create directories if they don't exist
+                Files.createDirectories(imagePath2.getParent());
+                // Save the file to the images directory
+                Files.copy(multipartFile.getInputStream(), imagePath2);
+            } else {
+                // Overwrite the existing file
+                Files.copy(multipartFile.getInputStream(), imagePath2, StandardCopyOption.REPLACE_EXISTING);
             }
         } catch (IOException e) {
             String failMessage = "Image upload failed";
@@ -126,7 +143,8 @@ public class ProductController {
         product.setImage(fileNames);
 
         String fileName = multipartFile.getOriginalFilename();
-        Path imagePath = Paths.get("static/images/", fileName);
+        Path imagePath = Paths.get("src/main/resources/static/images", fileName);
+        Path imagePath2 = Paths.get("../../AceMobiles/public/images", fileName);
 
         try {
             if (!Files.exists(imagePath)) {
@@ -139,8 +157,28 @@ public class ProductController {
                 Files.copy(multipartFile.getInputStream(), imagePath, StandardCopyOption.REPLACE_EXISTING);
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            String failMessage = "Image upload failed";
+            ra.addFlashAttribute("errorMessage", failMessage);
+            return "redirect:/products";
         }
+
+        try {
+            if (!Files.exists(imagePath2)) {
+                // Create directories if they don't exist
+                Files.createDirectories(imagePath2.getParent());
+                // Save the file to the images directory
+                Files.copy(multipartFile.getInputStream(), imagePath2);
+            } else {
+                // Overwrite the existing file
+                Files.copy(multipartFile.getInputStream(), imagePath2, StandardCopyOption.REPLACE_EXISTING);
+            }
+        } catch (IOException e) {
+            String failMessage = "Image upload failed";
+            ra.addFlashAttribute("errorMessage", failMessage);
+            return "redirect:/products";
+        }
+
+
 
         productRepository.save(product);
         String successMessage = "Product added successfully";

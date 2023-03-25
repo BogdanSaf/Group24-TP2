@@ -78,7 +78,7 @@
                   labels: xValues,
                   datasets: [{
                       backgroundColor: barColors,
-                      data: soldProducts
+                      data: soldProducts,
                   }]
               },
               options: {
@@ -86,7 +86,9 @@
                   title: {
                       display: true,
                       text: "Products Sold"
-                  }
+                  },
+                  minRotation: 0,
+                  suggestedMin: 0
               }
           });
 
