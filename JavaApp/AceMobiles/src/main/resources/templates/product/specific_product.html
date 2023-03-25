@@ -34,6 +34,16 @@
   background-color: #f3f3f3;
 }
 
+#form input[type=number] {
+    display: block;
+    height: 32px;
+    padding: 6px 16px;
+    width: 100%;
+    border: none;
+    background-color: #f3f3f3;
+}
+
+
 #label {
   color: #777;
   font-size: 0.8em;
@@ -108,9 +118,9 @@ img {
                 <label for="productDescription">Description</label>
                 <input type="text"  th:field="*{productDescription}" id="productDescription"/>
                 <label for="productPrice">Price</label>
-                <input type="text"  th:field="*{productPrice}" id="productPrice"/>
+                <input type="number"  th:field="*{productPrice}" id="productPrice" min="1"/>
                 <label for="productStock">Stock</label>
-                <input type="text"  th:field="*{productStock}" id="productStock"/>
+                <input type="number"  th:field="*{productStock}" id="productStock" min="1"/>
                 <label for="productImage">Image</label>
                 <input type="file" name="uploadImage" accept=".jpg,.jpeg,.png,.gif,.bmp,.tif,.tiff,.svg,.raw,.psd,.ai,.eps,.pdf,.ico,.webp" id="uploadImage" onchange="loadFile(event)">
                 <img class="phones" th:src="@{${'/images/' + single_product.getImage()}}"  id="productImage" style="height: 200px; width: 200px">

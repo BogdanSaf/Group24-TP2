@@ -42,18 +42,7 @@
     <script>
         function deleteOrder(value, value2) {
             if (confirm("Are you sure you want to delete this product?")) {
-
-                $.ajax({
-                    method: 'GET',
-                    url: '/orders/item/delete/' + value + '/' + value2,
-                    success: function () {
-                        location.href = '/orders/item/delete/' + value + '/' + value2;
-                    },
-                    error: function (xhr, status, error) {
-                        alert("Error: " + error);
-                    }
-                });
-
+                location.href = '/orders/item/delete/' + value + '/' + value2;
             } else {
                 alert("Product not deleted");
             }

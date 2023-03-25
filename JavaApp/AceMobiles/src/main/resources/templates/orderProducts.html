@@ -29,16 +29,29 @@
   <html lang="en" xmlns:th="http://www.thymeleaf.org">
   
   <head>
-    <title>Employees</title>
-  
-    <link rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
-          integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
-          crossorigin="anonymous" />
+      <meta charset="UTF-8">
+      <title>Items inside order</title>
+      <link crossorigin="anonymous"
+            href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+            integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+            rel="stylesheet"/>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+      <script>
+          function deleteOrder(value, value2) {
+              if (confirm("Are you sure you want to delete this product?")) {
+                  location.href = '/orders/item/delete/' + value + '/' + value2;
+              } else {
+                  alert("Product not deleted");
+              }
+          }
+      </script>
   </head>
   
   <body style="display: flex; flex-direction: row">
-  
+
   <div th:replace="fragments/navbar :: navbarUse"></div>
   
   <div class="container" style="width: 85%; border-top: 10px">
@@ -56,6 +69,7 @@
             <th scope="col">Product Description</th>
             <th scope="col">Product Price</th>
             <th scope="col">Product Quantity</th>
+            <th scope="col">Delete</th>
         </tr>
         </thead>
         <tbody>
@@ -66,6 +80,9 @@
             <td th:text="${order.productIdfk.getProductDescription()}"></td>
             <td th:text="${order.productIdfk.getProductPrice()}"></td>
             <td th:text="${order.quantity}"></td>
+            <td>
+                <button class="btn btn-danger" th:onclick="'deleteOrder(' +  ${order.getOrderIdfk().getOrderId()} + ',' + ${order.productIdfk.getProductID()} +');'">Delete</button>
+            </td>
         </tr>
         </tbody>
     </table>

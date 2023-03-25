@@ -1,5 +1,6 @@
 package Group24.AceMobiles.Product;
 
+import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -45,6 +46,7 @@ public class Product {
     @Column(name = "productimage")
     private String productImage;
 
+    @Nullable
     @Column(name = "productsold")
     private int productSold;
 
