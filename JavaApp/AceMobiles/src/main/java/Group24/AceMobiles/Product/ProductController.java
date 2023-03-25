@@ -38,7 +38,7 @@ public class ProductController {
    @GetMapping("/products/show/{id}")
     public ModelAndView getProductById(@PathVariable BigInteger id, RedirectAttributes ra) {
 
-        if (productRepository.findById(id) == null) {
+        if (productRepository.findById(id).isEmpty()) {
             ModelAndView mav = new ModelAndView("redirect:/products");
             ra.addFlashAttribute("errorMessage", "No product found with this id " + id);
             return mav;
@@ -72,7 +72,7 @@ public class ProductController {
         product.setImage(fileNames);
 
         String fileName = multipartFile.getOriginalFilename();
-        Path imagePath = Paths.get("src/main/resources/static/images/", fileName);
+        Path imagePath = Paths.get("../AceMobiles/public/images", fileName);
 
         try {
             if (!Files.exists(imagePath)) {
