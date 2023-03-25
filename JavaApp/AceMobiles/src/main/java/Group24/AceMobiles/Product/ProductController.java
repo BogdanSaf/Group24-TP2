@@ -68,8 +68,13 @@ public class ProductController {
             return "redirect:/products";
         }
 
+        System.out.println(product.getProductBrand().isEmpty());
+
         String fileNames = StringUtils.cleanPath(Objects.requireNonNull(multipartFile.getOriginalFilename()));
-        product.setImage(fileNames);
+
+        if (!fileNames.isEmpty()){
+
+            product.setImage(fileNames);
 
         String fileName = multipartFile.getOriginalFilename();
         Path imagePath = Paths.get("../../AceMobiles/public/images", fileName);
@@ -87,7 +92,7 @@ public class ProductController {
             }
         } catch (IOException e) {
             String failMessage = "Image upload failed";
-            ra.addFlashAttribute("errorMessage", failMessage);
+            ra.addFlashAttribute("message", failMessage);
             return "redirect:/products";
         }
 
@@ -103,9 +108,11 @@ public class ProductController {
             }
         } catch (IOException e) {
             String failMessage = "Image upload failed";
-            ra.addFlashAttribute("errorMessage", failMessage);
+            ra.addFlashAttribute("message", failMessage);
             return "redirect:/products";
         }
+        }
+
 
 
 
