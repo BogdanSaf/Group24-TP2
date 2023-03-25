@@ -52,6 +52,7 @@ Route::get('/products/Google',[ProductController::class, 'returnGoogleProducts']
 
 Route::get('/products/search', [ProductController::class, 'search'])->name('products.search');
 
+
 // Contact Us Page
 Route::get('/contactus', function () {
     return view('user/contactus');
@@ -71,4 +72,9 @@ Route::get('/aboutus', function () {
 // basket Page
 Route::get('/basket', function () {
     return view('user/basket');
+});
+
+// individual products page 
+Route::get('/detail', function () {
+    return view('user/detail');
 });
