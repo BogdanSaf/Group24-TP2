@@ -102,10 +102,10 @@
         <label for="productDescription">Description</label>
         <input type="text" th:field="*{productDescription}" id="productDescription"/>
         <label for="productPrice">Price</label>
-        <input type="number" th:field="*{productPrice}" id="productPrice"/>
+        <input type="number" th:field="*{productPrice}" id="productPrice" min="1"/>
         <br>
         <label for="productStock">Stock</label>
-        <input type="number" th:field="*{productStock}" id="productStock"/>
+        <input type="number" th:field="*{productStock}" id="productStock" min="1"/>
         <label for="uploadImage">Image</label>
         <input type="file" name="uploadImage" accept=".jpg,.jpeg,.png,.gif,.bmp,.tif,.tiff,.svg,.raw,.psd,.ai,.eps,.pdf,.ico,.webp" id="uploadImage" onchange="loadFile(event)" required="required">
         <img class="phones"  id="productImage" style="max-height: 200px; max-width: 200px">

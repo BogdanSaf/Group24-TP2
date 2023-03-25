@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.springframework.util.FileSystemUtils;
 
 import javax.validation.Valid;
 import java.io.IOException;
@@ -35,7 +34,7 @@ public class ProductController {
         return mav;
     }
 
-   @GetMapping("/products/show/{id}")
+    @GetMapping("/products/show/{id}")
     public ModelAndView getProductById(@PathVariable BigInteger id, RedirectAttributes ra) {
 
         if (productRepository.findById(id).isEmpty()) {
@@ -50,15 +49,9 @@ public class ProductController {
     }
 
     @PostMapping("/products/update/{id}")
-    public String updateProductById(@RequestParam("uploadImage") MultipartFile multipartFile,@Valid @ModelAttribute Product product,BindingResult bindingResult,RedirectAttributes ra) throws IOException {
+    public String updateProductById(@RequestParam("uploadImage") MultipartFile multipartFile, @Valid @ModelAttribute Product product, BindingResult bindingResult, RedirectAttributes ra) throws IOException {
         if (bindingResult.hasErrors()) {
             ra.addFlashAttribute("errors", bindingResult);
-            return "redirect:/products";
-        }
-
-        if(multipartFile.isEmpty()){
-            String errorMessage = "Image cannot be empty";
-            ra.addFlashAttribute("message", errorMessage);
             return "redirect:/products";
         }
 
@@ -68,52 +61,50 @@ public class ProductController {
             return "redirect:/products";
         }
 
-        System.out.println(product.getProductBrand().isEmpty());
+        product.setImage(productRepository.findById(product.getProductID()).get().getImage());
 
-        String fileNames = StringUtils.cleanPath(Objects.requireNonNull(multipartFile.getOriginalFilename()));
 
-        if (!fileNames.isEmpty()){
+        if (!multipartFile.isEmpty()) {
 
+            String fileNames = StringUtils.cleanPath(Objects.requireNonNull(multipartFile.getOriginalFilename()));
             product.setImage(fileNames);
 
-        String fileName = multipartFile.getOriginalFilename();
-        Path imagePath = Paths.get("../../AceMobiles/public/images", fileName);
-        Path imagePath2 = Paths.get("src/main/resources/static/images", fileName);
+            String fileName = multipartFile.getOriginalFilename();
+            Path imagePath = Paths.get("../../AceMobiles/public/images", fileName);
+            Path imagePath2 = Paths.get("src/main/resources/static/images", fileName);
 
-        try {
-            if (!Files.exists(imagePath)) {
-                // Create directories if they don't exist
-                Files.createDirectories(imagePath.getParent());
-                // Save the file to the images directory
-                Files.copy(multipartFile.getInputStream(), imagePath);
-            } else {
-                // Overwrite the existing file
-                Files.copy(multipartFile.getInputStream(), imagePath, StandardCopyOption.REPLACE_EXISTING);
+            try {
+                if (!Files.exists(imagePath)) {
+                    // Create directories if they don't exist
+                    Files.createDirectories(imagePath.getParent());
+                    // Save the file to the images directory
+                    Files.copy(multipartFile.getInputStream(), imagePath);
+                } else {
+                    // Overwrite the existing file
+                    Files.copy(multipartFile.getInputStream(), imagePath, StandardCopyOption.REPLACE_EXISTING);
+                }
+            } catch (IOException e) {
+                String failMessage = "Image upload failed";
+                ra.addFlashAttribute("message", failMessage);
+                return "redirect:/products";
             }
-        } catch (IOException e) {
-            String failMessage = "Image upload failed";
-            ra.addFlashAttribute("message", failMessage);
-            return "redirect:/products";
-        }
 
-        try {
-            if (!Files.exists(imagePath2)) {
-                // Create directories if they don't exist
-                Files.createDirectories(imagePath2.getParent());
-                // Save the file to the images directory
-                Files.copy(multipartFile.getInputStream(), imagePath2);
-            } else {
-                // Overwrite the existing file
-                Files.copy(multipartFile.getInputStream(), imagePath2, StandardCopyOption.REPLACE_EXISTING);
+            try {
+                if (!Files.exists(imagePath2)) {
+                    // Create directories if they don't exist
+                    Files.createDirectories(imagePath2.getParent());
+                    // Save the file to the images directory
+                    Files.copy(multipartFile.getInputStream(), imagePath2);
+                } else {
+                    // Overwrite the existing file
+                    Files.copy(multipartFile.getInputStream(), imagePath2, StandardCopyOption.REPLACE_EXISTING);
+                }
+            } catch (IOException e) {
+                String failMessage = "Image upload failed";
+                ra.addFlashAttribute("message", failMessage);
+                return "redirect:/products";
             }
-        } catch (IOException e) {
-            String failMessage = "Image upload failed";
-            ra.addFlashAttribute("message", failMessage);
-            return "redirect:/products";
         }
-        }
-
-
 
 
         productRepository.save(product);
@@ -132,8 +123,8 @@ public class ProductController {
         return mav;
     }
 
-    @PostMapping(value="/products/add-product")
-    public String addProduct(@RequestParam("uploadImage") MultipartFile multipartFile, @Valid @ModelAttribute Product product, BindingResult bindingResult, RedirectAttributes ra){
+    @PostMapping(value = "/products/add-product")
+    public String addProduct(@RequestParam("uploadImage") MultipartFile multipartFile, @Valid @ModelAttribute Product product, BindingResult bindingResult, RedirectAttributes ra) {
 
         if (bindingResult.hasErrors()) {
             ra.addFlashAttribute("errors", bindingResult);
@@ -186,14 +177,13 @@ public class ProductController {
         }
 
 
-
         productRepository.save(product);
         String successMessage = "Product added successfully";
         ra.addFlashAttribute("message", successMessage);
         return "redirect:/products";
     }
 
-    @GetMapping ("/products/delete/{id}")
+    @GetMapping("/products/delete/{id}")
     public String deleteProductById(@PathVariable BigInteger id, RedirectAttributes ra) {
         Optional<Product> product = productRepository.findById(id);
 
@@ -223,11 +213,11 @@ public class ProductController {
 
         int validStock = product.getProductStock() + quantity;
 
-        if(validStock < 9999){
+        if (validStock < 9999) {
             product.setProductStock(validStock);
-        } else{
-            System.out.println("Product stock for"+ product.getProductName() +" exceeds 9999");
-            String errorMessage = "Product stock for "+ product.getProductName() +" exceeds 9999";
+        } else {
+            System.out.println("Product stock for" + product.getProductName() + " exceeds 9999");
+            String errorMessage = "Product stock for " + product.getProductName() + " exceeds 9999";
             ra.addFlashAttribute("errorMessage", errorMessage);
             return "redirect:/products";
         }
