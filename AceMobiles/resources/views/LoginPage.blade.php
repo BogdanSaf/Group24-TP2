@@ -6,7 +6,10 @@
     <meta http-equiv="Content-Security-Policy" content="updagreade-insecure-requests">
     @include('shared.header')
     <link rel="stylesheet" href="{{ asset('css/LoginPage.css') }}">
+
     
+    
+
 </head>
 <body>
     
@@ -17,6 +20,14 @@
             @foreach ($errors->all() as $error)
                 <h4>{{ $error }}</h4>
             @endforeach
+        </div>
+    @endif
+
+    @if (session('err'))
+    
+        <div class="alert alert-danger">
+            <h4>{{session()->get('err')}}</h4>
+            {{session()->forget('err')}}
         </div>
     @endif
 
