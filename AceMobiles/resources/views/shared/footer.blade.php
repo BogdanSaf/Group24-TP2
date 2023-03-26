@@ -8,9 +8,9 @@
                 |
                 <a href="/aboutus">About</a>
                 |
-                <a href="/contactus">Contact</a>
-                |
                 <a href="/products">Products</a>
+                |
+                <a href="/contactus">Contact</a>
             </p>
 
             <p class="footer-company-name">Copyright © 2023 <strong>Ace Mobiles</strong> All rights reserved</p>
