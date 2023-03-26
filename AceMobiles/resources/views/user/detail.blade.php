@@ -14,7 +14,7 @@
     <div class="small-container single-product">
         <div class="row">
             <div class="col-2">
-                <img src="images/google-pixel-6-pro-front-gallery-1-141021.jpg" width= "100%" id="ProductImg">
+                <img src="{{ URL::asset('/images/' . $product->productImage) }}" width= "100%" id="ProductImg">
        <div class="small-img-row">
         <div class="small-img-col">
             <img src="images/google-pixel-6-pro-front-gallery-1-141021.jpg" width= "100%" class="small-img"alt="">
@@ -32,8 +32,8 @@
      </div>
      <div class="col-2">
         <p>Home/ phone</p>
-        <h1>mobiles from ACEMOBILES</h1>
-        <h4>£1000</h4>
+        <h1>{{ $product -> productName}}</h1>
+        <h4>{{ $product -> productPrice }}</h4>
         <select>
             <option value="">Select colour</option>
             <option value="">Pink</option>
@@ -44,7 +44,7 @@
         <a href="" class="btn">Add to Cart</a>
         <h3>Product Details<i class= "fa fa-indent"></i></h3>
         <br>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis nihil fugit sed quidem possimus iusto quo, ipsam, tempora soluta, ratione quisquam dolor at beatae voluptas ab ex? Quaerat, temporibus quis!</p>
+        <p>{{ $product -> productDescription}}</p>
      </div>
     </div>
 </div> 
