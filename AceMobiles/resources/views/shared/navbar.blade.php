@@ -15,10 +15,10 @@
             <a href="/aboutus">About</a>
         </li>
         <li>
-            <a href="/contactus">Contact</a>
+            <a href="/products">Products</a>
         </li>
         <li>
-                <a href="/products">Products</a>
+                <a href="/contactus">Contact</a>
         </li>
         @if (!Auth::check())
         <li>
