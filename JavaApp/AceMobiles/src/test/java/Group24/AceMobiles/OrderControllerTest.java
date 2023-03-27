@@ -25,6 +25,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import java.math.BigInteger;
 import java.sql.Date;
+import java.util.List;
 import java.util.Optional;
 
 import static org.mockito.BDDMockito.given;
@@ -71,7 +72,7 @@ public class OrderControllerTest {
         bs.setQuantity(1);
 
         given(orderRepository.findById(order.getOrderId())).willReturn(Optional.of(order));
-        given(basketOrderContentsRepository.findByOrderId(order.getOrderId())).willReturn(Optional.of((bs)));
+        given(basketOrderContentsRepository.findByOrderId(order.getOrderId())).willReturn(List.of((bs)));
 
         // Perform a get request to the delete-employee endpoint
         mockMvc.perform(get("/orders/delete/" + order.getOrderId()))
@@ -123,7 +124,7 @@ public class OrderControllerTest {
         order.setStatus("pending");
 
         given(orderRepository.findById(order.getOrderId())).willReturn(Optional.of(order));
-        given(basketOrderContentsRepository.findByOrderId(order.getOrderId())).willReturn(Optional.empty());
+        given(basketOrderContentsRepository.findByOrderId(order.getOrderId())).willReturn(List.of());
 
         mockMvc.perform(get("/orders/viewItems/" + order.getOrderId()))
                 .andExpect(status().is3xxRedirection())
