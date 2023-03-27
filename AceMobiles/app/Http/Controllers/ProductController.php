@@ -44,7 +44,6 @@ class ProductController extends Controller
         $product = Product::find($id);
         return view('user.detail', ['product' => $product]);
     }
-    
 
     
 }
