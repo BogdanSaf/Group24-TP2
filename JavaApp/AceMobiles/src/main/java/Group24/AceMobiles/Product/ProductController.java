@@ -71,7 +71,7 @@ public class ProductController {
 
             String fileName = multipartFile.getOriginalFilename();
             Path imagePath = Paths.get("../../AceMobiles/public/images", fileName);
-            Path imagePath2 = Paths.get("src/main/resources/static/images", fileName);
+            Path imagePath2 = Paths.get("src/main/LiveFolder/images", fileName);
 
             try {
                 if (!Files.exists(imagePath)) {
@@ -141,7 +141,7 @@ public class ProductController {
         product.setImage(fileNames);
 
         String fileName = multipartFile.getOriginalFilename();
-        Path imagePath = Paths.get("src/main/resources/static/images", fileName);
+        Path imagePath = Paths.get("src/main/LiveFolder/images", fileName);
         Path imagePath2 = Paths.get("../../AceMobiles/public/images", fileName);
 
         try {
