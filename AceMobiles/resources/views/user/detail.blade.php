@@ -33,7 +33,7 @@
      <div class="col-2">
         <p>Home/ phone</p>
         <h1>{{ $product -> productName}}</h1>
-        <h4>{{ $product -> productPrice }}</h4>
+        <h4>£{{ $product -> productPrice }}</h4>
         <select>
             <option value="">Select colour</option>
             <option value="">Pink</option>
