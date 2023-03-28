@@ -25,6 +25,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import java.math.BigInteger;
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -123,8 +124,10 @@ public class OrderControllerTest {
         order.setArrivalDate(Date.valueOf("2020-01-08"));
         order.setStatus("pending");
 
+        List<BasketOrderContents> basketOrderContentsList = new ArrayList<>();
+
         given(orderRepository.findById(order.getOrderId())).willReturn(Optional.of(order));
-        given(basketOrderContentsRepository.findByOrderId(order.getOrderId())).willReturn(List.of());
+        given(basketOrderContentsRepository.findByOrderId(order.getOrderId())).willReturn(basketOrderContentsList);
 
         mockMvc.perform(get("/orders/viewItems/" + order.getOrderId()))
                 .andExpect(status().is3xxRedirection())
