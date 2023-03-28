@@ -61,7 +61,7 @@ public class OrderController {
             return new ModelAndView("redirect:/orders");
         }
 
-        modelAndView.addObject("orderItems", basketOrderContentsRepository.findByOrderId(id).get());
+        modelAndView.addObject("orderItems", basketOrderContentsRepository.findByOrderId(id));
         modelAndView.addObject("userThatOrdered", userThatOrdered);
         return modelAndView;
     }

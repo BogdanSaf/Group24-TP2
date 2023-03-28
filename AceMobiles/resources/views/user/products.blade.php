@@ -39,7 +39,7 @@
         @foreach ($products as $product)
           <div class="filter-item all {{ $product->productBrand }}">
             <div class="item-img">
-              <a href="products/preview/{{ $product['productID'] }}">
+                <a href="/products/preview/{{ $product['productID'] }}">
                 <img src="{{ URL::asset('/images/' . $product->productImage) }}" alt="{{ $product->productName }}" width="250" height="300">
               </a>
             </div>

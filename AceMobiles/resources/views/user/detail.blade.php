@@ -14,7 +14,7 @@
     <div class="small-container single-product">
         <div class="row">
             <div class="col-2">
-                <img src="{{ URL::asset('/images/' . $product->productImage) }}" width= "100%" id="ProductImg">
+            <img src="{{ asset('images/' . $product->productImage) }}" alt="{{ $product->productName }}" width="250" height="300">
        <div class="small-img-row">
         <div class="small-img-col">
             <img src="images/google-pixel-6-pro-front-gallery-1-141021.jpg" width= "100%" class="small-img"alt="">

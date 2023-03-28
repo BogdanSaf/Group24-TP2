@@ -177,7 +177,7 @@
                 <td>
                     <img onerror="this.onerror=null;this.src='/images/image-not-found.png';"
                          style="width: 100px; height: 100px"
-                         th:src="@{${'/images/' + object.image}}"/>
+                         th:src="@{${'/live/images/' + object.image}}"/>
                 </td>
                 <td th:onclick="'event.stopPropagation(); return false;'">
                     <a th:onclick="'deleteProduct(' + ${object.productID} + ');'">

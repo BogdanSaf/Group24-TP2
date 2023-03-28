@@ -52,7 +52,7 @@ Route::get('/products/Google',[ProductController::class, 'returnGoogleProducts']
 
 Route::get('/products/search', [ProductController::class, 'search'])->name('products.search');
 
-Route::get('products/preview/{id}', [ProductController::class, 'specificProduct']);
+Route::get('products/preview/{id}', [ProductController::class, 'specificProduct'])->name('preview');
 
 
 // Contact Us Page
