@@ -58,14 +58,14 @@
 
         Quantity: <input type="number" value="1"></input>
         <br></br>
-        <div class="item-action">
-              <form action="{{ asset('addToBasket') }}" method="post">
-                @csrf
-                <input type="hidden" value="{{ $product['id'] }}" name="id">
-                <button type="submit" class="add-to-basket-btn">Add to basket</button>
-              </form>
+            <div class="item-action">
+                <form action="{{ asset('addToBasket') }}" method="post">
+                    @csrf
+                    <input type="hidden" value="{{ $product['id'] }}" name="id">
+                    <button type="submit" class="add-to-basket-btn">Add to basket</button>
+                </form>
             </div>
-        <h3>Product Details<i class= "fa fa-indent"></i></h3>
+         <h3>Product Details<i class= "fa fa-indent"></i></h3>
         <br>
         <p>{{ $product -> productDescription}}</p>
      </div>
