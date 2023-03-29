@@ -117,6 +117,7 @@ input:focus{
 .submitButtonContainer>button:hover{
     cursor: pointer;
     font-weight: bold;
+    background-color: #00A2FF;
 }
 
 h1{
