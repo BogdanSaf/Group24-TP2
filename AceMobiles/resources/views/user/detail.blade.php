@@ -33,6 +33,17 @@
      <div class="col-2">
       <!--  <p>Home/ phone</p> -->
         <h1>{{ $product -> productName}}</h1>
+        <?php
+      
+      if ($product->productStock == 0)
+      {
+          echo '<h4 style="color:red;">Out Of Stock</h4>';
+      }
+      else 
+      {
+          echo '<h4 style="color:blue;">In Stock</h4>';
+      }
+      ?>
         <h4>£{{ $product -> productPrice }}</h4>
         <select>
             <option value="">Select colour</option>
@@ -42,17 +53,7 @@
         </select>
        <br>
        
-       <?php
-      
-        if ($product->productStock == 0)
-        {
-            echo '<h4 style="color:red;">Out Of Stock</h4>';
-        }
-        else 
-        {
-            echo '<h4 style="color:blue;">In Stock</h4>';
-        }
-        ?>
+
 
 
         Quantity: <input type="number" value="1"></input>
