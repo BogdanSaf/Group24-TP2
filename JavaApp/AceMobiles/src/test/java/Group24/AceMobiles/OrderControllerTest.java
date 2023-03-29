@@ -95,10 +95,10 @@ public class OrderControllerTest {
         order.setStatus("pending");
 
         Users userIdfk = new Users();
-        userIdfk.setEmail("suckIt@gmail.com");
-        userIdfk.setFirstName("Suck");
+        userIdfk.setEmail("fake@gmail.com");
+        userIdfk.setFirstName("fake");
         userIdfk.setSurname("It");
-        userIdfk.setAddress("123 suck it street");
+        userIdfk.setAddress("123 fake it street");
         userIdfk.setPostcode("1234");
         userIdfk.setPhoneNumber("123456789");
         userIdfk.setPassword("123456789");
