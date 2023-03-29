@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     
-    <title>Login Page</title>
+<title>Ace Mobiles | Login</title> 
     <meta http-equiv="Content-Security-Policy" content="updagreade-insecure-requests">
     @include('shared.header')
     <link rel="stylesheet" href="{{ asset('css/LoginPage.css') }}">

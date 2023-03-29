@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{{ asset('css/detail.css') }}">
    
     @include('shared.header')
-    <title>Document</title>
+    <title>Ace Mobiles | Products</title> 
 </head>
 <body>
 @include('shared.navbar')
