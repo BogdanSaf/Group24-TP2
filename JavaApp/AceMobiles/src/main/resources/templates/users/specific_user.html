@@ -97,7 +97,7 @@
                     <label for="phoneNumber">Phone Number</label>
                     <input type="tel"  th:field="*{phoneNumber}" id="phoneNumber"/>
                     <label for="email">Email</label>
-                    <input type="text"  th:field="*{email}" id="email"/>
+                    <input type="text"  th:field="*{email}" id="email" required/>
                     <input type="hidden" th:field="*{password}" id="password"/>
                     <button type="submit">Update</button>
                 </form>
