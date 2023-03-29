@@ -19,7 +19,7 @@
 }
 
 .filter-btn:hover {
-  background-color: #5271ff;
+  background-color: #0077be;
   color: #fff;
 }
 
@@ -36,7 +36,7 @@
 }
 
 .filter-btn.active {
-  background-color: #38b6ff;
+  background-color: #0077be;
   color: #fff;
 }
 
@@ -102,15 +102,14 @@
   padding: 10px 20px;
   border-radius: 20px;
   border: none;
-  background-color: #5271ff ;
-  color:black;;
+  background-color: #0077be;
   font-weight: bold;
   color: #fff;
   cursor: pointer;
 }
 
 .item-action button:hover {
-  background-color: #38b6ff;
+  background-color: #090979;
 }
 
 .search-bar {
@@ -132,14 +131,14 @@
   }
   
   .search-bar input[type="text"]:focus {
-  border-color: #5271ff;
+  border-color: #0077be;
   }
   
   .search-bar button[type="submit"] {
   height: 40px;
   padding: 0 20px;
   margin-left: 10px;
-  background-color: #5271ff;
+  background-color: #0077be;
   color: #fff;
   border: none;
   border-radius: 20px;
@@ -150,7 +149,7 @@
   }
   
   .search-bar button[type="submit"]:hover {
-  background-color: #38b6ff;
+  background-color: #090979;
   }
 
 @media (max-width: 1024px) {

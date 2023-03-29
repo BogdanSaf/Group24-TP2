@@ -83,3 +83,4 @@ filterButtons.forEach(button => {
   @include('shared.footer')
 </body>
 </html>
+
