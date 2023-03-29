@@ -100,7 +100,7 @@ input:focus{
 
 .submitButtonContainer>button{
     width: 100%;
-    background-color: black;
+    background-color: #007fff;
     color: white;
     border-radius: 10px;
     font-weight: bold;
