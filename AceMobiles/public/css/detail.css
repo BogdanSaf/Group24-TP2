@@ -111,3 +111,16 @@ p{
     background: #38b6ff;
 }
 
+.item-action button {
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: none;
+    background-color: #007fff;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .item-action button:hover {
+    background-color: #00A2FF;
+  }
