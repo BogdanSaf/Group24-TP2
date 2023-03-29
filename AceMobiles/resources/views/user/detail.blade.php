@@ -31,7 +31,7 @@
        </div>
      </div>
      <div class="col-2">
-        <p>Home/ phone</p>
+      <!--  <p>Home/ phone</p> -->
         <h1>{{ $product -> productName}}</h1>
         <h4>£{{ $product -> productPrice }}</h4>
         <select>
@@ -40,7 +40,23 @@
             <option value="">blue</option>
             <option value="">black</option>
         </select>
-        <input type="number" value="1">
+       <br>
+       
+       <?php
+      
+        if ($product->productStock == 0)
+        {
+            echo '<h4 style="color:red;">out of stock</h4>';
+        }
+        else 
+        {
+            echo '<h4 style="color:blue;">In stock</h4>';
+        }
+        ?>
+
+
+        Quantity: <input type="number" value="1"></input>
+        <br>
         <a href="" class="btn">Add to Cart</a>
         <h3>Product Details<i class= "fa fa-indent"></i></h3>
         <br>
@@ -49,6 +65,7 @@
     </div>
 </div> 
 
+<!--
 <script>
     var ProductImg = document.getElementById("ProductImg");
     var SmallImg = document.getElementbyClassName("small-img");
@@ -70,8 +87,8 @@ SmallImg[3].onclick = function()
     ProductImg.src = SmallImg[3].src;
 }
 </script>
-
+-->
 
 </body>
-
+@include('shared.footer')
 </html>
