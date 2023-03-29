@@ -40,12 +40,10 @@ class ProductController extends Controller
         return view('user/products', compact('products'));
     }
 
-    public function specificProduct($id){
-
-		$product = Product::find($id);
-		return view('user.detail',['product' => $product]);
-
-	}
+    public function specificProduct($id) {
+        $product = Product::find($id);
+        return view('user.detail', ['product' => $product]);
+    }
 
     
 }

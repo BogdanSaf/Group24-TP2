@@ -14,7 +14,7 @@
     <div class="small-container single-product">
         <div class="row">
             <div class="col-2">
-                <img src="{{ URL::asset('/images/' . $product->productImage) }}" width= "100%" id="ProductImg">
+            <img src="{{ asset('images/' . $product->productImage) }}" alt="{{ $product->productName }}" width="250" height="300">
        <div class="small-img-row">
         <div class="small-img-col">
             <img src="images/google-pixel-6-pro-front-gallery-1-141021.jpg" width= "100%" class="small-img"alt="">
@@ -31,17 +31,33 @@
        </div>
      </div>
      <div class="col-2">
-        <p>Home/ phone</p>
+      <!--  <p>Home/ phone</p> -->
         <h1>{{ $product -> productName}}</h1>
-        <h4>{{ $product -> productPrice }}</h4>
+        <h4>£{{ $product -> productPrice }}</h4>
         <select>
             <option value="">Select colour</option>
             <option value="">Pink</option>
             <option value="">blue</option>
             <option value="">black</option>
         </select>
-        <input type="number" value="1">
-        <a href="" class="btn">Add to Cart</a>
+       <br>
+       
+       <?php
+      
+        if ($product->productStock == 0)
+        {
+            echo '<h4 style="color:red;">Out Of Stock</h4>';
+        }
+        else 
+        {
+            echo '<h4 style="color:blue;">In Stock</h4>';
+        }
+        ?>
+
+
+        Quantity: <input type="number" value="1"></input>
+        <br>
+        <a href="" class="btn">Add to Basket</a>
         <h3>Product Details<i class= "fa fa-indent"></i></h3>
         <br>
         <p>{{ $product -> productDescription}}</p>
@@ -49,6 +65,7 @@
     </div>
 </div> 
 
+<!--
 <script>
     var ProductImg = document.getElementById("ProductImg");
     var SmallImg = document.getElementbyClassName("small-img");
@@ -70,7 +87,8 @@ SmallImg[3].onclick = function()
     ProductImg.src = SmallImg[3].src;
 }
 </script>
-
+-->
 
 </body>
+@include('shared.footer')
 </html>
