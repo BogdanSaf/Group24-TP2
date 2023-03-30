@@ -1,5 +1,10 @@
+
+*{
+	font-family: 'Arial';
+}
+
 div{
-#border:20px solid #000000;
+
 margin:0px;
 outline-color: rgb(0%,0%,0%);
 }
