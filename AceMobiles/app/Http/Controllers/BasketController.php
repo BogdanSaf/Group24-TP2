@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 
 use Illuminate\Http\Request;
-use App\Models\User;
-use App\Models\Basket;
-use App\Models\Employee;
+use App\Models\users;
+use App\Models\basket_order_contents;
+use App\Models\baskets;
+use App\Models\employees;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 use App\Models\Product;
+use Illuminate\Support\Facades\DB;
 
 
 class BasketController extends Controller
@@ -17,7 +19,12 @@ class BasketController extends Controller
 {
 
 //adding a product to the basket: 
+public function index(){
 
+    $basket = DB::table ('basket_order_contents')
+        ->join('products', 'productIDFK', "=", "id")
+
+}
     public function addProduct (Request $request)
     {
 
@@ -71,7 +78,7 @@ class BasketController extends Controller
 
     }
 
-else
+// else
 {
 
     return response() ->json(['status' =>"Login to Continue"]);
