@@ -26,7 +26,7 @@ Since then, our company has expanded to over 200 stores across the UK as well as
 
 <h3>How to run the project </h3>
 
-<h4>Laravel</h4>
+<h4>AceMobiles</h4>(Laravel)
 
 The Laravel part will contain the main website that will be accessed by the users and employees. Here they can register, log in, browse and purchase items.
 
