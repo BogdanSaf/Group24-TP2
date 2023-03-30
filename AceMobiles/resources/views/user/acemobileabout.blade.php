@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Ace Mobiles About</title>
+    <title>Ace Mobiles | About Us</title>
     <link href="AceAbout.css" rel="stylesheet" type="text/css" media="all">
 </head>
 <body>
