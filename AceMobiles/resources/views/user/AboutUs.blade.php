@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Ace Mobiles | About Us</title>
-    <link href="AceAbout.css" rel="stylesheet" type="text/css" media="all">
+    <link href={{aseet('AceAbout.css')}} rel="stylesheet" type="text/css" media="all">
 </head>
 <body>
  @include('shared.navbar')
