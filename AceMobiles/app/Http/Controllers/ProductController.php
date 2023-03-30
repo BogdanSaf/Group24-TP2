@@ -59,8 +59,8 @@ class ProductController extends Controller
 			$productPrice = DB::table('products')->where('id', $request->input('id'))->value('price');
 			$tempID = Auth::id();
 			$baskets = new basket_order_contents();
-			$baskets->basketck = $tempID;
-			$baskets->productck = $productID;
+			$baskets->userIDFK = $tempID;
+			$baskets->productIDFK = $productID;
 			//$basket->orderfk = 1;
 			$baskets->quantity = 1;
 			$baskets->totalPrice = $price;
