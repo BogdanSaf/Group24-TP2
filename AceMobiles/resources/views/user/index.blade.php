@@ -23,23 +23,17 @@
                                 <thead>
                                     <tr>
                                         <th>Order Date</th>
-                                        <th>Tracking Number</th>
-                                        <th>Total Price</th>
-                                        <th>Status</th>
-                                        <th>Action</th>
+                                        <th>Arrival Date</th>
+                                        <th>Order Status</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($orders as $item)
+                                    @foreach($orders as $order)
 
                                     <tr>
-                                        <td>{{  date('d-m-Y', strtotime($item->created_at))}}</td>
-                                        <td>{{ $item->tracking_no }}</td>
-                                        <td>{{ $item->total_price }}</td>
-                                        <td>{{ $item->status == '0' ?'pending' : 'completed'}}</td>
-                                        <td>
-                                                <a href="{{ url('view-order/'.$item->id) }}" class="btn btn-primary">View</a>
-                                            </td>
+                                        <td>{{ $order['orderDate']->format('d/ m/ Y') }}</td>
+                                        <td>{{ $order['arrivalDate']->format('d/ m/ Y') }}</td>
+                                        <td>{{ $order['status'] }}</td>
                                     </tr>
                                 @endforeach
                                 </tbody>
