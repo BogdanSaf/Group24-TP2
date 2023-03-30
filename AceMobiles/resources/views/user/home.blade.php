@@ -38,13 +38,13 @@
             <h1>Ace Mobiles</h1>
             <p>Find the phone that is right for you!</p>
         </div>
-        <img src="images/iphoneslideshow1.jpg" style="width: 100%; height: 100%;">
+        <img src="images/samsungslideshow2.png" style="width: 100%; height: 100%;">
     </div>
     
     <div class="myslide fade">
         <div class="txt">
         </div>
-        <img src="images/samsungslideshow2.png" style="width: 100%; height: 100%;">
+        <img src="images/iphoneslideshow1.jpg" style="width: 100%; height: 100%;">
     </div>
     
     <div class="myslide fade">
@@ -62,37 +62,6 @@
   </div>
 </div>
             
-
-
-
-<!--<div class = "slideshow-container">
-    <div class = "mySlides fade">
-        <img src="slideshow-shoe-1.jpg" style="width:100%">
-    </div>
-
-    <div class="mySlides fade">
-        <img src="slideshow-shoe-2.jpg" style="width:100%">
-    </div>
-
-    <div class="mySlides fade">
-        <img src="slideshow-shoe-3.jpg" style="width:100%">
-    </div>
-
-    <a class="prev" onclick="plusSlides(-1)">❮</a>
-    <a class="next" onclick="plusSlides(1)">❯</a>
-
-    <br>
-
-    <div style="text-align:center">
-        <span class="dot" onclick="currentSlide(1)"></span> 
-        <span class="dot" onclick="currentSlide(2)"></span> 
-        <span class="dot" onclick="currentSlide(3)"></span> 
-      </div>
-
-</div> -->
-
-
-
  
 <div class="cardshomepg">
     <div class="cardhomepage">
@@ -101,18 +70,18 @@
         <p><button1>Shop now</button></p>
     </div>
 
-    <div class="images/cardhomepage">
-        <img src="googleblendedit.png" alt="" style="width:100%">
+    <div class="cardhomepage">
+        <img src="images/googleblendedit.png" alt="" style="width:100%">
         <h1> Google</h1>
         <p><button1>Shop now</button1></p>
     </div>
     <div class="cardhomepage">
-        <img src="images/iphoneslideshow1.jpg" alt="" style="width:100%">
+        <img src="images/samsungblendedit.png" alt="" style="width:100%">
         <h1> Samsung</h1>
         <p><button1>Shop now</button1></p>
     </div>
     <div class="cardhomepage">
-        <img src="images/samsungblendedit.png" alt="" style="width:100%">
+        <img src="images/oppoblendedit.png" alt="" style="width:100%">
         <h1> Oppo</h1>
         <p><button1>Shop now</button1></p>
     </div>
@@ -154,11 +123,52 @@
     </div>
 </div>
 
- 
-
-
-
-        <script src="page1.js"> </script> 
 </body>
+<script>
+const myslide = document.querySelectorAll('.myslide'),
+	  dot = document.querySelectorAll('.dot');
+let counter = 1;
+slidefun(counter);
+
+let timer = setInterval(autoSlide, 8000);
+function autoSlide() {
+	counter += 1;
+	slidefun(counter);
+}
+function plusSlides(n) {
+	counter += n;
+	slidefun(counter);
+	resetTimer();
+}
+function currentSlide(n) {
+	counter = n;
+	slidefun(counter);
+	resetTimer();
+}
+function resetTimer() {
+	clearInterval(timer);
+	timer = setInterval(autoSlide, 8000);
+}
+
+function slidefun(n) {
+	
+	let i;
+	for(i = 0;i<myslide.length;i++){
+		myslide[i].style.display = "none";
+	}
+	for(i = 0;i<dot.length;i++) {
+		dot[i].className = dot[i].className.replace(' active', '');
+	}
+	if(n > myslide.length){
+	   counter = 1;
+	   }
+	if(n < 1){
+	   counter = myslide.length;
+	   }
+	myslide[counter - 1].style.display = "block";
+	dot[counter - 1].className += " active";
+}
+        </script> 
 @include('shared.footer')
 </html>
+
