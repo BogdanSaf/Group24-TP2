@@ -5,7 +5,7 @@
     <title>About Us</title>
     @include('shared.header')
     <script src="https://kit.fontawesome.com/c32adfdcda.js" crossorigin="anonymous"></script>
-    <link href={{asset('AceAbout.css')}} rel="stylesheet" type="text/css" media="all">
+    <link href={{ asset('AceAbout.css') }} rel="stylesheet" type="text/css" media="all">
      
 </head>
 <body>
@@ -38,13 +38,13 @@
 			<h3>Thanks to your support, we have won many awards!</h3>
 			<div class="row">
 			  <div class="column">
-				<img src={{asset('retailer.png')}} alt="test1" style="width: 50%">
+				<img src={{ asset('retailer.png') }} alt="test1" style="width: 50%">
 			  </div>
 			  <div class="column">
-				<img src="{{asset('MIA.png"')}} alt="test2" style="width: 50%">
+				<img src="{{ asset('MIA.png') }} alt="test2" style="width: 50%">
 			  </div>
 			  <div class="column">
-				<img src="{{asset('choice.png')}} alt="test3" style="width: 50%">
+				<img src="{{ asset('choice.png') }} alt="test3" style="width: 50%">
 			  </div>	
 			</div>
     </center>
