@@ -81,6 +81,8 @@ Route::get('/checkout', function () {
   });
 
 Route::any('/checkout',[BasketController::class, 'getInfo']);
+Route::any('placeOrder',[OrderController::class, 'placeOrder']);
+
 
 
 // individual products page 
