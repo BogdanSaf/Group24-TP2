@@ -2,8 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Basket_Order_Contents;
+use App\Models\Baskets;
+use App\Cart;
+
+use Session;
 
 class ProductController extends Controller
 {
@@ -45,8 +53,7 @@ class ProductController extends Controller
         return view('user.detail', ['product' => $product]);
     }
 
-    public function addToBasket(Request $request){
-
+    public function addToBasket(Request $request) {
 		if(Auth::check()){
 			$productID = $request->input('id');
 			$productPrice = DB::table('products')->where('id', $request->input('id'))->value('price');
@@ -62,7 +69,7 @@ class ProductController extends Controller
 
 			return redirect()->back();
 
-		}else{
+		} else {
 			return back()->withErrors(['errors'=>'You must be logged in to add to basket']);
 		}
 
