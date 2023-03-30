@@ -65,7 +65,7 @@
         @else
           <form action="{{ route('AddToBasket') }}" method="post">
             @csrf
-            <input type="hidden" value="{{ $product['id'] }}" name="id">
+            <input type="hidden" value="{{ $product['productID'] }}" name="id">
             <button type="submit" class="add-to-basket-btn">Add to basket</button>
           </form>
         @endif

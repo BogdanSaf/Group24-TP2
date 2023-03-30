@@ -30,35 +30,24 @@
 </div>
 
     <div class= "shop">
-        <div class = "box">
-          <!--img src ="" alt=""> -->
+
+            @foreach($decoded as $item)
+            <?php $totalPrice += $item['totalPrice'] * $item['quantity']; $imagePath = "/images/" .  $item['productImage']; ?>
+            <div class = "box">
+            <img src ="{{ URL::asset($imagePath)}}" alt="">
                  <div class="content">
-    <tr>
-             <th scope="col">Product</th>
-             <th scope="col">Price</th>
-             <th scope="col">Quantity</th>
-             <th scope="col">Ops</th>
-    </tr>
-</thread>
-<tbody>
+             <h3>{{$item['productName']}} </h3>
+             <h4>{{$item['productPrice']}}</h4>
+             <p class="unit">Quantity:<input value="{{$item['quantity']}}"></p>
+             <p class="btn-area">
+                <i class = "fa fa-trash"></i>
+                <span class ="btn2">Remove</span>
+            </p>
 
-    <!-- @foreach($decoded as $item) -->
-        <?php $totalPrice += $totalPrice ['totalPrice'] * $quantity ['quantity']; ?>
-              <tr>
-                <form action="removeFromBasket" method="POST">
-                    @csrf
-                    <td> {{$item['name'] }}</td>
-                    <td>£{{$item['totalPrice'] }}</td>
-                    <td>£{{$item['quantity'] }}</td>
-                    <td><button type="submit" class="btn btn-danger">Remove</button></td>
-                    <input type="hidden" name="basketcontentsid" value="{{ $item['basketContentID'] }}">
-                </form>
-            </tr>
-
-        @endforeach
-
-    </tbody>
-</table>
+        </div>
+        
+    </div>
+    @endforeach
 
 <div class="row">
         <div class="col-sm-4 alert alert-primary mx-3">
@@ -104,20 +93,7 @@
     </div>
 
 
-<div class = "box">
-            <img src ="" alt="">
-                 <div class="content">
-             <h3>iPhone 14 Pro Max </h3>
-             <h4> Price: £££</h4>
-             <p class="unit">Quantity: <input value=""></p>
-             <p class="btn-area">
-                <i class = "fa fa-trash"></i>
-                <span class ="btn2">Remove</span>
-            </p>
 
-        </div>
-    </div>
-</div>
 
 <div class="right-bar">
         <p><span>Subtotal</span> <span>£££</span></p>

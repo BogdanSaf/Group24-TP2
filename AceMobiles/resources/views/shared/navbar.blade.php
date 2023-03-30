@@ -12,10 +12,11 @@
     
             </div>
             <li class="search-icon">
-                    <form action="{{ route('products.search') }}" method="GET"></form>
+                    <form action="{{ route('products.search') }}" method="GET">
                     <input type="text" name="query" placeholder="Search...">
                     <label class="icon" type="submit">
                     <span class="fas fa-search"></span>
+                    </form>
                </label>
             </li>
             <div class="basket">
