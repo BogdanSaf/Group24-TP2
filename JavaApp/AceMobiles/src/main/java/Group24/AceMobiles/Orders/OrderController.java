@@ -1,7 +1,6 @@
 package Group24.AceMobiles.Orders;
 
 import Group24.AceMobiles.OrderContents.BasketOrderContentsRepository;
-import Group24.AceMobiles.Product.Product;
 import Group24.AceMobiles.Users.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,9 +12,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import javax.validation.Valid;
 import java.math.BigInteger;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.Calendar;
-import java.util.Date;
 
 @Controller
 public class OrderController {

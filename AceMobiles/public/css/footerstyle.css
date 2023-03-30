@@ -12,12 +12,12 @@ html {
     background-color: #eaf0f2;
 }
 
-header {
+/* header {
     text-align: center;
     padding-top: 100px;
     margin-bottom: 300px;
     font-size: 35px;
-}
+} */
 
 header h2 {
     color: #f0525f;
@@ -135,7 +135,7 @@ footer {
 }
 
 .footer-distributed .footer-center p a {
-    color:#5271ff;
+    color:#ffffff;
     text-decoration: none;
     ;
 }
@@ -182,11 +182,11 @@ footer {
 }
 
 .footer-distributed .footer-icons a:hover {
-    background-color: #3F71EA;
+    background-color: #007fff;
 }
 
 .footer-links a:hover {
-    color: #3F71EA;
+    color: #007fff;
 }
 
 @media (max-width: 880px) {

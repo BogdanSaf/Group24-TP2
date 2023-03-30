@@ -5,7 +5,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=">
-  <title>Basket Page</title>
+  <title>Ace Mobiles | Basket</title> 
   <script src="https://kit.fontawesome.com/c32adfdcda.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="{{ asset('/css/BasketPage.css') }}">
 

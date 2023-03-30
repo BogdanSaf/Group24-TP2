@@ -25,6 +25,8 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import java.math.BigInteger;
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import static org.mockito.BDDMockito.given;
@@ -71,7 +73,7 @@ public class OrderControllerTest {
         bs.setQuantity(1);
 
         given(orderRepository.findById(order.getOrderId())).willReturn(Optional.of(order));
-        given(basketOrderContentsRepository.findByOrderId(order.getOrderId())).willReturn(Optional.of((bs)));
+        given(basketOrderContentsRepository.findByOrderId(order.getOrderId())).willReturn(List.of((bs)));
 
         // Perform a get request to the delete-employee endpoint
         mockMvc.perform(get("/orders/delete/" + order.getOrderId()))
@@ -93,10 +95,10 @@ public class OrderControllerTest {
         order.setStatus("pending");
 
         Users userIdfk = new Users();
-        userIdfk.setEmail("suckIt@gmail.com");
-        userIdfk.setFirstName("Suck");
+        userIdfk.setEmail("fake@gmail.com");
+        userIdfk.setFirstName("fake");
         userIdfk.setSurname("It");
-        userIdfk.setAddress("123 suck it street");
+        userIdfk.setAddress("123 fake it street");
         userIdfk.setPostcode("1234");
         userIdfk.setPhoneNumber("123456789");
         userIdfk.setPassword("123456789");
@@ -122,8 +124,10 @@ public class OrderControllerTest {
         order.setArrivalDate(Date.valueOf("2020-01-08"));
         order.setStatus("pending");
 
+        List<BasketOrderContents> basketOrderContentsList = new ArrayList<>();
+
         given(orderRepository.findById(order.getOrderId())).willReturn(Optional.of(order));
-        given(basketOrderContentsRepository.findByOrderId(order.getOrderId())).willReturn(Optional.empty());
+        given(basketOrderContentsRepository.findByOrderId(order.getOrderId())).willReturn(basketOrderContentsList);
 
         mockMvc.perform(get("/orders/viewItems/" + order.getOrderId()))
                 .andExpect(status().is3xxRedirection())

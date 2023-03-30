@@ -11,6 +11,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
 import java.math.BigInteger;
+import java.util.Objects;
 
 @Controller
 public class UserController {
@@ -56,6 +57,13 @@ public class UserController {
             return "redirect:/";
         }
 
+//        This gets the user from the database using the email from the form and checks if the user id is the same as the one being updated
+        if (!Objects.equals(userRepository.findByEmail(user.getEmail()).getUserId(), user.getUserId())) {
+            String errorMessage = "Email already exists";
+            ra.addFlashAttribute("errorMessage", errorMessage);
+            return "redirect:/";
+        }
+
         userRepository.save(user);
         String successMessage = "User updated successfully";
         ra.addFlashAttribute("message", successMessage);
@@ -96,6 +104,12 @@ public class UserController {
 
         if (user.getPhoneNumber().length() != 11) {
             String errorMessage = "Phone number must be 11 digits";
+            ra.addFlashAttribute("errorMessage", errorMessage);
+            return "redirect:/";
+        }
+
+        if (userRepository.findByEmail(user.getEmail()) != null) {
+            String errorMessage = "Email already exists";
             ra.addFlashAttribute("errorMessage", errorMessage);
             return "redirect:/";
         }

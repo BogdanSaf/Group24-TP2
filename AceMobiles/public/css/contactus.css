@@ -89,7 +89,7 @@ section {
 }
 
 .contact-info-icon:hover {
-  background: #00bcd4;
+  background: #007fff;
   color: #fff;
   
 }
@@ -104,7 +104,7 @@ section {
 }
 
 .contact-info-content h4 {
-  color: #1da9c0;
+  color: #007fff;
   font-size: 1.4em;
   margin-bottom: 5px;
 }
@@ -170,20 +170,20 @@ section {
 .contact-form .input-box input[type="submit"]
 {
   width: 100%;
-  background: #00bcd4;
+  background: #007fff;
   color: #FFF;
   border: none;
   cursor: pointer;
   padding: 10px;
   font-size: 18px;
-  border: 1px solid #00bcd4;
+  border: 1px solid #007fff;
   transition: 0.5s;
 }
 
 .contact-form .input-box input[type="submit"]:hover
 {
   background: #FFF;
-  color: #00bcd4;
+  color: #007fff;
 }
 
 .sci {
@@ -205,7 +205,7 @@ section {
 }
 
 .sci li a:hover {
-  color: #00bcd4 ;
+  color: #007fff;
 }
 
 @media (max-width: 991px) {
