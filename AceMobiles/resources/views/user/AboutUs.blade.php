@@ -14,7 +14,10 @@
         Since then, our company has expanded to over 200 stores across the UK as well as the website you are in right now!</p>
         <h2>Values</h2>
         <p>We ensure that that we fulfil our core values as a company.<br>
-        Our core values include customer satisfaction, transparenct, innovation, sustainability and responsibility.</p>
+        Our core values include customer satisfaction, transparency, innovation, sustainability and responsibility.<br>
+        We at Ace Mobiles work together to ensure that customers get the best deals by providing the latest models that <br>
+        would suit them best and giving them details on everything that goes on during the purchasing process. We also aim to <br>
+        support them whenever they are unsatisfied with a product as customer satisfaction is our number one priority!</p>
 		
         <div class="home_img">
             <div class="home_img__text_section_container">
