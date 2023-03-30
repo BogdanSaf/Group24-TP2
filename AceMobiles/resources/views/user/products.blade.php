@@ -19,6 +19,13 @@
 </div>
 @endif
 
+@if (session('success'))
+<div class="alert alert-success border-0 m-auto">
+    <h5>{{ session('success') }}</h5>
+    {{ session()->forget('success') }}
+</div>
+@endif
+
 
   <div class="category-filter">
     <div class="container">

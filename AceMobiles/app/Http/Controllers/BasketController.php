@@ -99,7 +99,7 @@ public function index() {
     // Display the items in place order website
     public function getInfo() {
         $basketInfo = DB::table('baskets')
-                    ->join('basket', 'userIDFK', "=", "basketID")
+                    ->join('users', 'userIDFK', "=", "userID")
                     ->join('products', 'productIDFK', "=", "productID")
                     ->where('userIDFK', '=', Auth::id())
                     ->get();
