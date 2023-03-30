@@ -2,8 +2,11 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Ace Mobiles | About Us</title>
+    <title>About Us</title>
+    @include('shared.header')
+    <script src="https://kit.fontawesome.com/c32adfdcda.js" crossorigin="anonymous"></script>
     <link href={{asset('AceAbout.css')}} rel="stylesheet" type="text/css" media="all">
+     
 </head>
 <body>
  @include('shared.navbar')
