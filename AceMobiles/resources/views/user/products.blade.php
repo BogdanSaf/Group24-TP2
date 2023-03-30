@@ -50,11 +50,16 @@
               <p class="text-md text-center text-muted">£{{ $product->productPrice }}</p>
             </div>
             <div class="item-action">
-              <form action="{{ asset('addToBasket') }}" method="post">
-                @csrf
-                <input type="hidden" value="{{ $product['id'] }}" name="id">
-                <button type="submit" class="add-to-basket-btn">Add to basket</button>
-              </form>
+                    @if ($product->productStock === 0)
+          <button type="button" class="out-of-stock-btn">Out of stock</button>
+        @else
+          <form action="{{ asset('addToBasket') }}" method="post">
+            @csrf
+            <input type="hidden" value="{{ $product['id'] }}" name="id">
+            <button type="submit" class="add-to-basket-btn">Add to basket</button>
+          </form>
+        @endif
+
             </div>
           </div>
         @endforeach

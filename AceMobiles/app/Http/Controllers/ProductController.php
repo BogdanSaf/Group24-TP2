@@ -45,6 +45,33 @@ class ProductController extends Controller
         return view('user.detail', ['product' => $product]);
     }
 
-    
+    public function addToBasket(Request $request){
+
+		if(Auth::check()){
+			$productID = $request->input('id');
+			$productPrice = DB::table('products')->where('id', $request->input('id'))->value('price');
+			$tempID = Auth::id();
+			$baskets = new basket_order_contents();
+			$baskets->basketck = $tempID;
+			$baskets->productck = $productID;
+			//$basket->orderfk = 1;
+			$baskets->quantity = 1;
+			$baskets->totalPrice = $price;
+
+			$baskets->save();
+
+			return redirect()->back();
+
+		}else{
+			return back()->withErrors(['errors'=>'You must be logged in to add to basket']);
+		}
+
+		
+
+	}
+
+
+
+
 }
 
