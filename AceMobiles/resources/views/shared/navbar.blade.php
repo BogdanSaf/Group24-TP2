@@ -9,6 +9,7 @@
                <li><a href="/contactus">Contact</a></li>
                <li><a href="/login">Login</a></li>
                <li><a href="/register">Register</a></li>
+    
             </div>
             <li class="search-icon">
                     <form action="{{ route('products.search') }}" method="GET">
