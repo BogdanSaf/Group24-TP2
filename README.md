@@ -9,6 +9,7 @@
 <h3> Contributors </h3>
 
 Bogdan Saftiuc (BogdanSaf)
+Samirul Islam (samirul2)
 
 <h3> Who are we?</h3>
 
