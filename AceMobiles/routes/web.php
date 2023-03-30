@@ -68,7 +68,7 @@ Route::get('/contactus', function () {
 
 //About us
 Route::get('/aboutus', function () {
-    return view('user/acemobileabout');
+    return view('user/AboutUs');
 });
 
 
@@ -92,3 +92,8 @@ Route::any('/orders',[OrdersController::class, 'index']);
 Route::get('/detail', function () {
     return view('user/detail');
 });
+
+
+//past orders page
+Route::get('my-orders',[UserController::class, 'index']);
+Route::get('view-order',[UserController::class, 'view']);

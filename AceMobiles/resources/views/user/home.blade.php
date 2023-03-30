@@ -5,123 +5,170 @@
         <meta name ="viewport"
         content="width=device-width,initial-scale=1.0"/>
         <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+        <link rel="stylesheet" href = "https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
         <link rel="stylesheet" href="{{ asset('css/homepage.css') }}">
         <title>Ace Mobiles | Homepage</title> 
         @include('shared.header')
     </head>
 <body>
 @include('shared.navbar')
-<div id ="main">
-    <div id = "box1"></div>
+        <title> ACE MOBILES </title>
+       
+    </head>
+<body>
 
-    <div id="box2">
-        <h1>Ace </br>Mobiles</h1>
-    
-        <button class = "header-shop"  onclick="window.location.href = 'ProductsPage.html'">Shop Now<img src="images/arrow.png"></button>
-    </div>
+ 
 
-    </div>
-
-</div>
-<div class = "best-sellers">
-    <h2>Categories</h2>
-
-    <div class="cards">
-        <div class="card">
-            <img src="images/samsunggalaxys22plus(128gb).jpg" style="width:100%">
-            <h1> Samsung</h1>
-            <br>
-            <button id = "btn">Shop now</button>
-        </div>
-
-        <div class="card">
-            <img src="images/iPhone14ProMax(128GB).jpg"  style="width:50%">
-            <h1>Apple</h1>
-            <br>
-            <button id = "btn">Shop now</button>
-        </div>
-        <div class="card">
-            <img src="images/sonyxperia1IV(256GB).jpg"  style="width:100%">
-            <h1> Sony</h1>
-            <br>
-            <button id = "btn">Shop now</button>
-        </div>
-        <div class="card">
-            <img src="images/oppofindx3pro(256gb).jpg"  style="width:65%">
-            <h1> Oppo</h1>
-            <br>
-            <button id = "btn">Shop now</button>
-        </div>
-        <div class="card">
-            <img src="images/googlepixel7(128gb).jpg"  style="width:50%">
-            <h1> Google</h1>
-            <br>
-            <button id = "btn">Shop now</button>
-        </div>
-    </div>
+<div class ="rowhomepage">
+     <div class ="col-1homepage">
+         <h2> ACE Mobiles</h2>
+         <h3> Welcome to the launch of Ace Mobiles!</h3>
+           
+         <button onclick ="window.location.href = 'NewProductsPage.html'" >Shop Now<img src = "images/arrow.png"></button>
+     </div>
+     <div class = "col-2homepage">
+         <img src ="images/samsung.jpg" class="samsungmain">
+                        
+     </div> 
 </div>
 
-
-<section id ="review-section">
-    <div class = "container">
-        <div class="subcontainer">
-            <div class="review-wrapper">
-                <div class="header">
-                    <h1>Our Reviews</h1>
-                </div>
-                <div class="slider-wrapper">
-                    <div class="slider">
-                        <div class="slide">
-                            <br>
-                            <h2>Ace Mobiles are a great company to deal with and reasonably priced. Products came out very timely. Would definitely buy again. The item arrived well-packaged and in perfect condition, which is always a great sign of a company's commitment to customer satisfaction. </h2>
-                            <br>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star"></span>
-                            <p> - Micheal smith</p>
-                        </div>
-                        <div class="slide">
-                            <h2>I recently purchased a product from Ace Mobiles, and I have to say that I was extremely impressed with the entire experience. The website was easy to navigate, and the checkout process was seamless and straightforward</h2>
-                            <br>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star"></span>
-                            <br>
-                            <p> - Ajax Miyu</p>
-                        </div>                        
-                        <div class="slide">
-                            <br>
-                            <h2>I had an excellent experience with Ace Mobiles, and I would highly recommend them to anyone looking for high-quality and well-crafted products.</h2>
-                            <br>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <p> - Bennet Monroe</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="controls">
-                    <button class ="previous"><i class="fa-solid fa-angle-left"></i></button>
-                    <button class = "next"><i class="fa-solid fa-angle-right"></i></button>
-                </div>
-
-            </div>
+<div class="slider">
+    <div class="myslide fade">
+        <div class="txt">
+            <h1>Ace Mobiles</h1>
+            <p>Find the phone that is right for you!</p>
         </div>
-        
+        <img src="images/samsungslideshow2.png" style="width: 100%; height: 100%;">
     </div>
     
-</section>
+    <div class="myslide fade">
+        <div class="txt">
+        </div>
+        <img src="images/iphoneslideshow1.jpg" style="width: 100%; height: 100%;">
+    </div>
+    
+    <div class="myslide fade">
+        <div class="txt">
+        </div>
+        <img src="images/opposlideshow3.png" style="width: 100%; height: 100%;">
+    </div>
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+  
+  <div class="dotsbox" style="text-align:center">
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+      <span class="dot" onclick="currentSlide(3)"></span>
+  </div>
+</div>
+            
+ 
+<div class="cardshomepg">
+    <div class="cardhomepage">
+        <img src="images/appleblendedit.png" alt="" style="width:100%">
+        <h1>Apple</h1>
+        <p><button1>Shop now</button></p>
+    </div>
 
-<script src="{{ asset('js/homescript.js') }}"></script>
+    <div class="cardhomepage">
+        <img src="images/googleblendedit.png" alt="" style="width:100%">
+        <h1> Google</h1>
+        <p><button1>Shop now</button1></p>
+    </div>
+    <div class="cardhomepage">
+        <img src="images/samsungblendedit.png" alt="" style="width:100%">
+        <h1> Samsung</h1>
+        <p><button1>Shop now</button1></p>
+    </div>
+    <div class="cardhomepage">
+        <img src="images/oppoblendedit.png" alt="" style="width:100%">
+        <h1> Oppo</h1>
+        <p><button1>Shop now</button1></p>
+    </div>
+    <div class="cardhomepage">
+        <img src="images/sonyblend.edit.png" alt="" style="width:100%">
+        <h1> Sony</h1>
+        <p><button1>Shop now</button1></p>
+    </div>
+</div>
+
+<div class="review-section">
+    <div class="reviewcards">
+        <h2>Ace Mobiles are a great company to deal with and reasonably priced. Products came out very timely. Would definitely buy again. The item arrived well-packaged and in perfect condition, which is always a great sign of a company's commitment to customer satisfaction. </h2>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star"></span>
+        <p> - Micheal smith</p>
+    </div>
+    <div class="reviewcards">
+        <br>
+        <h2>I recently purchased a product from Ace Mobiles, and I have to say that I was extremely impressed with the entire experience. The website was easy to navigate, and the checkout process was seamless and straightforward </h2>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <p> - Ajax Miyu</p>
+    </div>
+    <div class="reviewcards">
+        <h2>I had an excellent experience with Ace Mobiles, and I would highly recommend them to anyone looking for high-quality and well-crafted products. The ordering process was simple and straightforward, and my phone arrived quickly and in perfect condition. </h2>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star"></span>
+        <p> - Bennet Munroe</p>
+    </div>
+</div>
 
 </body>
+<script>
+const myslide = document.querySelectorAll('.myslide'),
+	  dot = document.querySelectorAll('.dot');
+let counter = 1;
+slidefun(counter);
+
+let timer = setInterval(autoSlide, 8000);
+function autoSlide() {
+	counter += 1;
+	slidefun(counter);
+}
+function plusSlides(n) {
+	counter += n;
+	slidefun(counter);
+	resetTimer();
+}
+function currentSlide(n) {
+	counter = n;
+	slidefun(counter);
+	resetTimer();
+}
+function resetTimer() {
+	clearInterval(timer);
+	timer = setInterval(autoSlide, 8000);
+}
+
+function slidefun(n) {
+	
+	let i;
+	for(i = 0;i<myslide.length;i++){
+		myslide[i].style.display = "none";
+	}
+	for(i = 0;i<dot.length;i++) {
+		dot[i].className = dot[i].className.replace(' active', '');
+	}
+	if(n > myslide.length){
+	   counter = 1;
+	   }
+	if(n < 1){
+	   counter = myslide.length;
+	   }
+	myslide[counter - 1].style.display = "block";
+	dot[counter - 1].className += " active";
+}
+        </script> 
 @include('shared.footer')
 </html>
 

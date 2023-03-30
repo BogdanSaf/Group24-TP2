@@ -1,420 +1,242 @@
 
-body{
-    margin:0px;
-    background:#ffffff;
-    font-family: 'Arial';
-
-}
-
-#main{
-    width:100%;
-    height:100%;
-    position:absolute;
-    overflow:hidden;
+.rowhomepage{
+    padding-left: 10%;
+    padding-top: 10%;
     display: flex;
-    flex-direction: row;
-}
-
-#box1{
-    width:530px;
-    height: 625px;
-    background-size: cover;
-    background-image:url('iphone-14-pro-black-2.png');
-    position:absolute;
-    bottom:-100%;
-    /* top:10%; */
-    left:50%;
-    animation: anim 2s forwards, anim2 2s forwards 3s;
-}
-
-#box1:after{
-    content:'';
-    position:absolute;
-    width:530px;
-    height:625px;
-    background-size: cover;
-    background-image: url('iphone-14-pro-black-1.png') ;
-    left:0;
-    z-index: -3;
-}
-
-@keyframes anim{
-    from{
-        bottom:-100%;
-    }
-    to{
-        bottom:0%;
-    }
-}
-
-@keyframes anim2{
-    from{
-        left:50%;
-        width:530px;
-    }
-    to{
-        width:0px;
-        left:65.5%;
-    }
+    font-family: Arial;
+    font-size: 25px;
+    height:500px;
 
 }
-
-#box2 h1{
-    width:auto;
-    height:auto;
-    font-family:'Arial';
-    color:rgb(0, 0, 0);
-    font-size:5em;
-    /* font-weight:500;
-    line-height:130px; */
-    position:absolute;
-    top:200px;
-    
-    overflow:hidden;
+.col-1homepage{
+    flex-basis:40%;
+    top:-100px;
 }
 
-#box2 h1{
-    position:absolute;
-    left:100%;
-    animation: anim3 2s forwards 3s;
+.col-1homepage h2{
+    font-size: 52px;
+    padding-top: -150px;
+    font-family:Arial;
+}
+.col-1homepage h3{
+    font-size: 30px;
+    font-weight:100;
 
 }
-
-@keyframes anim3{
-    from{
-        left:-100%;
-    }
-    to{
-        left:10%;
-    }
+.col-2homepage{
+    position: relative;
+    flex-basis:60%;
+    display: flex;
+    align-items:center;
+    top:-100px;
 }
 
-
-
-
-
-
-.header-shop{
-    width: 102px;
-    top:380px;
-    left:30%;
+/*------------------Button----------------*/
+button{
+    width: 140px;
     border: 0;
     padding: 12px 10px;
     outline: none;
-    color: #ffffff;
-    background: linear-gradient(to right, #0011ff, #3a3939);
-    /* background: transparent; */
+    color: #fff;
+    background: linear-gradient(to right,#3239a8, #76afff);
     border-radius: 6px;
     cursor: pointer;
     transition: width 0.5s;
-    font-family: "Arial";
+    font-family:Arial;
     font-size: 17px;
-    
-}
-.header-shop{
-    position:absolute;
-    left:-100%;
-    animation: anim3 2s forwards 3s;
 }
 
-.header-shop img{
+button img{
     width: 30px;
     display:none;
 }
-.header-shop:hover img{
+button:hover img{
     display:block;
 
 }
-.header-shop:hover{
+button:hover{
     width: 160px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
-
-
-.best-sellers h2{
-    padding-top: 1%;
-    padding-left: 2%;
-    font-size: 45px;
-    color: #fff;
-    text-align: center;
-}
-
-
-.best-sellers{
-    width: auto;
-    height:500px;
-    background: linear-gradient(to right, #3239a8, #76afff);
-    top:720px;
-    position: relative;
     
-
-
 }
 
 
-.card {
-    /* box-shadow: 4px 4px 8px 0 rgb(89, 88, 88); */
-    width: 270px;
+
+
+
+
+/*----------------------new slideshow test----------------*/
+.slider{
+	position: relative;
+	width: 100%;
+    height: 90%;
+	z-index: 3;
+}
+.myslide{
+	height: 655px;
+	display: flex;
+	overflow: hidden;
+	z-index:3;
+}
+
+.prev, .next{
+	position: absolute;
+	top: 20%;
+	transform: translate(0, -50%);
+	font-size: 50px;
+	padding: 15px;
+    margin-top:150px;
+	cursor: pointer;
+	color: rgb(3, 3, 3);
+	transition: 0.1s;
+	user-select: none;
+}
+.prev:hover, .next:hover{
+	color: #0557a3; 
+}
+.next{
+	right: 0;
+}
+.dotsbox{
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%);
+	bottom: 20px;
+	cursor: pointer;
+}
+.dot{
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	border: 3px solid #fff;
+	border-radius: 50%;
+	margin: 0 10px;
+	cursor: pointer;
+}
+
+.active, .dot:hover{
+	border-color: #0557a3; 
+}
+
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: 0.8}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: 0.8}
+  to {opacity: 1}
+}
+
+.txt{
+	position: absolute;
+	color: rgb(0, 58, 217);
+	letter-spacing: 2px;
+	line-height: 35px;
+	top: 30%;
+	left: 35%;
+	-webkit-animation-name: posi;
+  	-webkit-animation-duration: 2s;
+  	animation-name: posi;
+  	animation-duration: 2s;
+	z-index: 3;
+    font-family: Arial;
+}
+
+@-webkit-keyframes posi {
+  from {left: 45%;}
+  to {left: 35%;}
+}
+
+
+@keyframes posi {
+  from {left: 45%;}
+  to {left: 35%;}
+}
+
+.txt h1{
+	color: rgb(0, 58, 217);;
+	font-size: 50px;
+	margin-bottom: 20px;
+}
+.txt p{
+	font-weight: bold;
+	font-size: 20px;
+}
+
+
+
+ 
+.samsungmain{
+    max-width:600px;
+    max-height:700px;
+    /* padding-top: 40%; */
+    position: absolute;
+    right:0;
+    margin-top: 100px;
+}
+
+
+
+.cardhomepage {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 370px;
     margin: auto;
     text-align: center;
     font-family: arial;
-    background-color: white;
-    height:300px;
-    transition:.4s;
-    border-radius: 10px;
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
-
-}
-
-.cards img{
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
-    top:50px;
 }
 
 
-.card:hover{
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16);
-    /* 0 3px 6px rgba(0,0,0,0.23) ; */
-    transform: translate(0px, -8px);
-
-}
-.cards {
-    margin-top: 50px;
-    margin-left: 10px;
+.cardshomepg {
+    margin-top: 100px;
+    margin-left: 20px;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-gap: 10px;
-    height:auto;
-    
+    grid-gap: 20px;
 }
 
-.card button1 {
+.cardhomepage button1 {
     border: none;
     outline: 0;
-    padding: 11px;
+    padding: 12px;
     color: white;
-    background-color: #080558c5;
+    background-color:  #0557a3;
     text-align: center;
     cursor: pointer;
-    width: auto;
-    font-size: 20px; 
-    position: relative;
-    top:25px;
-    border-radius: 10px;
-    
+    width: 100%;
+    font-size: 18px;
 }
 
-.card button1:hover {
+.cardhomepage button1:hover {
     opacity: 0.7;
 }
-
-/* sliderrrrrr */
-*{
-    margin:0;
-}
-
-#review-section{
-    height:auto;
-    /* background-color:  #2266a6; */
-    color:rgb(1, 1, 1);
-    top:750px;
-    position: relative;
-    border-radius: 30px;
-    margin-left:15%;
-    margin-right:15%;
-    
-}
-
-.container{
-    width:1600px;
-    margin:auto;
-    
-}
-
-.subcontainer{
-    width:85%;
-    margin:auto;
-}
-
-.review-wrapper{
-    width:100%;
-    height:auto;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:25px;
-    padding-top:10px;
-    position:relative;
-}
-
-/* .slider-img{
-    width:110px;
-    height:110px;
-    margin:auto;
-    border-radius:50%;
-    border:5px solid lightgray;
-    background-position: center;
-    background-size: cover;
-    box-shadow: 0 0 5px #bbb;
-} */
-
-
-
-.header h1{
-    font-size: 2.5rem;
-}
-
-.slider-wrapper{
-    width:100%;
-}
-
-.slide{
-    width:100%;
-    text-align:center;
-    line-height:1.5;
-    font-style:italic;
-    padding: 0 40px;
-}
-
-.slide p{
-    padding-bottom: 40px;
-    font-size: 1.5rem;
-}
-
-.previous, .next{
-    padding:2px;
-    width:30px;
-    cursor: pointer;
-    border-radius: 50%;
-    outline:none;
-    transition: 0.7s ease-in-out;
-    border: 3px solid white;
-    background-color: #000000;
-    box-shadow: 0 0 5px #bbb;
-    position: absolute;
-    top:50%;
-    z-index:1;
-
-}
-
-.previous{
-    left:0%;
-}
-
-.next{
-    right:0%;
-}
-
-.previous:hover, .next:hover{
-    background: 3px solid gray;
-}
-
-#controls i{
-    color: white;
-    font-size: 1rem;
-
-}
-
-.tns-nav{
-    text-align:center;
-}
-
-.tns-nav button{
-    border:none;
-    padding:8px;
-    border-radius:50%;
-    background-color: white;
-    margin-left:15px;
-    outline-color: #0011ff;
-}
-
-.tns-nav .tns-nav-active{
-    background-color:gray;
-    outline-color: #0011ff;
-}
-
-@media(max-width:1600px){
-    .container{
-        width:100%;
-    }
-}
-
 .checked {
     color: orange;
 }
-
-
-#btn{
-    position: relative;
-    padding: 10px 20px;
-    border-radius: 7px;
-    border: 1px solid rgb(61, 106, 255);
-    font-size: 14px;
-    font-weight: 400;
-    letter-spacing: 2px;
-    background: transparent;
-    color: rgb(61, 106, 255);
-    overflow: hidden;
-    box-shadow: 0 0 0 0 transparent;
-    -webkit-transition: all 0.2s ease-in;
-    -moz-transition: all 0.2s ease-in;
-    transition: all 0.2s ease-in;
-  }
-  
-  #btn:hover {
-    -webkit-transition: all 0.2s ease-out;
-    -moz-transition: all 0.2s ease-out;
-    transition: all 0.2s ease-out;
-  }
-  
-  #btn:hover::before {
-    -webkit-animation: sh02 0.5s 0s linear;
-    -moz-animation: sh02 0.5s 0s linear;
-    animation: sh02 0.5s 0s linear;
-  }
-  
-  #btn::before {
-    content: '';
-    display: block;
-    width: 0px;
-    height: 86%;
-    position: absolute;
-    top: 7%;
-    left: 0%;
-    opacity: 0;
-    background: #fff;
-    box-shadow: 0 0 50px 30px #fff;
-    -webkit-transform: skewX(-20deg);
-    -moz-transform: skewX(-20deg);
-    -ms-transform: skewX(-20deg);
-    -o-transform: skewX(-20deg);
-    transform: skewX(-20deg);
-  }
-  
-  @keyframes sh02 {
-    from {
-      opacity: 0;
-      left: 0%;
-    }
-  
-    50% {
-      opacity: 1;
-    }
-  
-    to {
-      opacity: 0;
-      left: 100%;
-    }
-  }
-  
-  #btn:active {
-    box-shadow: 0 0 0 0 transparent;
-    -webkit-transition: box-shadow 0.2s ease-in;
-    -moz-transition: box-shadow 0.2s ease-in;
-    transition: box-shadow 0.2s ease-in;
-    transform: scale(1.98);
-  }
+.review-section{
+    margin-top: 100px;
+    margin-left: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+}
+.reviewcards{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 370px;
+    height:470px;
+    max-height: 470px;
+    margin: auto;
+    text-align: center;
+    font-family: arial;
+    line-height:1.5;
+    font-style:italic;
+}
