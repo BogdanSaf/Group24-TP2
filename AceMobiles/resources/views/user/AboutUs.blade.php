@@ -6,6 +6,7 @@
     <link href="AceAbout.css" rel="stylesheet" type="text/css" media="all">
 </head>
 <body>
+ @include('shared.navbar')
     <center>
         <h1>About Us</h1>
         <h2>History</h2>
@@ -172,6 +173,7 @@
 
 
 </body>
+@include('shared.footer')
 <script>
 const faqs = document.querySelectorAll(".faq");
 
