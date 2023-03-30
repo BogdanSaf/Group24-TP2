@@ -54,6 +54,9 @@ Route::get('/products/search', [ProductController::class, 'search'])->name('prod
 
 Route::get('products/preview/{id}', [ProductController::class, 'specificProduct'])->name('preview');
 
+// basket button
+
+Route::post('addToBasket',[ProductController::class, 'addToBasket']);
 
 // Contact Us Page
 Route::get('/contactus', function () {
