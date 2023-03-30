@@ -5,13 +5,13 @@
     <title>About Us</title>
     @include('shared.header')
     <script src="https://kit.fontawesome.com/c32adfdcda.js" crossorigin="anonymous"></script>
-    <link href="{{ asset('AceAbout.css') }}" rel="stylesheet" type="text/css" media="all">
+    <link href="{{ asset('css/AceAbout.css') }}" rel="stylesheet" type="text/css" media="all">
      
 </head>
 <body>
  @include('shared.navbar')
     <center>
-        <h1>About Us</h1>
+        <h1><b>About Us</b></h1>
         <h2>History</h2>
         <p>Since 2005, we have been helping to give customers a wide range of high-quality mobile products.<br>
         Our company started as a humble little shop in Birmingham offering phone repairs to passers-by.<br>
@@ -25,7 +25,7 @@
 		
         <div class="home_img">
             <div class="home_img__text_section_container">
-                <img src="{{ asset('phonepeople.jpg" class="home_img__image') }}">
+                <img src="{{ asset('images/phonepeople.jpg') }}">
                 <div class="home_img__text_section_container">
                     <span class="home_img__text_1">Quality deals for everyone!</span>
                     <span class="home_img__text_2">Our policies ensure that our customers get the best, personalized PRIME deals!</span>
@@ -38,13 +38,13 @@
 			<h3>Thanks to your support, we have won many awards!</h3>
 			<div class="row">
 			  <div class="column">
-				<img src={{ asset('retailer.png') }}" alt="test1" style="width: 50%">
+				<img src="{{ asset('images/retailer.png') }}" alt="test1" style="width: 50%">
 			  </div>
 			  <div class="column">
-				<img src="{{ asset('MIA.png') }}" alt="test2" style="width: 50%">
+				<img src="{{ asset('images/MIA.png') }}" alt="test2" style="width: 50%">
 			  </div>
 			  <div class="column">
-				<img src="{{ asset('choice.png') }}" alt="test3" style="width: 50%">
+				<img src="{{ asset('images/choice.png') }}" alt="test3" style="width: 50%">
 			  </div>	
 			</div>
     </center>
