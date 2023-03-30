@@ -50,16 +50,16 @@ public class UserControllerTest {
     @Autowired
     private ProductRepository productRepository;
 
-//    If you do verify(userRepository, times(1)).save(user); it will fail because the object will be changed from encrypting the password
-//    Tried to use BCryptPasswordEncoder and alter the userIdfk after mockMvc, but it didn't work
+
     @Test
     public void addUserTest() throws Exception {
 
         Users userIdfk = new Users();
-        userIdfk.setEmail("suckIt@gmail.com");
-        userIdfk.setFirstName("Suck");
-        userIdfk.setSurname("It");
-        userIdfk.setAddress("123 suck it street");
+        userIdfk.setUserId(BigInteger.valueOf(1));
+        userIdfk.setEmail("User@gmail.com");
+        userIdfk.setFirstName("Fake");
+        userIdfk.setSurname("User");
+        userIdfk.setAddress("123 fake street");
         userIdfk.setPostcode("1234");
         userIdfk.setPhoneNumber("123456789");
         userIdfk.setPassword("123456789");
@@ -83,10 +83,10 @@ public class UserControllerTest {
     public void addUserTestFail() throws Exception {
 
         Users userIdfk = new Users();
-        userIdfk.setEmail("suckIt@gmail.com");
+        userIdfk.setEmail("User@gmail.com");
         userIdfk.setFirstName("");
         userIdfk.setSurname("");
-        userIdfk.setAddress("123 suck it street");
+        userIdfk.setAddress("123 fake street");
         userIdfk.setPostcode("1234");
         userIdfk.setPhoneNumber("123456789");
         userIdfk.setPassword("123456789");
@@ -109,10 +109,10 @@ public class UserControllerTest {
     public void deleteUserTest() throws Exception {
         Users userIdfk = new Users();
         userIdfk.setUserId(BigInteger.valueOf(1));
-        userIdfk.setEmail("suckIt@gmail.com");
-        userIdfk.setFirstName("Suck");
-        userIdfk.setSurname("It");
-        userIdfk.setAddress("123 suck it street");
+        userIdfk.setEmail("User@gmail.com");
+        userIdfk.setFirstName("Fake");
+        userIdfk.setSurname("User");
+        userIdfk.setAddress("123 fake street");
         userIdfk.setPostcode("1234");
         userIdfk.setPhoneNumber("123456789");
         userIdfk.setPassword("123456789");
@@ -131,10 +131,10 @@ public class UserControllerTest {
     public void deleteUserTestWhenUserDoesntExist() throws Exception {
         Users userIdfk = new Users();
         userIdfk.setUserId(BigInteger.valueOf(1));
-        userIdfk.setEmail("suckIt@gmail.com");
-        userIdfk.setFirstName("Suck");
-        userIdfk.setSurname("It");
-        userIdfk.setAddress("123 suck it street");
+        userIdfk.setEmail("User@gmail.com");
+        userIdfk.setFirstName("Fake");
+        userIdfk.setSurname("User");
+        userIdfk.setAddress("123 fake street");
         userIdfk.setPostcode("1234");
         userIdfk.setPhoneNumber("123456789");
         userIdfk.setPassword("123456789");
@@ -150,12 +150,12 @@ public class UserControllerTest {
     public void testUpdateUserByIdWhereUserDoesntExist() throws Exception {
         Users userIdfk = new Users();
         userIdfk.setUserId(BigInteger.valueOf(1));
-        userIdfk.setEmail("suckIt@gmail.com");
-        userIdfk.setFirstName("Suck");
-        userIdfk.setSurname("It");
-        userIdfk.setAddress("123 suck it street");
+        userIdfk.setEmail("User@gmail.com");
+        userIdfk.setFirstName("Fake");
+        userIdfk.setSurname("User");
+        userIdfk.setAddress("123 fake street");
         userIdfk.setPostcode("1234");
-        userIdfk.setPhoneNumber("12345678901");
+        userIdfk.setPhoneNumber("123456789");
         userIdfk.setPassword("123456789");
 
         mockMvc.perform(post("/update/"+ userIdfk.getUserId())

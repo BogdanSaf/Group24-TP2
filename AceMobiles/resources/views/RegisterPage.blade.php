@@ -48,13 +48,13 @@
                     {{-- Firs Name field --}}
                     <div class="firstNameContainer">
                         <label for="firstName">First Name: </label>
-                        <input type="text" name = "firstName" id = "firstNameID">
+                        <input type="text" name = "firstName" id = "firstNameID" value="{{old('firstName')}}">
                     </div>
 
                     {{-- Surname field --}}
                     <div class="surnameContainer">
                         <label for="surname">Surname: </label>
-                        <input type="text" name = "surname" id = "surnameID">
+                        <input type="text" name = "surname" id = "surnameID" value="{{old('surname')}}">
                     </div>
 
                 </div>
@@ -62,25 +62,25 @@
                 {{-- Address field --}}
                 <div class="addressContainer box">
                     <label for="address" > Address: </label>
-                    <input type="text" name="address" id="addressID">
+                    <input type="text" name="address" id="addressID" value="{{old('address')}}">
                 </div>
 
                 {{-- PostCode field --}}
                 <div class="postCodeContainer box">
                     <label for="postcode">PostCode: </label>
-                    <input type="text" name="postcode" id="postcodeID">
+                    <input type="text" name="postcode" id="postcodeID" value="{{old('postcode')}}">
                 </div>
 
                  {{-- Phone Number field --}}
                  <div class="phoneNumberContainer box">
                     <label for="phoneNumber">Phone Number: </label>
-                    <input type="tel" name = "phoneNumber" id = "phoneNumberID">
+                    <input type="tel" name = "phoneNumber" id = "phoneNumberID" value="{{old('phoneNumber')}}">
                 </div>
 
                 {{-- Email field --}}
                 <div class="emailContainer box">
                     <label for="email">Email: </label>
-                    <input type="text" name="email" id="emailID">
+                    <input type="text" name="email" id="emailID" value="{{old('email')}}">
                 </div>
 
                 {{-- Password field --}}

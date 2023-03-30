@@ -53,10 +53,6 @@ body{
     border-width: 1px;
 }
 
-.loginFormContainer h1{
-    font-family: cursive;
-}
-
 .loginFormContainer h2{
     font-style: italic;
     color: rgb(172, 172, 172);

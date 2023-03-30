@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthFunctions;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\BasketController;
+use App\Http\Controllers\Orders;
+use Illuminate\Support\Carbon;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -63,10 +65,6 @@ Route::get('/contactus', function () {
     return view('user/contactus');
 });
 
-// Give it another URL '/products' will have a conflict with the above route named 'ReturnHomeView'
-// Route::get('/products', function () {
-//     return view('user/products');
-// });
 
 //About us
 Route::get('/aboutus', function () {
@@ -76,9 +74,26 @@ Route::get('/aboutus', function () {
 
 // basket Page
 Route::get('/basket', [BasketController::class, 'index']);
+Route::post('removeFromBasket',[BasketController::class, 'removeFromBasket']);
+
+//checkout
+Route::get('/checkout', function () {
+    return view('user/checkout');
+  });
+
+Route::any('/checkout',[BasketController::class, 'getInfo']);
+
+//orders
+Route::any('placeOrder',[Orders::class, 'placeOrder']);
+Route::any('/orders',[OrderController::class, 'display_user_orders']);
 
 
 // individual products page 
 Route::get('/detail', function () {
     return view('user/detail');
 });
+
+
+//past orders page
+Route::get('my-orders',[UserController::class, 'index']);
+Route::get('view-order',[UserController::class, 'view']);

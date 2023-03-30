@@ -2,23 +2,27 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Ace Mobiles About</title>
-    <link href="AceAbout.css" rel="stylesheet" type="text/css" media="all">
+    <title>Ace Mobiles | About Us</title>
+    <link href={{asset('AceAbout.css')}} rel="stylesheet" type="text/css" media="all">
 </head>
 <body>
+ @include('shared.navbar')
     <center>
-        <h1>Ace Mobiles - About Us</h1>
+        <h1>About Us</h1>
         <h2>History</h2>
         <p>Since 2005, we have been helping to give customers a wide range of high-quality mobile products.<br>
         Our company started as a humble little shop in Birmingham offering phone repairs to passers-by.<br>
         Since then, our company has expanded to over 200 stores across the UK as well as the website you are in right now!</p>
         <h2>Values</h2>
-        <p>We ensure that our customer service is the core of everything that we do by finding you the best deals and products that are just right for you.<br>
-        We analyze a huge scope of handsets and network tariffs to ensure that customers get the best, personalized deals.</p>
+        <p>We ensure that that we fulfil our core values as a company.<br>
+        Our core values include customer satisfaction, transparency, innovation, sustainability and responsibility.<br>
+        We at Ace Mobiles work together to ensure that customers get the best deals by providing the latest models that <br>
+        would suit them best and giving them details on everything that goes on during the purchasing process. We also aim to <br>
+        support them whenever they are unsatisfied with a product as customer satisfaction is our number one priority!</p>
 		
         <div class="home_img">
             <div class="home_img__text_section_container">
-                <img src="phonepeople.jpg" class="home_img__image">
+                <img src={{asset('phonepeople.jpg" class="home_img__image')}}>
                 <div class="home_img__text_section_container">
                     <span class="home_img__text_1">Quality deals for everyone!</span>
                     <span class="home_img__text_2">Our policies ensure that our customers get the best, personalized PRIME deals!</span>
@@ -31,13 +35,13 @@
 			<h3>Thanks to your support, we have won many awards!</h3>
 			<div class="row">
 			  <div class="column">
-				<img src="retailer.png" alt="test1" style="width: 50%">
+				<img src={{asset('retailer.png')}} alt="test1" style="width: 50%">
 			  </div>
 			  <div class="column">
-				<img src="MIA.png" alt="test2" style="width: 50%">
+				<img src="{{asset('MIA.png"')}} alt="test2" style="width: 50%">
 			  </div>
 			  <div class="column">
-				<img src="choice.png" alt="test3" style="width: 50%">
+				<img src="{{asset('choice.png')}} alt="test3" style="width: 50%">
 			  </div>	
 			</div>
     </center>
@@ -98,7 +102,7 @@
 		
 	</div>
 	<div class="answer">
-	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+	<p>We want customers to be completely satisfied with their purchases. If you are not satisfied with a product, you can return it within 7 days of delivery, whether it's damaged, defective or not the product you wanted. Go to our contact page to ask our team about any needed refunds.</p>
 	
 	
 	
@@ -126,18 +130,50 @@
 		
 	</div>
 	<div class="answer">
-	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+	<p>Accessories are not really available whe you shop with us just yet. However, we have plans in the future to offer a range of accessories for various mobile phone models on our website such as phone cases, screen protectors, chargers, headphones and more!</p>
 	
 	
 	
 	</div>
 	</div>
+	
+	<hr>
+	
+	<div class="faq">
+	
+	
+	
+	<div class="question">
+		<h3>Do you offer any warranty on your products?</h3>
+		<svg width="15" height="10" viewbox="0 0 42 5">
+		<path
+		d="M3 3L21 21L39 3"
+		stroke="white"
+		stroke-width="7"
+		stroke-linecap="round"
+		/> 
+		</svg>
+		
+		
+		
+	</div>
+	<div class="answer">
+	<p>We reccomend that you read the warranty terms on a product before purchasing. The warranty terms can vary for different products.</p>
+	
+	
+	
+	</div>
+	</div>
+	
+	
+	
 </div>
   
  </section>
 
 
 </body>
+@include('shared.footer')
 <script>
 const faqs = document.querySelectorAll(".faq");
 

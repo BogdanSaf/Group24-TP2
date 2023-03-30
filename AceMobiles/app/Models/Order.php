@@ -7,7 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class Order extends Model
+class Order extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -29,4 +29,10 @@ class Order extends Model
         'arrivalDate',
         'status',
     ];
+    
+     public function orderitems()
+    {
+        return $this->hasMany(OrderItem::class);
+    }
+    
 }
