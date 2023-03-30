@@ -38,8 +38,6 @@ class OrdersController extends Controller
             $basket_item->delete();
         }
 
-        // Seession::put('success', 'Order Placed Successfully! Thank you for shopping with us!');
-
         return redirect('/products')->with('success', 'Order Placed Successfully! Thank you for shopping with us!');
     }
 }
