@@ -48,12 +48,12 @@ The JavaApp will contain the admin website where an admin can edit and add diffe
 
 Here is how to set it up on your local machine. Make sure that you first did the steps for the laravel project as it requires the database you just created and the migrated tables
 
-1)Open the JavaApp folder with the IDE of you preference. I recommend something like IntelliJ Idea or Eclipse
-2)Open application.properties inside JavaApp/AceMobiles/src/main/resources
-3)Locate spring.datasource.url=jdbc:mysql://localhost:3306/ and add to it the name of the database you just created for laravel for example "spring.datasource.url=jdbc:mysql://localhost:3306/database"
-4)Now locate spring.datasource.username and spring.datasource.password and add the same cridentials you did in laravel
-5)In the database you have created locate the admin table and add an entry for it. The password must be encrypted using Bcrypt (tool that can help https://bcrypt-generator.com/)
-5)Now Run the file AceMobilesApplication.java inside JavaApp/AceMobiles/src/main/java/Group24/AceMobiles.
-6)A login page will show up. For Username it's the email of the of the admin you created and password is the password before encryption
+1) Open the JavaApp folder with the IDE of you preference. I recommend something like IntelliJ Idea or Eclipse
+2) Open application.properties inside JavaApp/AceMobiles/src/main/resources
+3) Locate spring.datasource.url=jdbc:mysql://localhost:3306/ and add to it the name of the database you just created for laravel for example "spring.datasource.url=jdbc:mysql://localhost:3306/database"
+4) Now locate spring.datasource.username and spring.datasource.password and add the same cridentials you did in laravel
+5) In the database you have created locate the admin table and add an entry for it. The password must be encrypted using Bcrypt (tool that can help https://bcrypt-generator.com/)
+5) Now Run the file AceMobilesApplication.java inside JavaApp/AceMobiles/src/main/java/Group24/AceMobiles.
+6) A login page will show up. For Username it's the email of the of the admin you created and password is the password before encryption
 
 Well done! The Admin Website should now be working too. Here you are able to edit,delete and add new users,products,employess and the ability to check or edit orders. The changes will be reflected on the main website (Laravel)
