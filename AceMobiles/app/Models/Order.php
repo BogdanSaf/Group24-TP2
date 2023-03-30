@@ -17,6 +17,11 @@ class Order extends Authenticatable
     //timestamps off
     public $timestamps = false;
 
+    protected $dates = [
+        'orderDate',
+        'arrivalDate',
+    ];
+
 
     /**
      * The attributes that are mass assignable.

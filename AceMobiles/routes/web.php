@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthFunctions;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\BasketController;
-use App\Http\Controllers\Orders;
+use App\Http\Controllers\OrdersController;
 use Illuminate\Support\Carbon;
 /*
 |--------------------------------------------------------------------------
@@ -84,8 +84,8 @@ Route::get('/checkout', function () {
 Route::any('/checkout',[BasketController::class, 'getInfo']);
 
 //orders
-Route::any('placeOrder',[Orders::class, 'placeOrder']);
-Route::any('/orders',[OrderController::class, 'display_user_orders']);
+Route::any('placeOrder',[OrdersController::class, 'placeOrder']);
+Route::any('/orders',[OrdersController::class, 'index']);
 
 
 // individual products page 
