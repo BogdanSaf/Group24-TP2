@@ -92,3 +92,8 @@ Route::any('/orders',[OrderController::class, 'display_user_orders']);
 Route::get('/detail', function () {
     return view('user/detail');
 });
+
+
+//past orders page
+Route::get('my-orders',[UserController::class, 'index']);
+Route::get('view-order',[UserController::class, 'view']);

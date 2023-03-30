@@ -7,14 +7,14 @@
 </head>
 <body>
     <center>
-        <h1>Ace Mobiles - About Us</h1>
+        <h1>About Us</h1>
         <h2>History</h2>
         <p>Since 2005, we have been helping to give customers a wide range of high-quality mobile products.<br>
         Our company started as a humble little shop in Birmingham offering phone repairs to passers-by.<br>
         Since then, our company has expanded to over 200 stores across the UK as well as the website you are in right now!</p>
         <h2>Values</h2>
-        <p>We ensure that our customer service is the core of everything that we do by finding you the best deals and products that are just right for you.<br>
-        We analyze a huge scope of handsets and network tariffs to ensure that customers get the best, personalized deals.</p>
+        <p>We ensure that that we fulfil our core values as a company.<br>
+        Our core values include customer satisfaction, transparenct, innovation, sustainability and responsibility.</p>
 		
         <div class="home_img">
             <div class="home_img__text_section_container">
@@ -98,7 +98,7 @@
 		
 	</div>
 	<div class="answer">
-	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+	<p>We want customers to be completely satisfied with their purchases. If you are not satisfied with a product, you can return it within 7 days of delivery, whether it's damaged, defective or not the product you wanted. Go to our contact page to ask our team about any needed refunds.</p>
 	
 	
 	
@@ -126,12 +126,43 @@
 		
 	</div>
 	<div class="answer">
-	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+	<p>Accessories are not really available whe you shop with us just yet. However, we have plans in the future to offer a range of accessories for various mobile phone models on our website such as phone cases, screen protectors, chargers, headphones and more!</p>
 	
 	
 	
 	</div>
 	</div>
+	
+	<hr>
+	
+	<div class="faq">
+	
+	
+	
+	<div class="question">
+		<h3>Do you offer any warranty on your products?</h3>
+		<svg width="15" height="10" viewbox="0 0 42 5">
+		<path
+		d="M3 3L21 21L39 3"
+		stroke="white"
+		stroke-width="7"
+		stroke-linecap="round"
+		/> 
+		</svg>
+		
+		
+		
+	</div>
+	<div class="answer">
+	<p>We reccomend that you read the warranty terms on a product before purchasing. The warranty terms can vary for different products.</p>
+	
+	
+	
+	</div>
+	</div>
+	
+	
+	
 </div>
   
  </section>
