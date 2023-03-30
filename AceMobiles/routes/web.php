@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthFunctions;
 use App\Http\Controllers\ProductController;
-
+use App\Http\Controllers\BasketController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -54,6 +54,9 @@ Route::get('/products/search', [ProductController::class, 'search'])->name('prod
 
 Route::get('products/preview/{id}', [ProductController::class, 'specificProduct'])->name('preview');
 
+// basket button
+
+Route::post('addToBasket',[ProductController::class, 'addToBasket']);
 
 // Contact Us Page
 Route::get('/contactus', function () {
@@ -72,9 +75,8 @@ Route::get('/aboutus', function () {
 
 
 // basket Page
-Route::get('/basket', function () {
-    return view('user/basket');
-});
+Route::get('/basket', [BasketController::class, 'index']);
+
 
 // individual products page 
 Route::get('/detail', function () {
