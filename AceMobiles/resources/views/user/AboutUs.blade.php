@@ -25,7 +25,7 @@
 		
         <div class="home_img">
             <div class="home_img__text_section_container">
-                <img src={{asset('phonepeople.jpg" class="home_img__image')}}>
+                <img src="{{ asset('phonepeople.jpg" class="home_img__image') }}">
                 <div class="home_img__text_section_container">
                     <span class="home_img__text_1">Quality deals for everyone!</span>
                     <span class="home_img__text_2">Our policies ensure that our customers get the best, personalized PRIME deals!</span>
