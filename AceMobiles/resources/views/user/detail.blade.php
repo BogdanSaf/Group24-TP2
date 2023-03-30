@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{{ asset('css/detail.css') }}">
    
     @include('shared.header')
-    <title>Document</title>
+    <title>Ace Mobiles | Products</title> 
 </head>
 <body>
 @include('shared.navbar')
@@ -31,24 +31,48 @@
        </div>
      </div>
      <div class="col-2">
-        <p>Home/ phone</p>
+      <!--  <p>Home/ phone</p> -->
         <h1>{{ $product -> productName}}</h1>
-        <h4>{{ $product -> productPrice }}</h4>
+        <?php
+      
+      if ($product->productStock == 0)
+      {
+          echo '<h4 style="color:red;">Out Of Stock</h4>';
+      }
+      else 
+      {
+          echo '<h4 style="color:blue;">In Stock</h4>';
+      }
+      ?>
+        <h4>£{{ $product -> productPrice }}</h4>
         <select>
             <option value="">Select colour</option>
             <option value="">Pink</option>
             <option value="">blue</option>
             <option value="">black</option>
         </select>
-        <input type="number" value="1">
-        <a href="" class="btn">Add to Cart</a>
-        <h3>Product Details<i class= "fa fa-indent"></i></h3>
+       <br>
+       
+
+
+
+        Quantity: <input type="number" value="1"></input>
+        <br></br>
+            <div class="item-action">
+                <form action="{{ asset('addToBasket') }}" method="post">
+                    @csrf
+                    <input type="hidden" value="{{ $product['id'] }}" name="id">
+                    <button type="submit" class="add-to-basket-btn">Add to basket</button>
+                </form>
+            </div>
+         <h3>Product Details<i class= "fa fa-indent"></i></h3>
         <br>
         <p>{{ $product -> productDescription}}</p>
      </div>
     </div>
 </div> 
 
+<!--
 <script>
     var ProductImg = document.getElementById("ProductImg");
     var SmallImg = document.getElementbyClassName("small-img");
@@ -70,7 +94,8 @@ SmallImg[3].onclick = function()
     ProductImg.src = SmallImg[3].src;
 }
 </script>
-
+-->
 
 </body>
+@include('shared.footer')
 </html>

@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="{{ asset('css/products.css') }}">
-  <title>Products</title>
+  <title>Ace Mobiles | Products</title> 
   @include('shared.header')
 </head>
 <body>
@@ -83,3 +83,4 @@ filterButtons.forEach(button => {
   @include('shared.footer')
 </body>
 </html>
+

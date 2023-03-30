@@ -143,7 +143,7 @@ public class EmployeeControllerTest {
         employee.setPassword("password");
         employeeRepository.save(employee);
 
-        // Perform a get request to the delete-employee endpoint
+
         mockMvc.perform(get("/employees/delete/" + employee.getEmployeeId()))
                 .andExpect(status().is3xxRedirection())
                 .andExpect(redirectedUrl("/employees"))
@@ -153,7 +153,6 @@ public class EmployeeControllerTest {
         assertNull(employeeRepository.findById(employee.getEmployeeId()).orElse(null));
     }
 
-//    Test fails because employeeRepository.save() randomly does not work. Tried to create a fake database, but it did not work. What I tried (https://stackoverflow.com/questions/59630273/spring-unit-test-repository-save-not-working)
     @Test
     public void updateEmployeeByIdSuccess() throws Exception {
         Employees employee = new Employees();

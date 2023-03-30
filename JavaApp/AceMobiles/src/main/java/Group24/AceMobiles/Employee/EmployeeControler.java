@@ -14,6 +14,7 @@ import javax.validation.Valid;
 import java.math.BigInteger;
 import java.sql.SQLOutput;
 import java.util.List;
+import java.util.Objects;
 
 @Controller
 public class EmployeeControler {
@@ -49,6 +50,12 @@ public class EmployeeControler {
 
         if (employeeRepository.findById(id).isEmpty()){
             String errorMessage = "Employee does not exist";
+            ra.addFlashAttribute("errorMessage", errorMessage);
+            return "redirect:/employees";
+        }
+
+        if (!Objects.equals(employeeRepository.findByEmail(employee.getEmail()).getEmployeeId(), employee.getEmployeeId())) {
+            String errorMessage = "Email already taken";
             ra.addFlashAttribute("errorMessage", errorMessage);
             return "redirect:/employees";
         }

@@ -78,7 +78,7 @@ body{
     padding-left: 10px;
     font-size: 20px;
     margin-right: 10px;
-    border: 1px solid blue;
+    border: 1px solid #007fff;
 }
 
 input:focus{
@@ -110,3 +110,17 @@ p{
 .btn:hover{
     background: #38b6ff;
 }
+
+.item-action button {
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: none;
+    background-color: #007fff;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .item-action button:hover {
+    background-color: #00A2FF;
+  }

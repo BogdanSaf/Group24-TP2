@@ -3,7 +3,7 @@
 
 <head>
 <meta charset="UTF-8"/>
-<title>Ace Mobiles About</title>
+<title>Ace Mobiles | About Us</title> 
 @include('shared.header')
     <link href="AceAbout.css" rel="stylesheet" type="text/css" media="all">
 

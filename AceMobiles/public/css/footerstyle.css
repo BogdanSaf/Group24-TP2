@@ -182,11 +182,11 @@ footer {
 }
 
 .footer-distributed .footer-icons a:hover {
-    background-color: #3F71EA;
+    background-color: #007fff;
 }
 
 .footer-links a:hover {
-    color: #3F71EA;
+    color: #007fff;
 }
 
 @media (max-width: 880px) {

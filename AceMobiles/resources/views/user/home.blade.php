@@ -1,60 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>HomePage</title>
-    @include('shared.header')
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/homepage.css') }}">
-    @include('shared.navbar')
-  </head>
-  <body>
-	
-  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-  </div>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src= "../../../images/z flip 4 background.png" class="d-block w-100" alt="...">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>We are ace mobiles</h5>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id animi voluptate, saepe minus laboriosam magnam assumenda suscipit accusamus? </p>
-      <p><a href="#" class= "btn btn-warning mt-3">Learn More</a></p>
-      </div>
+    <head>
+        <meta charset ="UTF-8"/>
+        <meta name ="viewport"
+        content="width=device-width,initial-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+        <link rel="stylesheet" href="{{ asset('css/homepage.css') }}">
+        <title>Ace Mobiles | Homepage</title> 
+        @include('shared.header')
+    </head>
+<body>
+@include('shared.navbar')
+<div id ="main">
+    <div id = "box1"></div>
+
+    <div id="box2">
+        <h1>Ace </br>Mobiles</h1>
+    
+        <button class = "header-shop"  onclick="window.location.href = 'ProductsPage.html'">Shop Now<img src="images/arrow.png"></button>
     </div>
-    <div class="carousel-item">
-      <img src= "../../../images/z flip 4 background.png"class="d-block w-50" alt="...">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Second slide label</h5>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id animi voluptate, saepe minus laboriosam magnam assumenda suscipit accusamus? </p>
-      <p><a href="#" class= "btn btn-warning mt-3">Learn More</a>></a></p>
-      </div>
+
     </div>
-    <div class="carousel-item">
-      <img src= "../../../images/z flip 4 background.png" class="d-block w-100" alt="...">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Third slide label</h5>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id animi voluptate, saepe minus laboriosam magnam assumenda suscipit accusamus? </p>
-      <p><a href="#" class= "btn btn-warning mt-3">Learn More</a>></a></p>
-      </div>
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
+
 </div>
-  
+<div class = "best-sellers">
+    <h2>Categories</h2>
 
- 
+    <div class="cards">
+        <div class="card">
+            <img src="images/samsunggalaxys22plus(128gb).jpg" style="width:100%">
+            <h1> Samsung</h1>
+            <br>
+            <button id = "btn">Shop now</button>
+        </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" ></script>
-  </body>
-  @include('shared.footer')
+        <div class="card">
+            <img src="images/iPhone14ProMax(128GB).jpg"  style="width:50%">
+            <h1>Apple</h1>
+            <br>
+            <button id = "btn">Shop now</button>
+        </div>
+        <div class="card">
+            <img src="images/sonyxperia1IV(256GB).jpg"  style="width:100%">
+            <h1> Sony</h1>
+            <br>
+            <button id = "btn">Shop now</button>
+        </div>
+        <div class="card">
+            <img src="images/oppofindx3pro(256gb).jpg"  style="width:65%">
+            <h1> Oppo</h1>
+            <br>
+            <button id = "btn">Shop now</button>
+        </div>
+        <div class="card">
+            <img src="images/googlepixel7(128gb).jpg"  style="width:50%">
+            <h1> Google</h1>
+            <br>
+            <button id = "btn">Shop now</button>
+        </div>
+    </div>
+</div>
+
+
+<section id ="review-section">
+    <div class = "container">
+        <div class="subcontainer">
+            <div class="review-wrapper">
+                <div class="header">
+                    <h1>Our Reviews</h1>
+                </div>
+                <div class="slider-wrapper">
+                    <div class="slider">
+                        <div class="slide">
+                            <br>
+                            <h2>Ace Mobiles are a great company to deal with and reasonably priced. Products came out very timely. Would definitely buy again. The item arrived well-packaged and in perfect condition, which is always a great sign of a company's commitment to customer satisfaction. </h2>
+                            <br>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                            <p> - Micheal smith</p>
+                        </div>
+                        <div class="slide">
+                            <h2>I recently purchased a product from Ace Mobiles, and I have to say that I was extremely impressed with the entire experience. The website was easy to navigate, and the checkout process was seamless and straightforward</h2>
+                            <br>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                            <br>
+                            <p> - Ajax Miyu</p>
+                        </div>                        
+                        <div class="slide">
+                            <br>
+                            <h2>I had an excellent experience with Ace Mobiles, and I would highly recommend them to anyone looking for high-quality and well-crafted products.</h2>
+                            <br>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <p> - Bennet Monroe</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="controls">
+                    <button class ="previous"><i class="fa-solid fa-angle-left"></i></button>
+                    <button class = "next"><i class="fa-solid fa-angle-right"></i></button>
+                </div>
+
+            </div>
+        </div>
+        
+    </div>
+    
+</section>
+
+<script src="{{ asset('js/homescript.js') }}"></script>
+
+</body>
+@include('shared.footer')
 </html>
+
