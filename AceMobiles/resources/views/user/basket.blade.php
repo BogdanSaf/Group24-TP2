@@ -12,7 +12,7 @@
 </head>
 
 <?php $totalPrice = 0;
-  $decoded = json_decode(json_encode($baskets), true);
+  $decoded = json_decode(json_encode($basket), true);
 ?>
 
 <body>

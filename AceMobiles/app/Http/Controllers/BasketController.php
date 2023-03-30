@@ -21,8 +21,12 @@ class BasketController extends Controller
 //adding a product to the basket: 
 public function index(){
 
-    $basket = DB::table ('basket_order_contents')
-        ->join('products', 'productIDFK', "=", "id")
+    $basket = DB::table('baskets')
+    ->join('products', 'productIDFK', "=", "productID")
+    ->where('userIDFK', '=', Auth::id())
+    ->get();
+       
+    return view('user/basket') -> with('basket', $basket);
 
 }
     public function addProduct (Request $request)
@@ -33,27 +37,27 @@ public function index(){
     $productIDFK = $request ->input('productIDFK');
     $quantity = $request ->input('quantity');
 
-    // if(Auth::check())
-    // {
-    //     $prod_check = Product:: where('id, $productIDFK')->first();
+    if(Auth::check())
+    {
+        $prod_check = Product:: where('id, $productIDFK')->first();
 
-    //     if($prod_check)
+        if($prod_check)
 
-    //     {
+        {
 
-    //         //display items in basket
+            //display items in basket
 
-    //         if(Basket::where('productIDFK', $productIDFK)->where(userIDFK, Auth::id())->exists())
-    //     {
+            if(Basket::where('productIDFK', $productIDFK)->where(userIDFK, Auth::id())->exists())
+        {
             
-    //         return reponse() ->json(['status' => $prod_check->name."Already in basket"]);
+            return reponse() ->json(['status' => $prod_check->name."Already in basket"]);
     
 
             
-    // }
+    }
 
 
-// else
+else
 
 {
 
