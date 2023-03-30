@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Validator;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
+use Illuminate\Validation\Rules\Password;
 
 class AuthFunctions extends Controller
 {
@@ -28,9 +29,13 @@ class AuthFunctions extends Controller
                 'surname' => 'required|string|max:50',
                 'address' => 'required|string|max:50',
                 'postcode' => 'required|string|max:10',
-                'phoneNumber' => 'required|numeric|digits:10',
+                'phoneNumber' => 'required|numeric|digits:11',
                 'email' => 'required|email|string|unique:users|max:100',
-                'password' => 'required|min:0|max:100',
+                'password' => ['required','max:100', Password::min(8)
+                                                            ->mixedCase()
+                                                            ->letters()
+                                                            ->numbers()
+                                                            ->symbols()],
                 'confirmPassword' => 'required|same:password|max:100',
             ]);
 
