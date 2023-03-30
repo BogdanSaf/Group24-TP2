@@ -2,8 +2,6 @@
 <html lang="en">
 <head>
 <title>Ace Mobiles | Register</title>    
-
-    <meta http-equiv="Content-Security-policy" content="updagreade-insecure-request">
     @include('shared.header')
     <link rel="stylesheet" href="{{ asset('/css/RegisterPage.css')}}">
     
