@@ -2,8 +2,11 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Ace Mobiles | About Us</title>
-    <link href={{asset('AceAbout.css')}} rel="stylesheet" type="text/css" media="all">
+    <title>About Us</title>
+    @include('shared.header')
+    <script src="https://kit.fontawesome.com/c32adfdcda.js" crossorigin="anonymous"></script>
+    <link href="{{ asset('AceAbout.css') }}" rel="stylesheet" type="text/css" media="all">
+     
 </head>
 <body>
  @include('shared.navbar')
@@ -22,7 +25,7 @@
 		
         <div class="home_img">
             <div class="home_img__text_section_container">
-                <img src={{asset('phonepeople.jpg" class="home_img__image')}}>
+                <img src="{{ asset('phonepeople.jpg" class="home_img__image') }}">
                 <div class="home_img__text_section_container">
                     <span class="home_img__text_1">Quality deals for everyone!</span>
                     <span class="home_img__text_2">Our policies ensure that our customers get the best, personalized PRIME deals!</span>
@@ -35,13 +38,13 @@
 			<h3>Thanks to your support, we have won many awards!</h3>
 			<div class="row">
 			  <div class="column">
-				<img src={{asset('retailer.png')}} alt="test1" style="width: 50%">
+				<img src={{ asset('retailer.png') }}" alt="test1" style="width: 50%">
 			  </div>
 			  <div class="column">
-				<img src="{{asset('MIA.png"')}} alt="test2" style="width: 50%">
+				<img src="{{ asset('MIA.png') }}" alt="test2" style="width: 50%">
 			  </div>
 			  <div class="column">
-				<img src="{{asset('choice.png')}} alt="test3" style="width: 50%">
+				<img src="{{ asset('choice.png') }}" alt="test3" style="width: 50%">
 			  </div>	
 			</div>
     </center>
