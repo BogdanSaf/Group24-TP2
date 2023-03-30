@@ -29,4 +29,10 @@ class Order extends Authenticatable
         'arrivalDate',
         'status',
     ];
+    
+     public function orderitems()
+    {
+        return $this->hasMany(OrderItem::class);
+    }
+    
 }
