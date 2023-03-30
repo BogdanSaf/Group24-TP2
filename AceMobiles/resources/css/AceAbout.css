@@ -369,6 +369,10 @@ svg{
     font-size: 24px;
   }
   
+  h1 {
+	 font-size: 30px;
+  }
+  
   /* Reduce the font size of all paragraphs */
   p {
     font-size: 16px;
@@ -382,8 +386,8 @@ svg{
   
   /* Adjust the layout of the award images */
   .column {
-    float: center;
-	width: 33.33%;
+    float: left;
+	width: 50%;
 	display: flex;
   }
   
@@ -447,9 +451,7 @@ svg{
 /* Styles for screens with a minimum width of 769px */
 @media only screen and (min-width: 769px) {
   /* Reset the font size of all headings and paragraphs */
-  h2, h3, p {
-    font-size: 150%;
-  }
+
   
   /* Reset the width of the images */
   img {
@@ -462,4 +464,5 @@ svg{
     width: 33.33%;
     text-align: center;
   }
+
 }
