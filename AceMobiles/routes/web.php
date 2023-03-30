@@ -68,7 +68,7 @@ Route::get('/contactus', function () {
 
 //About us
 Route::get('/aboutus', function () {
-    return view('user/acemobileabout');
+    return view('user/AboutUs');
 });
 
 
