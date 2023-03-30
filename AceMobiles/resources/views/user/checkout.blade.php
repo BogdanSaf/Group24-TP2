@@ -50,7 +50,7 @@
                             <div class="col-md-6 mt-3">
                                 <label for="">Post Code</label>
                                 <input type="text" class="form-control" placeholder="Enter Your Post Code"
-                                    value="{{ Auth::user()->postCode }}">
+                                    value="{{ Auth::user()->postcode }}">
                             </div>
                         </div>
                     </div>
@@ -65,7 +65,7 @@
                             <tbody>
                                 <?php
                                 $decoded = json_decode(json_encode($basketInfo), true);
-                                $total = 0;
+                                $totalPrice = 0;
                                 ?>
 
                                 @foreach ($decoded as $item)

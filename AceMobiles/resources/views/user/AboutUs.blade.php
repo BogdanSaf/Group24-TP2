@@ -2,23 +2,30 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Ace Mobiles | About Us</title>
-    <link href="AceAbout.css" rel="stylesheet" type="text/css" media="all">
+    <title>About Us</title>
+    @include('shared.header')
+    <script src="https://kit.fontawesome.com/c32adfdcda.js" crossorigin="anonymous"></script>
+    <link href="{{ asset('css/AceAbout.css') }}" rel="stylesheet" type="text/css" media="all">
+     
 </head>
 <body>
+ @include('shared.navbar')
     <center>
-        <h1>About Us</h1>
+        <h1><b>About Us</b></h1>
         <h2>History</h2>
         <p>Since 2005, we have been helping to give customers a wide range of high-quality mobile products.<br>
         Our company started as a humble little shop in Birmingham offering phone repairs to passers-by.<br>
         Since then, our company has expanded to over 200 stores across the UK as well as the website you are in right now!</p>
         <h2>Values</h2>
         <p>We ensure that that we fulfil our core values as a company.<br>
-        Our core values include customer satisfaction, transparenct, innovation, sustainability and responsibility.</p>
+        Our core values include customer satisfaction, transparency, innovation, sustainability and responsibility.<br>
+        We at Ace Mobiles work together to ensure that customers get the best deals by providing the latest models that <br>
+        would suit them best and giving them details on everything that goes on during the purchasing process. We also aim to <br>
+        support them whenever they are unsatisfied with a product as customer satisfaction is our number one priority!</p>
 		
         <div class="home_img">
             <div class="home_img__text_section_container">
-                <img src="phonepeople.jpg" class="home_img__image">
+                <img src="{{ asset('images/phonepeople.jpg') }}">
                 <div class="home_img__text_section_container">
                     <span class="home_img__text_1">Quality deals for everyone!</span>
                     <span class="home_img__text_2">Our policies ensure that our customers get the best, personalized PRIME deals!</span>
@@ -31,13 +38,13 @@
 			<h3>Thanks to your support, we have won many awards!</h3>
 			<div class="row">
 			  <div class="column">
-				<img src="retailer.png" alt="test1" style="width: 50%">
+				<img src="{{ asset('images/retailer.png') }}" alt="test1" style="width: 50%">
 			  </div>
 			  <div class="column">
-				<img src="MIA.png" alt="test2" style="width: 50%">
+				<img src="{{ asset('images/MIA.png') }}" alt="test2" style="width: 50%">
 			  </div>
 			  <div class="column">
-				<img src="choice.png" alt="test3" style="width: 50%">
+				<img src="{{ asset('images/choice.png') }}" alt="test3" style="width: 50%">
 			  </div>	
 			</div>
     </center>
@@ -169,6 +176,7 @@
 
 
 </body>
+@include('shared.footer')
 <script>
 const faqs = document.querySelectorAll(".faq");
 
