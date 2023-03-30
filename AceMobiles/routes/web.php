@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthFunctions;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\BasketController;
+use Illuminate\Support\Carbon;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -63,10 +64,6 @@ Route::get('/contactus', function () {
     return view('user/contactus');
 });
 
-// Give it another URL '/products' will have a conflict with the above route named 'ReturnHomeView'
-// Route::get('/products', function () {
-//     return view('user/products');
-// });
 
 //About us
 Route::get('/aboutus', function () {
@@ -76,6 +73,14 @@ Route::get('/aboutus', function () {
 
 // basket Page
 Route::get('/basket', [BasketController::class, 'index']);
+Route::post('removeFromBasket',[BasketController::class, 'removeFromBasket']);
+
+//checkout
+Route::get('/checkout', function () {
+    return view('user/checkout');
+  });
+
+Route::any('/checkout',[BasketController::class, 'getInfo']);
 
 
 // individual products page 
