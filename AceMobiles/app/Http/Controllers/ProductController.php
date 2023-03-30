@@ -8,7 +8,7 @@ use App\Models\Product;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Basket_Order_Contents;
-use App\Models\Baskets;
+use App\Models\Basket;
 use App\Cart;
 
 use Session;
@@ -56,14 +56,14 @@ class ProductController extends Controller
     public function addToBasket(Request $request) {
 		if(Auth::check()){
 			$productID = $request->input('id');
-			$productPrice = DB::table('products')->where('id', $request->input('id'))->value('price');
+			$productPrice = DB::table('products')->where('productID', $request->input('id'))->value('productPrice');
 			$tempID = Auth::id();
-			$baskets = new basket_order_contents();
+			$baskets = new Basket();
 			$baskets->userIDFK = $tempID;
 			$baskets->productIDFK = $productID;
 			//$basket->orderfk = 1;
 			$baskets->quantity = 1;
-			$baskets->totalPrice = $price;
+			$baskets->totalPrice = $productPrice;
 
 			$baskets->save();
 

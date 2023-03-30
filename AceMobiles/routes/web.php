@@ -56,7 +56,7 @@ Route::get('products/preview/{id}', [ProductController::class, 'specificProduct'
 
 // basket button
 
-Route::post('addToBasket',[ProductController::class, 'addToBasket']);
+Route::post('addToBasket',[ProductController::class, 'addToBasket']) -> name('AddToBasket');
 
 // Contact Us Page
 Route::get('/contactus', function () {

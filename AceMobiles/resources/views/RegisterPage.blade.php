@@ -102,7 +102,7 @@
                 </div>
             </form>
 
-            <h3>Already got an account? Click <a href="{{ route("ReturnLoginPageView") }}">here</a> !</h3>
+            <h3>Already got an account? Click <a href="{{ route('ReturnLoginPageView') }}">here</a> !</h3>
 
         </div>
 
