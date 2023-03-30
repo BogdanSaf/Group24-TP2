@@ -36,7 +36,7 @@ Here is how to set it up on your local machine:
 
 Well done! The website should now be running on your local machine!
 
-<h4>JavaApp<h4>
+<h4>JavaApp</h4>
 
 The JavaApp will contain the admin website where an admin can edit and add different things such as the users,products,orders and employees and also be able to check analytics of the business such as sold products and stock levels.
 
@@ -50,4 +50,4 @@ Here is how to set it up on your local machine. Make sure that you first did the
 5)Now Run the file AceMobilesApplication.java inside JavaApp/AceMobiles/src/main/java/Group24/AceMobiles.
 6)A login page will show up. For Username it's the email of the of the admin you created and password is the password before encryption
 
-Well done! The Admin Website should now be working too. Here you are able to edit,delete and add new users,products,employess and the ability to check or
+Well done! The Admin Website should now be working too. Here you are able to edit,delete and add new users,products,employess and the ability to check or edit orders. The changes will be reflected on the main website (Laravel)
