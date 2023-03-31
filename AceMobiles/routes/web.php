@@ -83,6 +83,7 @@ Route::any('/checkout',[BasketController::class, 'getInfo']);
 //orders
 Route::any('placeOrder',[OrdersController::class, 'placeOrder']);
 Route::any('/orders',[OrdersController::class, 'index']);
+Route::get('/orders/showItems/{id}',[OrdersController::class, 'getSpecificOrder']);
 
 
 // individual products page 

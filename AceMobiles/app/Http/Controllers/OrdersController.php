@@ -40,4 +40,12 @@ class OrdersController extends Controller
 
         return redirect('/products')->with('success', 'Order Placed Successfully! Thank you for shopping with us!');
     }
+
+    public function getSpecificOrder($id){
+        $order = Order::find($id);
+        $order_contents = BasketOrderContent::where('orderIDFK', $id)
+        ->join('products', 'basket_order_contents.productIDFK', '=', 'products.productID')
+        ->get();
+        return view('user.viewOrderContents', ['order_contents' => $order_contents]);
+    }
 }
