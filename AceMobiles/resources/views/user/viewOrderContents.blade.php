@@ -10,41 +10,41 @@
 @include('shared.navbar')
 
 
-    <div class="container">
-        <div class="row">
+<div class="container">
+    <div class="row">
         <div class="col-md-12 text-center">
-    <h1>Items inside order</h1>
-</div>
+            <h1>Items inside order</h1>
+        </div>
+    </div>
 
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <table class="table">
-                    <thead class="thead-dark">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Image</th>
+                        <th>Brand</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Quantity</th>
+                    </tr>
+                </thead>
+                <tbody class="table-striped">
+                    @foreach ($order_contents as $bsk)
                         <tr>
-                            <th>Image</th>
-                            <th>Brand</th>
-                            <th>Name</th>
-                            <th>Description</th>
-                            <th>Quantity</th>
+                            <td><img src="{{ URL::asset('/images/' . $bsk['productImage']) }}" alt="" style="max-height: 200px;max-width:200px"></td>
+                            <td>{{ $bsk['productBrand'] }}</td>
+                            <td>{{ $bsk['productName'] }}</td>
+                            <td>{{ $bsk['productDescription'] }}</td>
+                            <td>{{ $bsk['quantity'] }}</td>
                         </tr>
-                    </thead>
-                    <tbody class="table-striped">
-                        @foreach ($order_contents as $bsk)
-                            <tr>
-                                <td><img src="{{ URL::asset('/images/' . $bsk['productImage']) }}" alt="" style="max-height: 200px;max-width:200px"></td>
-                                <td>{{ $bsk['productBrand'] }}</td>
-                                <td>{{ $bsk['productName'] }}</td>
-                                <td>{{ $bsk['productDescription'] }}</td>
-                                <td>{{ $bsk['quantity'] }}</td>
-                            </tr>
-                        
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
+                    @endforeach
+                </tbody>
+            </table>
         </div>
-        {{-- @include('shared.footer') --}}
+    </div>
+</div>
+ @include('shared.footer') 
         
 </body>
 </html>
