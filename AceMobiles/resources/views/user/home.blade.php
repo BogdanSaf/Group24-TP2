@@ -67,28 +67,28 @@
     <div class="cardhomepage">
         <img src="images/appleblendedit.png" alt="" style="width:100%">
         <h1>Apple</h1>
-        <p><button1>Shop now</button></p>
+         <button onclick ="window.location.href = '/products/Apple'" >Shop Now<img src = "images/arrow.png" src="/products"></button>
     </div>
 
     <div class="cardhomepage">
         <img src="images/googleblendedit.png" alt="" style="width:100%">
         <h1> Google</h1>
-        <p><button1>Shop now</button1></p>
+        <button onclick ="window.location.href = '/products/Google'" >Shop Now<img src = "images/arrow.png" src="/products"></button>
     </div>
     <div class="cardhomepage">
         <img src="images/samsungblendedit.png" alt="" style="width:100%">
         <h1> Samsung</h1>
-        <p><button1>Shop now</button1></p>
+        <button onclick ="window.location.href = '/products/Samsung'" >Shop Now<img src = "images/arrow.png" src="/products"></button>
     </div>
     <div class="cardhomepage">
         <img src="images/oppoblendedit.png" alt="" style="width:100%">
         <h1> Oppo</h1>
-        <p><button1>Shop now</button1></p>
+        <button onclick ="window.location.href = '/products/Oppo'" >Shop Now<img src = "images/arrow.png" src="/products"></button>
     </div>
     <div class="cardhomepage">
         <img src="images/sonyblend.edit.png" alt="" style="width:100%">
         <h1> Sony</h1>
-        <p><button1>Shop now</button1></p>
+        <button onclick ="window.location.href = '/products/Sony'" >Shop Now<img src = "images/arrow.png" src="/products"></button>
     </div>
 </div>
 
