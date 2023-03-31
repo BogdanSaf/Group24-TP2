@@ -74,7 +74,7 @@ Route::get('/aboutus', function () {
 
 // basket Page
 Route::get('/basket', [BasketController::class, 'index']);
-Route::post('removeFromBasket',[BasketController::class, 'removeFromBasket']);
+Route::post('removeFromBasket',[BasketController::class, 'removeFromBasket']) -> name('RemoveFromBasket');
 
 //checkout
 // Route::get('/checkout', function () {

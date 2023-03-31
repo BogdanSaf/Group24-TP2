@@ -20,7 +20,7 @@
                </label>
             </li>
             <div class="basket">
-                <a href="#"><i class="fa-solid fa-basket-shopping" style="color:white"></i></a>
+                <a href="/basket"><i class="fa-solid fa-basket-shopping" style="color:white"></i></a>
             </div>
          </ul>
       </nav>

@@ -18,6 +18,14 @@
   @include('shared.navbar')
 
   <div class="wrapper">
+
+    @if (session('successRemove'))
+    <div class="alert alert-success">
+     <h5> {{ session('successRemove') }}</h5>
+    </div>
+    {{ session()->forget('successRemove') }}
+  @endif
+
     <h1>Basket</h1> 
 
     <table>
@@ -47,7 +55,11 @@
             </td>
             <td>£{{ $item['totalPrice'] }}</td>
             <td>
-              <button class="remove-btn">Remove</button>
+              <form action="{{ route('RemoveFromBasket') }} " method="post">
+                @csrf
+                <input type="hidden" name="productID" value="{{ $item['productID'] }}">
+                <button class="remove-btn">Remove</button>
+              </form>
             </td>
           </tr>
         @endforeach

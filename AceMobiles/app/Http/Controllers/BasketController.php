@@ -6,7 +6,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\users;
 use App\Models\basket_order_contents;
-use App\Models\baskets;
+use App\Models\Basket;
 use App\Models\employees;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
@@ -44,14 +44,14 @@ return view('user/checkout') ->with('basketInfo', $basketInfo);
 
 
 public function removeFromBasket(Request $request) {
-$basketID = $request->input('basketContentID');
-$basket= BasketContents::where('basketContentID', $basketID)->first();
-$basket->delete();
-return redirect()->back();
+$productId = $request->input('productID');
+$basket = Basket::where('productIDFK', $productId) ->where('userIDFK', Auth::id()) ->first() ->delete();
+return redirect()->back()->with('successRemove', 'Product removed from basket!');
 
 }
 
-} 
+}
+
 
 
 
