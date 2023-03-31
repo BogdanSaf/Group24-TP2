@@ -77,9 +77,9 @@ Route::get('/basket', [BasketController::class, 'index']);
 Route::post('removeFromBasket',[BasketController::class, 'removeFromBasket']);
 
 //checkout
-Route::get('/checkout', function () {
-    return view('user/checkout');
-  });
+// Route::get('/checkout', function () {
+//     return view('user/checkout');
+//   });
 
 Route::any('/checkout',[BasketController::class, 'getInfo']);
 

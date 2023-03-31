@@ -58,7 +58,7 @@
       <p>
         Subtotal: <span>£{{ $totalPrice }}</span>
       </p>
-      <button class="checkout-btn">Checkout</button>
+      <a href="{{asset('/checkout')}}"><button class="checkout-btn">Checkout</button></a>
     </div>
   </div>
 
