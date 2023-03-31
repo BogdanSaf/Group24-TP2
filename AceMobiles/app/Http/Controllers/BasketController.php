@@ -22,14 +22,38 @@ class BasketController extends Controller
 public function index(){
 
     $basket = DB::table('baskets')
-    ->join('products', 'productIDFK', "=", "productID")
+    ->join('products', 'productIDFK', "=", "id")
     ->where('userIDFK', '=', Auth::id())
     ->get();
        
     return view('user/basket') -> with('basket', $basket);
 
 }
-    public function addProduct (Request $request)
+
+public function getInfo(){
+    $basketInfo = DB:: table('basket_contents')
+        ->join('basket', 'userIDFK', "=", basketID)
+        ->join('products', 'productIDFK', "=", "id")
+        ->where('userIDFK', '=', Auth::id())
+        ->get();
+
+return view('user/checkout') ->with('basketInfo', $basketInfo);
+
+}
+
+public function removeFromBasket (Requst $request){
+    $basketID = $request -> input('basket_order_contents');
+    $basket = BasketContents::wher('basketcontentsid', $basketID)->first();
+    $basket ->delete();
+    return redirect() ->back();
+
+}
+
+
+
+}
+
+
     {
 
 
