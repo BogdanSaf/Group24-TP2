@@ -129,6 +129,7 @@
 </body>
 </html>
 
+
 <script>
 const myslide = document.querySelectorAll('.myslide'),
 	  dot = document.querySelectorAll('.dot');
