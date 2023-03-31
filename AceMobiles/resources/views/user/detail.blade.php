@@ -77,18 +77,18 @@
 
         Quantity: <input type="number" value="1"></input>
         <br></br>
-        <div class="item-action">
-                    @if ($product->productStock === 0)
-          <button type="button" class="out-of-stock-btn">Out of stock</button>
-        @else
-          <form action="{{ route('AddToBasket') }}" method="post">
+        @if ($product->productStock > 0)
+    <div class="item-action">
+        <form action="{{ route('AddToBasket') }}" method="post">
             @csrf
             <input type="hidden" value="{{ $product['productID'] }}" name="id">
             <button type="submit" class="add-to-basket-btn">Add to basket</button>
-          </form>
-        @endif
+        </form>
+    </div>
+@endif
 
-            </div>
+
+
          <h3>Product Details<i class= "fa fa-indent"></i></h3>
         <br>
         <p>{{ $product -> productDescription}}</p>
