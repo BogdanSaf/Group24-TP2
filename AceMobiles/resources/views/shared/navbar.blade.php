@@ -7,8 +7,13 @@
                <li><a href="/aboutus">About</a></li>
                <li><a href="/products">Products</a></li>
                <li><a href="/contactus">Contact</a></li>
+               @if (!Auth::check())
                <li><a href="/login">Login</a></li>
                <li><a href="/register">Register</a></li>
+               @else
+               <li><a href="/orders">My orders</a></li>
+               <li><a href="/logout">Logout</a></li>
+               @endif
     
             </div>
             <li class="search-icon">

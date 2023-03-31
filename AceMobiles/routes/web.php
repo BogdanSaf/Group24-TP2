@@ -38,6 +38,8 @@ Route::post('register',[AuthFunctions::class, 'register']) -> name('RegisterUser
 
 Route::post('login',[AuthFunctions::class, 'login']) -> name('LoginUser');
 
+Route::get('/logout',[AuthFunctions::class, 'logout']) -> name('LogoutUser');
+
 //Products Page and sorting
 
 Route::get('/products', [ProductController::class, 'returnHomeView']) -> name('ReturnHomeView');
