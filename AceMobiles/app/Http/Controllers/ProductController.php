@@ -56,13 +56,13 @@ class ProductController extends Controller
     public function addToBasket(Request $request) {
 		if(Auth::check()){
 			$productID = $request->input('id');
+            $quantityProduct = $request->input('quantity');
 			$productPrice = Product::where('productID', $request->input('id'))->value('productPrice');
 			$tempID = Auth::id();
 			$baskets = new Basket();
 			$baskets->userIDFK = $tempID;
 			$baskets->productIDFK = $productID;
-			//$basket->orderfk = 1;
-			$baskets->quantity = 1;
+			$baskets->quantity = $quantityProduct;
 			$baskets->totalPrice = $productPrice;
 
 			$baskets->save();

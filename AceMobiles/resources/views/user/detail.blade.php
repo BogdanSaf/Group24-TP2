@@ -75,17 +75,30 @@
 
 
 
-        Quantity: <input type="number" value="1"></input>
+        Quantity: <input type="number" value="1" id="quantityInput"></input>
         <br></br>
         @if ($product->productStock > 0)
     <div class="item-action">
         <form action="{{ route('AddToBasket') }}" method="post">
             @csrf
+            <input type="hidden" value="1" id="quantity" name="quantity">
             <input type="hidden" value="{{ $product['productID'] }}" name="id">
             <button type="submit" class="add-to-basket-btn">Add to basket</button>
         </form>
     </div>
 @endif
+
+<script>
+    const quantityInput = document.getElementById('quantityInput');
+    const quantity = document.getElementById('quantity');
+    quantity.value = quantityInput.value;
+   
+  
+    quantityInput.addEventListener('change', (event) => {
+        quantity.value = event.target.value;
+    });
+  </script>
+
 
 
 

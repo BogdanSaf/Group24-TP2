@@ -78,11 +78,6 @@ Route::get('/aboutus', function () {
 Route::get('/basket', [BasketController::class, 'index']) -> middleware('auth');
 Route::post('removeFromBasket',[BasketController::class, 'removeFromBasket']) -> name('RemoveFromBasket');
 
-//checkout
-// Route::get('/checkout', function () {
-//     return view('user/checkout');
-//   });
-
 Route::any('/checkout',[BasketController::class, 'getInfo']);
 
 //orders
