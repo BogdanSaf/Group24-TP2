@@ -38,13 +38,13 @@
             <h1>Ace Mobiles</h1>
             <p>Find the phone that is right for you!</p>
         </div>
-        <img src="images/samsungslideshow2.png" style="width: 100%; height: 100%;">
+        <img src="images/iphoneslideshow1.jpg" style="width: 100%; height: 100%;">
     </div>
     
     <div class="myslide fade">
         <div class="txt">
         </div>
-        <img src="images/iphoneslideshow1.jpg" style="width: 100%; height: 100%;">
+        <img src="images/samsungslideshow2.png" style="width: 100%; height: 100%;">
     </div>
     
     <div class="myslide fade">
@@ -123,7 +123,12 @@
     </div>
 </div>
 
+
+
+@include('shared.footer')
 </body>
+</html>
+
 <script>
 const myslide = document.querySelectorAll('.myslide'),
 	  dot = document.querySelectorAll('.dot');
@@ -168,7 +173,5 @@ function slidefun(n) {
 	myslide[counter - 1].style.display = "block";
 	dot[counter - 1].className += " active";
 }
-        </script> 
-@include('shared.footer')
-</html>
+</script> 
 
