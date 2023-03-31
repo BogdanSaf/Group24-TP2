@@ -24,7 +24,7 @@
          <h2> ACE Mobiles</h2>
          <h3> Welcome to the launch of Ace Mobiles!</h3>
            
-         <button onclick ="window.location.href = 'NewProductsPage.html'" >Shop Now<img src = "images/arrow.png" src="/products"></button>
+         <button onclick ="window.location.href = '/products'" >Shop Now<img src = "images/arrow.png" src="/products"></button>
      </div>
      <div class = "col-2homepage">
          <img src ="images/samsung.jpg" class="samsungmain">
