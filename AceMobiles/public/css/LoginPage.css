@@ -1,5 +1,5 @@
 *{
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Arial', sans-serif;
 }
 
 body{
@@ -51,10 +51,6 @@ body{
     align-items: center;
     border-left-style: groove;
     border-width: 1px;
-}
-
-.loginFormContainer h1{
-    font-family: cursive;
 }
 
 .loginFormContainer h2{

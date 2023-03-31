@@ -1,5 +1,5 @@
 *{
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Arial', sans-serif;
 }
 
 body{
@@ -120,9 +120,6 @@ input:focus{
     background-color: #00A2FF;
 }
 
-h1{
-    font-family: cursive;
-}
 
 h2{
     font-style: italic;

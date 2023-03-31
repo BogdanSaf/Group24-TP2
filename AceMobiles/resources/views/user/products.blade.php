@@ -10,6 +10,23 @@
 </head>
 <body>
 @include('shared.navbar')
+
+@if ($errors->any())
+<div class="alert alert-danger border-0 m-auto">
+    @foreach ($errors->all() as $error)
+        <h5>{{ $error }}</h5>
+    @endforeach
+</div>
+@endif
+
+@if (session('success'))
+<div class="alert alert-success border-0 m-auto">
+    <h5>{{ session('success') }}</h5>
+    {{ session()->forget('success') }}
+</div>
+@endif
+
+
   <div class="category-filter">
     <div class="container">
       <div class="title">
@@ -53,9 +70,9 @@
                     @if ($product->productStock === 0)
           <button type="button" class="out-of-stock-btn">Out of stock</button>
         @else
-          <form action="{{ asset('addToBasket') }}" method="post">
+          <form action="{{ route('AddToBasket') }}" method="post">
             @csrf
-            <input type="hidden" value="{{ $product['id'] }}" name="id">
+            <input type="hidden" value="{{ $product['productID'] }}" name="id">
             <button type="submit" class="add-to-basket-btn">Add to basket</button>
           </form>
         @endif

@@ -1,0 +1,11 @@
+.checkout-form {
+    font-size: 12px;
+    font-weight: 700;
+    font-family: 'Arial';
+}
+
+.checkout-form input {
+    font-size: 14px;
+    padding: 5px;
+    font-weight: 400;
+}
