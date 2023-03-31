@@ -11,6 +11,25 @@
 </head>
 <body>
 @include('shared.navbar')
+
+@if ($errors->any())
+<div class="alert alert-danger border-0 m-auto">
+    @foreach ($errors->all() as $error)
+        <h5>{{ $error }}</h5>
+    @endforeach
+</div>
+@endif
+
+@if (session('success'))
+<div class="alert alert-success border-0 m-auto">
+    <h5>{{ session('success') }}</h5>
+    {{ session()->forget('success') }}
+</div>
+@endif
+
+
+
+
     <div class="small-container single-product">
         <div class="row">
             <div class="col-2">
@@ -58,12 +77,17 @@
 
         Quantity: <input type="number" value="1"></input>
         <br></br>
-            <div class="item-action">
-                <form action="{{ asset('addToBasket') }}" method="post">
-                    @csrf
-                    <input type="hidden" value="{{ $product['id'] }}" name="id">
-                    <button type="submit" class="add-to-basket-btn">Add to basket</button>
-                </form>
+        <div class="item-action">
+                    @if ($product->productStock === 0)
+          <button type="button" class="out-of-stock-btn">Out of stock</button>
+        @else
+          <form action="{{ route('AddToBasket') }}" method="post">
+            @csrf
+            <input type="hidden" value="{{ $product['productID'] }}" name="id">
+            <button type="submit" class="add-to-basket-btn">Add to basket</button>
+          </form>
+        @endif
+
             </div>
          <h3>Product Details<i class= "fa fa-indent"></i></h3>
         <br>

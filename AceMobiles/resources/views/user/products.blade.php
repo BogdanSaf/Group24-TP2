@@ -69,13 +69,13 @@
             <div class="item-action">
                     @if ($product->productStock === 0)
           <button type="button" class="out-of-stock-btn">Out of stock</button>
-        @else
+           @else
           <form action="{{ route('AddToBasket') }}" method="post">
             @csrf
             <input type="hidden" value="{{ $product['productID'] }}" name="id">
             <button type="submit" class="add-to-basket-btn">Add to basket</button>
           </form>
-        @endif
+            @endif
 
             </div>
           </div>
