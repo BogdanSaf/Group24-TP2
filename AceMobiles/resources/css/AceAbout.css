@@ -93,7 +93,6 @@ div.gallery{
 	#margin-left: auto;
 	#margin-right: auto;
 	margin:2px;
-	border: 1px solid #ccc;
 	float:left;
 	width:180px;
 	#padding-left:10px;
@@ -352,7 +351,7 @@ svg{
 	color: #FFFFFF;
 	padding: 16px;
 	border-radius:0;
-    font-family: Century Gothic;
+    font-family: sans-serif;
     font-weight: bold;
     font-size: 21px;
 	letter-spacing:1px;
