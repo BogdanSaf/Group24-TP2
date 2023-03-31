@@ -25,6 +25,9 @@ public interface BasketOrderContentsRepository extends JpaRepository<BasketOrder
         @Query(value = "SELECT * FROM basket_order_contents  WHERE orderidfk = :id", nativeQuery = true)
         List<BasketOrderContents> findByOrderId(@Param("id") BigInteger orderIDFK);
 
+        @Query(value = "SELECT * FROM basket_order_contents  WHERE productidfk = :productid", nativeQuery = true)
+        List<BasketOrderContents> findByProductID(@Param("productid") BigInteger productIDFK);
+
         @Transactional
         @Modifying
         @Query(value = "DELETE FROM basket_order_contents  WHERE orderidfk = :id AND productidfk = :productid", nativeQuery = true)
@@ -34,4 +37,6 @@ public interface BasketOrderContentsRepository extends JpaRepository<BasketOrder
         @Modifying
         @Query(value = "DELETE FROM basket_order_contents  WHERE orderidfk = :id", nativeQuery = true)
         void deleteByOrderID(@Param("id") BigInteger orderIDFK);
+
+
 }

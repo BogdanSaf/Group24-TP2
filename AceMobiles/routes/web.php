@@ -75,7 +75,7 @@ Route::get('/aboutus', function () {
 
 
 // basket Page
-Route::get('/basket', [BasketController::class, 'index']);
+Route::get('/basket', [BasketController::class, 'index']) -> middleware('auth');
 Route::post('removeFromBasket',[BasketController::class, 'removeFromBasket']) -> name('RemoveFromBasket');
 
 //checkout

@@ -1,12 +1,17 @@
 package Group24.AceMobiles;
 
+import Group24.AceMobiles.OrderContents.BasketOrderContents;
+import Group24.AceMobiles.OrderContents.BasketOrderContentsRepository;
+import Group24.AceMobiles.Orders.OrderRepository;
 import Group24.AceMobiles.Product.Product;
 import Group24.AceMobiles.Product.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,6 +20,13 @@ public class GraphsController {
 
     @Autowired
     private ProductRepository productRepository;
+
+    @Autowired
+    private OrderRepository orderRepository;
+
+    @Autowired
+    private BasketOrderContentsRepository basketOrderContentsRepository;
+
     @GetMapping("/graphs")
     public ModelAndView getGraphs() {
         ModelAndView mav = new ModelAndView("Graphs");
@@ -40,5 +52,16 @@ public class GraphsController {
         mav.addObject("productsSold", productsSold);
         mav.addObject("randomColours", randomColours);
         return mav;
+    }
+
+    @GetMapping("/graphs/productOrder/{name}")
+    public ModelAndView getProductOrder(@PathVariable String name){
+        ModelAndView mav = new ModelAndView("ProductOrders");
+        BigInteger productID = productRepository.findByName(name).getProductID();
+        List<BasketOrderContents> productOrders = basketOrderContentsRepository.findByProductID(productID);
+        mav.addObject("productOrders", productOrders);
+
+        return mav;
+
     }
 }

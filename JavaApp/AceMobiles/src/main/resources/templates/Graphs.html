@@ -71,8 +71,9 @@
               }
           });
 
+
           //   Script for second graph about sold products
-          new Chart("soldChard", {
+           new Chart("soldChard", {
               type: "doughnut",
               data: {
                   labels: xValues,
@@ -86,6 +87,13 @@
                   title: {
                       display: true,
                       text: "Products Sold"
+                  },
+                  onClick: (e, activeEls) => {
+                      console.log("In click", activeEls);
+                      console.log("In click", activeEls[0]);
+                      let dataIndex = activeEls[0].index;
+                      let label = activeEls[0]._view.label;
+                      window.location.href = "/graphs/productOrder/" + label;
                   },
                   minRotation: 0,
                   suggestedMin: 0
