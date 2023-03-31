@@ -57,6 +57,11 @@ class ProductController extends Controller
 		if(Auth::check()){
 			$productID = $request->input('id');
             $quantityProduct = $request->input('quantity');
+            if($quantityProduct == null || $quantityProduct == 0){
+                $quantityProduct = 1;
+            }else if($quantityProduct < 0){
+                $quantityProduct = 1;
+            }
 			$productPrice = Product::where('productID', $request->input('id'))->value('productPrice');
 			$tempID = Auth::id();
 			$baskets = new Basket();
