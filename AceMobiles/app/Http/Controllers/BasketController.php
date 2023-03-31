@@ -23,7 +23,7 @@ class BasketController extends Controller
 public function index() {
 
     $basket = DB::table('baskets')
-    ->join('products', 'productIDFK', "=")
+    ->join('products', 'productIDFK', "=", "id")
     ->where('userIDFK', '=', Auth::id())
     ->get();
        
