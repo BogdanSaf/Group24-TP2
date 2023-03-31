@@ -1,10 +1,9 @@
-
 *{
-	font-family: 'Arial';
+	font-family: Arial, Helvetica, sans-serif;
 }
 
 div{
-
+border:20px solid #000000;
 margin:0px;
 outline-color: rgb(0%,0%,0%);
 }
@@ -25,7 +24,6 @@ blockquote{
 	margin-right: auto;
 	padding-top:20px;
 	padding-bottom:20px;
-	
 }
 
 #center {
@@ -40,7 +38,6 @@ h1{
 	font-family:sans-serif;
 	font-size:50px;
 	padding-top: 20px;
-	background-color:#007fff ;
 	
 }
 
@@ -49,7 +46,6 @@ h2{
 	font-family:sans-serif;
 	font-size:30px;
 	padding-bottom:15px;
-	background-color: whitesmoke;
 }
 
 
@@ -97,7 +93,6 @@ div.gallery{
 	#margin-left: auto;
 	#margin-right: auto;
 	margin:2px;
-	border: 1px solid #ccc;
 	float:left;
 	width:180px;
 	#padding-left:10px;
@@ -109,22 +104,22 @@ div.gallery:hover {
 }
 
 div.gallery img {
-	#display:block;
-	#margin-left: auto;
-	#margin-right: auto;
-	width:100%
+	display:block;
+	margin-left: auto;
+	margin-right: auto;
+	width:100%;
 	height: auto;
 	float:center;
-	#padding-left:10px;
-	#padding-right:10px;
+	padding-left:10px;
+	padding-right:10px;
 }
 
 div.desc {
 	padding:5px;
 	text-align:center;
 	font-size:12px;
-	#padding-left:10px;
-	#padding-right:10px;
+	padding-left:10px;
+	padding-right:10px;
 }
 
 div.column {
@@ -206,7 +201,7 @@ width:500px;
 }
 img {
 
-  #border-radius: 15%;
+  border-radius: 15%;
 
 }
 *{
@@ -220,7 +215,7 @@ img {
 
 section{
 	min-height:100vh;
-	width: 80%
+	width: 80%;
 	margin: 0 auto;
 	display: flex;
 	flex-direction: column;
@@ -356,7 +351,7 @@ svg{
 	color: #FFFFFF;
 	padding: 16px;
 	border-radius:0;
-    font-family: Century Gothic;
+    font-family: sans-serif;
     font-weight: bold;
     font-size: 21px;
 	letter-spacing:1px;
