@@ -16,14 +16,14 @@
                @endif
     
             </div>
-            <li class="search-icon">
+            <!-- <li class="search-icon">
                     <form action="{{ route('products.search') }}" method="GET">
                     <input type="text" name="query" placeholder="Search...">
                     <label class="icon" type="submit">
                     <span class="fas fa-search"></span>
                     </form>
                </label>
-            </li>
+            </li> -->
             <div class="basket">
                 <a href="/basket"><i class="fa-solid fa-basket-shopping" style="color:white"></i></a>
             </div>
