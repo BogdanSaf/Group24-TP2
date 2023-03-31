@@ -16,7 +16,7 @@
 </head>
 <body>
     <header>
-	<div class="secondshift"><img src="ACEMOBILESLOGO.png" alt="Logo" width="295" height="43"></img></div>        
+	<div class="secondshift"><img src="{{URL::asset('images/ACEMOBILESLOGO.png')}}" alt="Logo" width="295" height="43"></img></div>        
 		<div class="hamburger">
             <div class="line"></div>
             <div class="line"></div>
@@ -25,26 +25,26 @@
 <nav class="nav-bar">
     <ul>
         <li>
-            <a href="Home" class="active"></i>Home</a>
+            <a href="/" class="active"></i>Home</a>
         </li>
         <li>
-            <a href="About">About</a>
+            <a href="/aboutus">About</a>
         </li>
         <li>
-            <a href="Contact">Contact</a>
+            <a href="/contactus">Contact</a>
         </li>
         <li>
-                <a href="Products">Products</a>
+                <a href="/products">Products</a>
         </li>
-        <li>
-            <a href="Login">Login</a>
-        </li>
-		 <li>
-            <a href="Register">Register</a>
-        </li>
-        <li>
-            <a href="#"><i class="fa-solid fa-basket-shopping" style="color:white"></i></a>
-        </li>
+        @if (!Auth::check())
+               <li><a href="/login">Login</a></li>
+               <li><a href="/register">Register</a></li>
+               @else
+               <li><a href="/orders">My orders</a></li>
+               <li><a href="/logout">Logout</a></li>
+               <a href="/basket"><i class="fa-solid fa-basket-shopping" style="color:white"></i></a>
+               @endif
+        
     </ul>
 </nav>
     </header>
