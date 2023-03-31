@@ -43,6 +43,7 @@
                 </table>
             </div>
         </div>
-        <!-- @include('shared.footer') -->
+        @include('shared.footer')
+        
 </body>
 </html>
