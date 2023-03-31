@@ -1,124 +1,177 @@
+.img{
+    width:100px;
+    height:100px;
+}
+
+#basket{
+  float : right;
+}
+
 *{
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  text-decoration: none;
-  font-family: 'Courier New', Courier, monospace;
-  box-sizing: border-box;
-
-}
-
-body{
-  background: white;
-}
-
-/* header is white*/
-header{
-  width: 100%;
-  height: 80px;
-  background:  #111000;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 100px;
-}
-.logo{
-  font-size: 28px;
-  font-weight: bold;
-  color: #5271ff;
-}
-
-.hamburger{
-  display: none;
-}
-
-.nav-bar ul{
-  display: flex;
-
-}
-
-.nav-bar ul li a{
-  display: block;
-  color: white;
-  font-size: 20px;
-  padding: 10px 25px;
-  border-radius: 50px;
-  transition: 0.2s;
-  margin:0 5px;
-
-
-}
-
-.nav-bar ul li a:hover{
-  color: white;
-  background:#38b6ff;
-
-}
-
-/* keeps home always white*/
-.nav-bar ul li a.active{
-  color: white;
-  background: #38b6ff;
-}
-
-@media only screen and (max-width:1320px){
-  header{
-      padding: 0 50px;
+    margin: 0;
+    padding: 0;
+    /* color: #f2f2f2; */
+    box-sizing: border-box;
+    font-family: 'Arial';
   }
-}
-@media only screen and (max-width:1100px){
-  header{
-      padding: 0 30px;
+  nav{
+    background: #222222;
+    padding: 10px 40px 10px 70px;
+    border: 1px solid #000;
+    border-left: none;
+    border-right: none;
+    color: #f2f2f2;
+    
   }
-}
-@media only screen and (max-width:900px){
-  .hamburger{
+  nav ul{
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+  nav ul li.logo{
+    flex: 1;
+    font-size: 30px;
+    font-weight: 700;
+  }
+  nav ul div.items{
+    padding: 0 25px;
+    display: inline-flex;
+  }
+  nav ul div.items a{
+    text-decoration: none;
+    font-size: 18px;
+    padding: 0 12px;
+    color: #f2f2f2;
+  }
+  nav ul div.items a:hover{
+    color: rgb(37, 76, 133);
+  }
+  nav ul .search-icon{
+    height: 40px;
+    width: 240px;
+    display: flex;
+    background: #f2f2f2;
+    border-radius: 5px;
+  }
+  nav ul .search-icon input{
+    height: 100%;
+    width: 200px;
+    border: none;
+    outline: none;
+    padding: 0 10px;
+    color: #000;
+    font-size: 16px;
+    border-radius: 5px 0 0 5px;
+  }
+  nav ul .search-icon .icon{
+    height: 100%;
+    width: 40px;
+    line-height: 40px;
+    text-align: center;
+    border: 1px solid #cccccc;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+  }
+  nav ul .search-icon .icon:hover{
+    background: #e6e6e6;
+  }
+  nav ul .search-icon .icon span{
+    color: #222222;
+    font-size: 18px;
+  }
+  nav ul li.btn{
+    font-size: 29px;
+    flex: 1;
+    padding: 0 40px;
+    display: none;
+  }
+  nav ul li.btn span{
+    height: 42px;
+    width: 42px;
+    text-align: center;
+    line-height: 42px;
+    border: 1px solid #151515;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  nav ul li.btn span.show:before{
+    content: '\f00d';
+  }
+  @media screen and (max-width: 1052px) {
+    nav{
+      padding: 10px 40px 10px 0px;
+    }
+    nav ul li.logo{
+      display: none;
+    }
+    nav ul div.items{
+      flex: 4;
+    }
+  }
+  @media screen and (max-width: 800px){
+    nav ul li.btn{
       display: block;
-      cursor: pointer;
-  }
-  .hamburger .line{
-      width: 30px;
-      height:3px ;
-      background:#5271ff;
-      margin: 6px 0;
-  }
-  .nav-bar{
-   height: 0;
-  position: absolute;
-  top: 80px;
-  left: 0;
-  right: 0;
-  width: 100vw;
-  background: black;
-  transition: 0.2s;
-  overflow: hidden;
-
-
-  }
-
-  .nav-bar.active{
-      height: 450px;
-  }
-
-  .nav-bar ul{
-      display: block;
-      width: fit-content;
-      margin: 80px auto 0 auto ;
+    }
+    nav{
+      z-index: 1;
+      padding: 9px 40px 9px 0;
+    }
+    nav ul div.items{
+      z-index: -1;
+      position: fixed;
+      top: -220px;
+      right: 0;
+      width: 100%;
+      background: #222222;
+      display: inline-block;
+      transition: top .4s;
+    }
+    nav ul div.items.show{
+      top: 60px;
+    }
+    nav ul div.items li{
       text-align: center;
-      transition: 0.5s;
-      opacity: 0;
-
+      line-height: 30px;
+      margin: 30px 0;
+    }
+    nav ul div.items li a{
+      font-size: 19px;
+    }
   }
-  .nav-bar.active ul{
-      opacity: 1;
+  @media screen and (max-width: 405px) {
+    nav ul{
+      flex-wrap: nowrap;
+    }
+    nav ul li.search{
+      width: 50vmin;
+    }
+    nav ul li input{
+      width: 40vmin;
+    }
+    nav ul li .search-icon{
+      width: 10vmin;
+    }
   }
-
-  .nav-bar ul li a{
-      margin-bottom: 12px;
-      color: #38b6ff;
+  .content{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 100%;
+    padding: 0 40px;
+    z-index: -2;
   }
-}
-
-.secondshift{
-transform: translate(-5%, 7%);
-}
+  .content .text{
+    font-size: 40px;
+    font-weight: 800;
+    padding: 5px 0;
+    color: #202020;
+  }
+  .content .p{
+    font-size: 28px;
+    font-weight: 600;
+    color: #202020;
+  }
