@@ -26,14 +26,6 @@
     {{ session()->forget('successRemove') }}
   @endif
 
-
-  @if (session('error'))
-    <div class="alert alert-danger">
-      <h5>{{ session('error') }}</h5>
-    </div>
-    {{ session()->forget('error') }}
-  @endif
-
     <h1>Basket</h1> 
 
     <table>
