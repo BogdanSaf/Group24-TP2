@@ -3,9 +3,9 @@
 }
 
 div{
-border:20px solid #000000;
+
 margin:0px;
-outline-color: rgb(0%,0%,0%);
+
 }
 
 
@@ -38,7 +38,8 @@ h1{
 	font-family:sans-serif;
 	font-size:50px;
 	padding-top: 20px;
-	background-color:#007fff ;
+
+    
 	
 }
 

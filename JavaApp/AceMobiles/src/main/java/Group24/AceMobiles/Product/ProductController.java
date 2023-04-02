@@ -115,11 +115,16 @@ public class ProductController {
 
     }
 
+//    Return add product form
     @GetMapping("/products/add-product-form")
     public ModelAndView addProductForm() {
+        // Create a new empty product object
         Product product = new Product();
+        //create mav object for add_product.html
         ModelAndView mav = new ModelAndView("product/add_products");
+        // Add the product object to the mav object
         mav.addObject("add_product", product);
+        // Return the mav object
         return mav;
     }
 
@@ -183,10 +188,13 @@ public class ProductController {
         return "redirect:/products";
     }
 
+//    Delete product by id
     @GetMapping("/products/delete/{id}")
     public String deleteProductById(@PathVariable BigInteger id, RedirectAttributes ra) {
+        // Get product by id
         Optional<Product> product = productRepository.findById(id);
 
+//        Check if product is empty
         if (product.isEmpty()) {
             System.out.println("This true");
             String errorMessage = "No product found with this id " + id;
@@ -194,9 +202,11 @@ public class ProductController {
             return "redirect:/products";
         }
 
+//        Delete product
         productRepository.deleteById(id);
         String successMessage = "Product deleted successfully";
         ra.addFlashAttribute("message", successMessage);
+//        redirect to products
         return "redirect:/products";
     }
 
