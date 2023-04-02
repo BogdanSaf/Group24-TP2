@@ -28,8 +28,14 @@ class OrdersController extends Controller
         $order->save();
 
         foreach($basket as $basket_item){
-            Product::where('productID', $basket_item->productIDFK)->decrement('productStock', $basket_item->quantity);
-            Product::where('productID', $basket_item->productIDFK)->increment('productsold', $basket_item->quantity);
+            $product = Product::where('productID', $basket_item->productIDFK)->first();
+            if($product->productStock < $basket_item->quantity){
+                return redirect('/basket')->with('error', 'Not enough stock! Please choose a lower quantity.');
+            }else{
+                $product->productStock = $product->productStock - $basket_item->quantity;
+                $product->productSold = $product->productSold + $basket_item->quantity;
+                $product->save();
+            }
             $basket_order_contents = new BasketOrderContent();
             $basket_order_contents->orderIDFK = $order->orderID;
             $basket_order_contents->productIDFK = $basket_item->productIDFK;

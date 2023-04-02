@@ -39,15 +39,17 @@ public function getInfo(){
         ->get();
 
 return view('user/checkout') ->with('basketInfo', $basketInfo);
+}
+
+public function removeFromBasket(Request $request) {
+    $productId = $request->input('productID');
+    $basket = Basket::where('productIDFK', $productId) ->where('userIDFK', Auth::id()) ->first() ->delete();
+    return redirect()->back()->with('successRemove', 'Product removed from basket!');
 
 }
 
-
-public function removeFromBasket(Request $request) {
-$productId = $request->input('productID');
-$basket = Basket::where('productIDFK', $productId) ->where('userIDFK', Auth::id()) ->first() ->delete();
-return redirect()->back()->with('successRemove', 'Product removed from basket!');
-
+public function updateInfo(Request $request){
+    
 }
 
 }
