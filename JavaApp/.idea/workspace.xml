@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="a6107fa2-219c-455b-b6b2-3f36dc109fab" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../AceMobiles/resources/views/user/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../AceMobiles/resources/views/user/home.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AceMobiles/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/AceMobiles/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
