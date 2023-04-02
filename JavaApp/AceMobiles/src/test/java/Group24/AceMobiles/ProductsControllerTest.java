@@ -25,6 +25,9 @@ import java.nio.file.Paths;
 import java.util.Optional;
 
 import static org.junit.Assert.*;
+import static org.junit.runners.model.MultipleFailureException.assertEmpty;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -55,14 +58,14 @@ public class ProductsControllerTest {
         product.setProductStock(10);
         product.setImage("doesntmatter.jpg");
 
-        when(productRepository.findById(product.getProductID())).thenReturn(null);
+        when(productRepository.findById(product.getProductID())).thenReturn(Optional.empty());
 
         mockMvc.perform(get("/products/show/" + product.getProductID()))
                 .andExpect(status().is3xxRedirection())
                 .andExpect(redirectedUrl("/products"))
                 .andExpect(flash().attributeExists("errorMessage"));
 
-        assertEquals(productRepository.findById(product.getProductID()), null);
+        assertEquals(productRepository.findById(product.getProductID()), Optional.empty());
     }
 
     @Test
@@ -104,7 +107,7 @@ public class ProductsControllerTest {
         verify(productRepository, times(1)).save(product);
 
 
-        String expectedPath = "src/main/resources/static/images/" + multipartFile.getOriginalFilename();
+        String expectedPath = "src/main/LiveFolder/images/" + multipartFile.getOriginalFilename();
         Path actualPath = Paths.get(expectedPath);
         assertTrue(Files.exists(actualPath));
     }
@@ -137,7 +140,7 @@ public class ProductsControllerTest {
         // Assert that the product was saved in the repository
         verify(productRepository, times(1)).save(product);
 
-        String expectedPath = "src/main/resources/static/images/" + multipartFile.getOriginalFilename();
+        String expectedPath = "src/main/LiveFolder/images/" + multipartFile.getOriginalFilename();
         Path actualPath = Paths.get(expectedPath);
         assertTrue(Files.exists(actualPath));
     }
@@ -221,9 +224,9 @@ public class ProductsControllerTest {
         product.setProductDescription("Apple iPhone 11");
         product.setProductPrice(1000);
         product.setProductStock(10);
-        product.setImage("test-image.jpg");
+        product.setImage("test.jpg");
 
-        when(productRepository.findById(product.getProductID())).thenReturn(Optional.of(product));
+        given(productRepository.findById(product.getProductID())).willReturn(Optional.of(product));
 
         mockMvc.perform(get("/products/order/{id}/{quantity}", product.getProductID(), 9998))
                 .andExpect(status().is3xxRedirection())
