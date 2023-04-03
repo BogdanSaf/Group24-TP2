@@ -54,7 +54,7 @@
         <h1>{{ $product -> productName}}</h1>
         <?php
       
-      if ($product->productStock == 0)
+      if ($product->productStock <= 0)
       {
           echo '<h4 style="color:red;">Out Of Stock</h4>';
       }
@@ -74,8 +74,9 @@
        
 
 
-
+        @if ($product->productStock > 0)
         Quantity: <input type="number" value="1" id="quantityInput" min="1"></input>
+        @endif
         <br></br>
         @if ($product->productStock > 0)
     <div class="item-action" id="buyDiv">

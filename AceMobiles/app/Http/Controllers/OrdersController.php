@@ -30,12 +30,20 @@ class OrdersController extends Controller
         foreach($basket as $basket_item){
             $product = Product::where('productID', $basket_item->productIDFK)->first();
             if($product->productStock < $basket_item->quantity){
-                return redirect('/basket')->with('error', 'Not enough stock! Please choose a lower quantity.');
+                $basket_item->quantity = $product->productStock;
+
+                if($basket_item->quantity <= 0){
+                    $basket_item->delete();
+                    continue;
+                }
+                return redirect('/basket')->with('error', 'Not enough stock! Please choose a lower quantity. Quantity has beenchanges to the maximum available.');
+                
             }else{
                 $product->productStock = $product->productStock - $basket_item->quantity;
                 $product->productSold = $product->productSold + $basket_item->quantity;
                 $product->save();
             }
+
             $basket_order_contents = new BasketOrderContent();
             $basket_order_contents->orderIDFK = $order->orderID;
             $basket_order_contents->productIDFK = $basket_item->productIDFK;

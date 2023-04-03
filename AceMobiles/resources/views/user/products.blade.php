@@ -67,7 +67,7 @@
               <p class="text-md text-center text-muted">£{{ $product->productPrice }}</p>
             </div>
             <div class="item-action">
-                    @if ($product->productStock === 0)
+                    @if ($product->productStock <= 0)
             <button type="button" class="out-of-stock-btn">Out of stock</button>
            @else
             <form action="{{ route('AddToBasket') }}" method="post">
