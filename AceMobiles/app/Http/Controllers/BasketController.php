@@ -37,6 +37,10 @@ public function getInfo(){
         ->join('products', 'productIDFK', "=", "productID")
         ->where('userIDFK', '=', Auth::id())
         ->get();
+    
+    if($basketInfo->isEmpty()){
+        return redirect('/basket')->with('error', 'Basket is empty!');
+    }
 
 return view('user/checkout') ->with('basketInfo', $basketInfo);
 
