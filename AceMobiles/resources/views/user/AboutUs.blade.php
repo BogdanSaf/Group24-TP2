@@ -6,10 +6,10 @@
     @include('shared.header')
     <script src="https://kit.fontawesome.com/c32adfdcda.js" crossorigin="anonymous"></script>
     <link href="{{ asset('css/AceAbout.css') }}" rel="stylesheet" type="text/css" media="all">
-     
+      @include('shared.navbar')
 </head>
 <body>
- @include('shared.navbar')
+
     <center>
         <h1><b>About Us</b></h1>
         <h2>History</h2>
