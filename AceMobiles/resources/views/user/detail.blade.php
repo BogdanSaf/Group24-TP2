@@ -64,12 +64,7 @@
       }
       ?>
         <h4>£{{ $product -> productPrice }}</h4>
-        <select>
-            <option value="">Select colour</option>
-            <option value="">Pink</option>
-            <option value="">blue</option>
-            <option value="">black</option>
-        </select>
+        
        <br>
        
 
