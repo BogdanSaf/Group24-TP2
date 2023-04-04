@@ -22,6 +22,8 @@ Asya Ally (AsyaAlly)
 
 James Hancocks (James-Hancocks)
 
+Jahray Facey(JahrayFacey)
+
 <h3> Who are we?</h3>
 
 Since 2005, we have been helping to give customers a wide range of high quality mobile products.
